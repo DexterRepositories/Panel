@@ -280,9 +280,9 @@ EOM
 cat <<\EOM >/etc/openvpn/script/config.sh
 #!/bin/bash
 HOST='185.61.137.171'
-USER='mediatek2_getorssh'
+USER='mediatek2_lenzpanel'
 PASS='F1005r90@'
-DB='mediatek2_getorssh'
+DB='mediatek2_lenzpanel'
 EOM
 
 cat <<\EOM >/etc/openvpn/script/authvpn.sh
