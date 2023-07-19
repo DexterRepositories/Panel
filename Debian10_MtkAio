@@ -16,7 +16,7 @@ echo '
     ╚═════╝ ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═╝  ╚═╝       
 '     
 PS3='Choose or Type a Plan: '
-options=("PREMIUM" "VIP" "PRIVATE" "NONE" "Quit")
+options=("PREMIUM" "VIP" "PRIVATE" "HYSTERIA" "SLOWDNS" "SLOWSSH" "Quit")
 select opt in "${options[@]}"; do
 case "$opt,$REPLY" in
 PREMIUM,*|*,PREMIUM) 
