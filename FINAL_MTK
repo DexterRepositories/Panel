@@ -15,7 +15,7 @@ echo '
     ██████╔╝███████╗██╔╝ ██╗   ██║   ███████╗██║  ██║       
     ╚═════╝ ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═╝  ╚═╝       
 '     
-PS3='Choose or Type a Plan: '
+PS3='Choose script you want to run!!: '
 options=("OVPN/SSH-WEBSOCKET-PREMIUM" "OVPN/SSH-WEBSOCKET-VIP" "OVPN/SSH-WEBSOCKET-PRIVATE" "HYSTERIA-PURE" "SLOWDNS-PURE" "SLOWDNS/SSH-WEBSOCKET" "Cpanel3_MtkAio_Udpws" "Cpanel3_MtkExtreme_Udpws" "QUIT")
 select opt in "${options[@]}"; do
 case "$opt,$REPLY" in
