@@ -7,19 +7,19 @@ WHITE='\033[01;37m';
 YELLOW='\033[00;33m';
 
 echo -e "                $GREEN Choose Your Category $RESET"
-echo '$GREEN                                                             
+echo '                                                            
     ██████╗ ███████╗██╗  ██╗████████╗███████╗██████╗        
     ██╔══██╗██╔════╝╚██╗██╔╝╚══██╔══╝██╔════╝██╔══██╗       
     ██║  ██║█████╗   ╚███╔╝    ██║   █████╗  ██████╔╝       
     ██║  ██║██╔══╝   ██╔██╗    ██║   ██╔══╝  ██╔══██╗       
     ██████╔╝███████╗██╔╝ ██╗   ██║   ███████╗██║  ██║       
     ╚═════╝ ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═╝  ╚═╝       
-$RESET'     
+'     
 PS3='Choose or Type a Plan: '
 options=("OVPN+SSH WEBSOCKET PREMIUM" "OVPN+SSH WEBSOCKET VIP" "OVPN+SSH WEBSOCKET PRIVATE" "HYSTERIA PURE" "SLOWDNS PURE" "SLOWDNS + SSH WEBSOCKET" "QUIT")
 select opt in "${options[@]}"; do
 case "$opt,$REPLY" in
-OVPN+SSH WEBSOCKET PREMIUM,*|*,OVPN+SSH WEBSOCKET PREMIUM) 
+PREMIUM,*|*,PREMIUM) 
 echo "";
 echo -e "                 1)$GREEN OVPN+SSH WEBSOCKET PREMIUM Selected$RESET";
 sleep 2s
@@ -29,7 +29,7 @@ chmod +x ~/premium && sed -i -e 's/\r$//' ~/premium && ./premium
 echo "";
 break ;;
 
-OVPN+SSH WEBSOCKET VIP,*|*,OVPN+SSH WEBSOCKET VIP) 
+VIP,*|*,VIP) 
 echo "";
 echo -e "                 2)$GREEN OVPN+SSH WEBSOCKET VIP Selected$RESET";
 sleep 2s
@@ -39,7 +39,7 @@ chmod +x ~/vip && sed -i -e 's/\r$//' ~/vip && ./vip
 echo "";
 break ;;
 
-OVPN+SSH WEBSOCKET PRIVATE,*|*,OVPN+SSH WEBSOCKET PRIVATE) 
+PRIVATE,*|*,PRIVATE) 
 echo "";
 echo -e "                 3)$GREEN OVPN+SSH WEBSOCKET PRIVATE Selected$RESET";
 sleep 2s
@@ -49,7 +49,7 @@ chmod +x ~/private && sed -i -e 's/\r$//' ~/private && ./private
 echo "";
 break ;;
 
-HYSTERIA PURE,*|*,HYSTERIA PURE) 
+HYSTERIA,*|*,HYSTERIA) 
 echo "";
 echo -e "                 4)$GREEN HYSTERIA PURE Selected$RESET";
 sleep 2s
@@ -59,7 +59,7 @@ chmod +x ~/udppure && sed -i -e 's/\r$//' ~/udppure && ./udppure
 echo "";
 break ;;
 
-SLOWDNS PURE,*|*,SLOWDNS PURE) 
+SLOWDNS,*|*,SLOWDNS) 
 echo "";
 echo -e "                 5)$GREEN SLOWDNS PURE Selected$RESET";
 sleep 2s
@@ -69,7 +69,7 @@ chmod +x ~/setup && sed -i -e 's/\r$//' ~/setup && ./setup
 echo "";
 break ;;
 
-SLOWDNS + SSH WEBSOCKET,*|*,SLOWDNS + SSH WEBSOCKET) 
+SLOWSSH,*|*,SLOWSSH) 
 echo "";
 echo -e "                 6)$GREEN SLOWDNS + SSH WEBSOCKET Selected$RESET";
 sleep 2s
@@ -84,6 +84,7 @@ echo -e "                $RED   Rebuild your vps and correct the process.$RESET"
 rm installer.sh
 exit;
 break ;; *)
+echo "";
 echo -e "                $RED   Invalid: Just choose what you want$RESET";
 esac
 done
