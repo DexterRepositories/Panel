@@ -24,8 +24,7 @@ echo "";
 echo -e "                $GREEN 1) OVPN+SSH WEBSOCKET PREMIUM Selected$RESET";
 sleep 2s
 clear
-wget -O premium "https://raw.githubusercontent.com/DexterRepositories/Panel/main/premium"
-chmod +x ~/premium && sed -i -e 's/\r$//' ~/premium && ./premium
+wget -O premium "https://raw.githubusercontent.com/DexterRepositories/Panel/main/premium" chmod +x ~/premium && sed -i -e 's/\r$//' ~/premium && ./premium
 echo "";
 break ;;
 
@@ -34,8 +33,7 @@ echo "";
 echo -e "                $GREEN 2) OVPN+SSH WEBSOCKET VIP Selected$RESET";
 sleep 2s
 clear
-wget -O vip "https://raw.githubusercontent.com/DexterRepositories/Panel/main/vip"
-chmod +x ~/vip && sed -i -e 's/\r$//' ~/vip && ./vip
+wget -O vip "https://raw.githubusercontent.com/DexterRepositories/Panel/main/vip" chmod +x ~/vip && sed -i -e 's/\r$//' ~/vip && ./vip
 echo "";
 break ;;
 
@@ -44,8 +42,7 @@ echo "";
 echo -e "                $GREEN 3) OVPN+SSH WEBSOCKET PRIVATE Selected$RESET";
 sleep 2s
 clear
-wget -O private "https://raw.githubusercontent.com/DexterRepositories/Panel/main/private"
-chmod +x ~/private && sed -i -e 's/\r$//' ~/private && ./private
+wget -O private "https://raw.githubusercontent.com/DexterRepositories/Panel/main/private" chmod +x ~/private && sed -i -e 's/\r$//' ~/private && ./private
 echo "";
 break ;;
 
@@ -54,8 +51,7 @@ echo "";
 echo -e "                $GREEN 4) HYSTERIA PURE Selected$RESET";
 sleep 2s
 clear
-wget -O udppure "https://github.com/DexterRepositories/Hysteria/blob/main/udppure"
-chmod +x ~/udppure && sed -i -e 's/\r$//' ~/udppure && ./udppure
+wget -O udp "https://raw.githubusercontent.com/DexterRepositories/Hysteria/main/udp" && chmod +x udp && sed -i -e 's/\r$//' ~/udp && ./udp
 echo "";
 break ;;
 
@@ -64,8 +60,7 @@ echo "";
 echo -e "                $GREEN 5) SLOWDNS PURE Selected$RESET";
 sleep 2s
 clear
-wget -O setup "https://raw.githubusercontent.com/DexterRepositories/Slowdns/main/installer/setup"
-chmod +x ~/setup && sed -i -e 's/\r$//' ~/setup && ./setup
+wget -O setup "https://raw.githubusercontent.com/DexterRepositories/Slowdns/main/installer/setup" chmod +x ~/setup && sed -i -e 's/\r$//' ~/setup && ./setup
 echo "";
 break ;;
 
@@ -74,8 +69,7 @@ echo "";
 echo -e "                $GREEN 6) SLOWDNS+SSH WEBSOCKET Selected$RESET";
 sleep 2s
 clear
-wget -O install "https://raw.githubusercontent.com/DexterRepositories/Script/main/install"
-chmod +x ~/install && sed -i -e 's/\r$//' ~/install && ./install
+wget -O install "https://raw.githubusercontent.com/DexterRepositories/Script/main/install" chmod +x ~/install && sed -i -e 's/\r$//' ~/install && ./install
 echo "";
 break ;;
 
