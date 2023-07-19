@@ -1,5 +1,5 @@
 #!/bin/bash
-rm -rf prem*
+rm -rf premium*
 
 
 RED='\033[01;31m';
@@ -652,7 +652,7 @@ systemctl start openvpn@server
 
 installing_api(){
 clear
-echo 'Installing SSH API.'
+echo 'Installing ssh API.'
 {
 #API Details
 VPN_Owner='MTknetwork';
@@ -1129,12 +1129,10 @@ sleep 3
 clear
 display_menu
 ports
-echo -e "\033[1;32m		Installation Done!\033[0m"
-
 		     
 history -c
 history -w
-rm -rf prem
+rm -rf premium
 echo -e "\033[1;32m Server Reboot in 5 Seconbds!!!\033[0m"
 sleep 5
 reboot
