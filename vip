@@ -433,7 +433,7 @@ echo 'Installing ssh API.'
 {
 #API Details
 VPN_Owner='MTknetwork';
-API_LINK='mtknew-site.online/api/authentication/vip';
+API_LINK='mediatekph.xyz/api/authentication/vip';
 API_KEY='Tknetwork';
 
 
@@ -463,11 +463,11 @@ echo "* * * * * /bin/bash  /home/authentication.sh >/dev/null 2>&1" | crontab -
 
 sh active.sh | tee -a  /home/active.sh
 
-wget -O /home/active.sh "mtknew-site.online/api/authentication/vip/active.php?key=Tknetwork"
+wget -O /home/active.sh "mediatekph.xyz/api/authentication/vip/active.php?key=Tknetwork"
 sleep 5
-wget -O /home/inactive.sh "mtknew-site.online/api/authentication/vip/inactive.php?key=Tknetwork"
+wget -O /home/inactive.sh "mediatekph.xyz/api/authentication/vip/inactive.php?key=Tknetwork"
 sleep 5
-wget -O /home/deleted.sh "mtknew-site.online/api/authentication/vip/deleted.php?key=Tknetwork"
+wget -O /home/deleted.sh "mediatekph.xyz/api/authentication/vip/deleted.php?key=Tknetwork"
  } &>/dev/null
 }
 
