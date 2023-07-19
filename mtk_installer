@@ -51,7 +51,6 @@ break ;;
 
 Quit,*|*,Quit) echo -e " $RED   Installation Cancelled!$RESET";
 echo -e "                $RED   Rebuild your vps and correct the process.$RESET";
-rm installer.sh
 exit;
 break ;; *)
 echo -e "                $RED   Invalid: Just choose what you want$RESET";
