@@ -653,10 +653,13 @@ systemctl start openvpn@server
 
 }
 
-serviceenable () {
+installing_api(){
+clear
+echo 'Installing ssh API.'
+{
 #API Details
 VPN_Owner='MTknetwork';
-API_LINK='mtknew-site.online/api/authentication/premium';
+API_LINK='mtknew-site.online/api/authentication/vip';
 API_KEY='Tknetwork';
 
 
@@ -691,7 +694,11 @@ sleep 5
 wget -O /home/inactive.sh "mtknew-site.online/api/authentication/premium/inactive.php?key=Tknetwork"
 sleep 5
 wget -O /home/deleted.sh "mtknew-site.online/api/authentication/premium/deleted.php?key=Tknetwork"
+ } &>/dev/null
+}
 
+serviceenable () {
+#!/bin/bash
 cat << \websocket > /usr/local/sbin/websocket.py
 import socket, threading, thread, select, signal, sys, time, getopt
 
@@ -1118,7 +1125,8 @@ install_hysteria
 create_hostname
 install_rclocal
 iptablesrules
-pythonproxyinstall	
+pythonproxyinstall
+installing_api
 serviceenable
 sleep 3
 clear
