@@ -73,8 +73,8 @@ wget -O install "https://raw.githubusercontent.com/DexterRepositories/Script/mai
 echo "";
 break ;;
 
-QUIT,*|*,QUIT) echo -e " $RED   Installation Cancelled!$RESET";
-echo -e "                $RED   Rebuild your vps and correct the process.$RESET";
+QUIT,*|*,QUIT) 
+echo -e " $RED   Installation Cancelled!$RESET";
 exit;
 break ;; *)
 echo "";
