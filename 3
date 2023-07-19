@@ -6,7 +6,7 @@ GREEN='\033[01;32m';
 WHITE='\033[01;37m';
 YELLOW='\033[00;33m';
 
-echo -e "                $GREEN Choose Your Category $RESET"
+echo -e "                $RED Choose Your Category $RESET"
 echo '                                                              
     ██████╗ ███████╗██╗  ██╗████████╗███████╗██████╗        
     ██╔══██╗██╔════╝╚██╗██╔╝╚══██╔══╝██╔════╝██╔══██╗       
@@ -21,7 +21,7 @@ select opt in "${options[@]}"; do
 case "$opt,$REPLY" in
 PREMIUM,*|*,PREMIUM) 
 echo "";
-echo -e "                $GREEN 1) OVPN+SSH WEBSOCKET PREMIUM Selected$RED";
+echo -e "                 1)$GREEN OVPN+SSH WEBSOCKET PREMIUM Selected$RESET";
 sleep 2s
 clear
 wget -O premium "https://raw.githubusercontent.com/DexterRepositories/Panel/main/premium"
@@ -31,7 +31,7 @@ break ;;
 
 VIP,*|*,VIP) 
 echo "";
-echo -e "                $GREEN 2) OVPN+SSH WEBSOCKET VIP Selected$RED";
+echo -e "                 2)$GREEN OVPN+SSH WEBSOCKET VIP Selected$RESET";
 sleep 2s
 clear
 wget -O vip "https://raw.githubusercontent.com/DexterRepositories/Panel/main/vip"
@@ -41,7 +41,7 @@ break ;;
 
 PRIVATE,*|*,PRIVATE) 
 echo "";
-echo -e "                $GREEN 3) OVPN+SSH WEBSOCKET PRIVATE Selected$RED";
+echo -e "                 3)$GREEN OVPN+SSH WEBSOCKET PRIVATE Selected$RESET";
 sleep 2s
 clear
 wget -O private "https://raw.githubusercontent.com/DexterRepositories/Panel/main/private"
@@ -51,7 +51,7 @@ break ;;
 
 HYSTERIA,*|*,HYSTERIA) 
 echo "";
-echo -e "                $GREEN 4) HYSTERIA PURE Selected$RED";
+echo -e "                 4)$GREEN HYSTERIA PURE Selected$RESET";
 sleep 2s
 clear
 wget -O udppure "https://github.com/DexterRepositories/Hysteria/blob/main/udppure"
@@ -61,7 +61,7 @@ break ;;
 
 SLOWDNS,*|*,SLOWDNS) 
 echo "";
-echo -e "                $GREEN 5) SLOWDNS PURE Selected$RED";
+echo -e "                 5)$GREEN SLOWDNS PURE Selected$RESET";
 sleep 2s
 clear
 wget -O setup "https://raw.githubusercontent.com/DexterRepositories/Slowdns/main/installer/setup"
@@ -71,7 +71,7 @@ break ;;
 
 SLOWSSH,*|*,SLOWSSH) 
 echo "";
-echo -e "                $GREEN 6) SLOWDNS + SSH WEBSOCKET Selected$RED";
+echo -e "                 6)$GREEN SLOWDNS + SSH WEBSOCKET Selected$RESET";
 sleep 2s
 clear
 wget -O install "https://raw.githubusercontent.com/DexterRepositories/Script/main/install"
