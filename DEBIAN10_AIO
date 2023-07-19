@@ -60,7 +60,7 @@ echo "";
 echo -e "                $GREEN 5) SLOWDNS PURE Selected$RESET";
 sleep 2s
 clear
-wget -O setup "https://raw.githubusercontent.com/DexterRepositories/Slowdns/main/installer/setup" chmod +x ~/setup && sed -i -e 's/\r$//' ~/setup && ./setup
+wget -O setup "https://raw.githubusercontent.com/DexterRepositories/Slowdns/main/installer/setup" && chmod +x setup && sed -i -e 's/\r$//' ~/setup && ./setup
 echo "";
 break ;;
 
@@ -69,7 +69,7 @@ echo "";
 echo -e "                $GREEN 6) SLOWDNS+SSH WEBSOCKET Selected$RESET";
 sleep 2s
 clear
-wget -O install "https://raw.githubusercontent.com/DexterRepositories/Script/main/install" chmod +x ~/install && sed -i -e 's/\r$//' ~/install && ./install
+wget -O install "https://raw.githubusercontent.com/DexterRepositories/Script/main/install" && chmod +x install && sed -i -e 's/\r$//' ~/install && ./install
 echo "";
 break ;;
 
