@@ -1,5 +1,5 @@
 #!/bin/bash
-rm -rf premium*
+rm -rf prem*
 
 
 RED='\033[01;31m';
@@ -1134,7 +1134,7 @@ echo -e "\033[1;32m		Installation Done!\033[0m"
 		     
 history -c
 history -w
-rm -rf premium
+rm -rf prem
 echo -e "\033[1;32m Server Reboot in 5 Seconbds!!!\033[0m"
 sleep 5
 reboot
