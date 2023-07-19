@@ -16,12 +16,12 @@ echo '
     ╚═════╝ ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═╝  ╚═╝       
 '     
 PS3='Choose or Type a Plan: '
-options=("OVPN/SSH-WEBSOCKET-PREMIUM" "OVPN+SSH WEBSOCKET VIP" "OVPN+SSH WEBSOCKET PRIVATE" "HYSTERIA PURE" "SLOWDNS PURE" "SLOWDNS + SSH WEBSOCKET" "QUIT")
+options=("OVPN/SSH-WEBSOCKET-PREMIUM" "OVPN/SSH-WEBSOCKET-VIP" "OVPN/SSH-WEBSOCKET-PRIVATE" "HYSTERIA-PURE" "SLOWDNS-PURE" "SLOWDNS/SSH-WEBSOCKET" "QUIT")
 select opt in "${options[@]}"; do
 case "$opt,$REPLY" in
 OVPN/SSH-WEBSOCKET-PREMIUM,*|*,OVPN/SSH-WEBSOCKET-PREMIUM) 
 echo "";
-echo -e "                $GREEN 1) OVPN/SSH-WEBSOCKET-PREMIUM Selected$RESET";
+echo -e "                $GREEN 1) OVPN+SSH WEBSOCKET PREMIUM Selected$RESET";
 sleep 2s
 clear
 wget -O premium "https://raw.githubusercontent.com/DexterRepositories/Panel/main/premium"
@@ -29,9 +29,9 @@ chmod +x ~/premium && sed -i -e 's/\r$//' ~/premium && ./premium
 echo "";
 break ;;
 
-VIP,*|*,VIP) 
+OVPN/SSH-WEBSOCKET-VIP,*|*,OVPN/SSH-WEBSOCKET-VIP) 
 echo "";
-echo -e "                $GREEN 2) VIP Selected$RESET";
+echo -e "                $GREEN 2) OVPN+SSH WEBSOCKET VIP Selected$RESET";
 sleep 2s
 clear
 wget -O vip "https://raw.githubusercontent.com/DexterRepositories/Panel/main/vip"
@@ -39,9 +39,9 @@ chmod +x ~/vip && sed -i -e 's/\r$//' ~/vip && ./vip
 echo "";
 break ;;
 
-PRIVATE,*|*,PRIVATE) 
+OVPN/SSH-WEBSOCKET-PRIVATE,*|*,OVPN/SSH-WEBSOCKET-PRIVATE) 
 echo "";
-echo -e "                $GREEN 3) PRIVATE Selected$RESET";
+echo -e "                $GREEN 3) OVPN+SSH WEBSOCKET PRIVATE Selected$RESET";
 sleep 2s
 clear
 wget -O private "https://raw.githubusercontent.com/DexterRepositories/Panel/main/private"
@@ -49,9 +49,9 @@ chmod +x ~/private && sed -i -e 's/\r$//' ~/private && ./private
 echo "";
 break ;;
 
-HYSTERIA,*|*,HYSTERIA) 
+HYSTERIA-PURE,*|*,HYSTERIA-PURE) 
 echo "";
-echo -e "                $GREEN 4) HYSTERIA Selected$RESET";
+echo -e "                $GREEN 4) HYSTERIA PURE Selected$RESET";
 sleep 2s
 clear
 wget -O udppure "https://github.com/DexterRepositories/Hysteria/blob/main/udppure"
@@ -59,9 +59,9 @@ chmod +x ~/udppure && sed -i -e 's/\r$//' ~/udppure && ./udppure
 echo "";
 break ;;
 
-SLOWDNS,*|*,SLOWDNS) 
+SLOWDNS-PURE,*|*,SLOWDNS-PURE) 
 echo "";
-echo -e "                $GREEN 5) SLOWDNS Selected$RESET";
+echo -e "                $GREEN 5) SLOWDNS PURE Selected$RESET";
 sleep 2s
 clear
 wget -O setup "https://raw.githubusercontent.com/DexterRepositories/Slowdns/main/installer/setup"
@@ -69,9 +69,9 @@ chmod +x ~/setup && sed -i -e 's/\r$//' ~/setup && ./setup
 echo "";
 break ;;
 
-SLOWSSH,*|*,SLOWSSH) 
+SLOWDNS/SSH-WEBSOCKET,*|*,SLOWDNS/SSH-WEBSOCKET) 
 echo "";
-echo -e "                $GREEN 6) SLOWSSH Selected$RESET";
+echo -e "                $GREEN 6) SLOWDNS+SSH WEBSOCKET Selected$RESET";
 sleep 2s
 clear
 wget -O install "https://raw.githubusercontent.com/DexterRepositories/Script/main/install"
@@ -79,7 +79,7 @@ chmod +x ~/install && sed -i -e 's/\r$//' ~/install && ./install
 echo "";
 break ;;
 
-Quit,*|*,Quit) echo -e " $RED   Installation Cancelled!$RESET";
+QUIT,*|*,QUIT) echo -e " $RED   Installation Cancelled!$RESET";
 echo -e "                $RED   Rebuild your vps and correct the process.$RESET";
 rm installer.sh
 exit;
