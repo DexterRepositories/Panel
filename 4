@@ -6,17 +6,17 @@ GREEN='\033[01;32m';
 WHITE='\033[01;37m';
 YELLOW='\033[00;33m';
 
-echo -e "                $RED Choose Your Category $RESET"
-echo '                                                              
+echo -e "                $GREEN Choose Your Category $RESET"
+echo '$GREEN                                                             
     ██████╗ ███████╗██╗  ██╗████████╗███████╗██████╗        
     ██╔══██╗██╔════╝╚██╗██╔╝╚══██╔══╝██╔════╝██╔══██╗       
     ██║  ██║█████╗   ╚███╔╝    ██║   █████╗  ██████╔╝       
     ██║  ██║██╔══╝   ██╔██╗    ██║   ██╔══╝  ██╔══██╗       
     ██████╔╝███████╗██╔╝ ██╗   ██║   ███████╗██║  ██║       
     ╚═════╝ ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═╝  ╚═╝       
-'     
+$RESET'     
 PS3='Choose or Type a Plan: '
-options=("$GREEN OVPN+SSH WEBSOCKET PREMIUM$RESET" "OVPN+SSH WEBSOCKET VIP" "OVPN+SSH WEBSOCKET PRIVATE" "HYSTERIA PURE" "SLOWDNS PURE" "SLOWDNS + SSH WEBSOCKET" "Quit")
+options=("OVPN+SSH WEBSOCKET PREMIUM" "OVPN+SSH WEBSOCKET VIP" "OVPN+SSH WEBSOCKET PRIVATE" "HYSTERIA PURE" "SLOWDNS PURE" "SLOWDNS + SSH WEBSOCKET" "QUIT")
 select opt in "${options[@]}"; do
 case "$opt,$REPLY" in
 PREMIUM,*|*,PREMIUM) 
