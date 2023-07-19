@@ -1132,8 +1132,6 @@ sleep 3
 clear
 display_menu
 ports
-echo -e "\033[1;32m		Installation Done!\033[0m"
-
 		     
 history -c
 history -w
