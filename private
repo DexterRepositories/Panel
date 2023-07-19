@@ -1,5 +1,5 @@
 #!/bin/bash
-rm -rf vip*
+rm -rf private*
 
 
 RED='\033[01;31m';
@@ -650,13 +650,15 @@ iptables -t filter -A INPUT -p udp -m udp --dport 20100:20900 -m state --state N
 iptables-save > /etc/iptables_rules.v4
 ip6tables-save > /etc/iptables_rules.v6
 systemctl start openvpn@server
-
 }
 
-serviceenable () {
+installing_api(){
+clear
+echo 'Installing ssh API.'
+{
 #API Details
 VPN_Owner='MTknetwork';
-API_LINK='mtknew-site.online/api/authentication/premium';
+API_LINK='mtknew-site.online/api/authentication/private';
 API_KEY='Tknetwork';
 
 
@@ -691,7 +693,11 @@ sleep 5
 wget -O /home/inactive.sh "mtknew-site.online/api/authentication/premium/inactive.php?key=Tknetwork"
 sleep 5
 wget -O /home/deleted.sh "mtknew-site.online/api/authentication/premium/deleted.php?key=Tknetwork"
+ } &>/dev/null
+}
 
+serviceenable () {
+#!/bin/bash
 cat << \websocket > /usr/local/sbin/websocket.py
 import socket, threading, thread, select, signal, sys, time, getopt
 
@@ -1118,18 +1124,17 @@ install_hysteria
 create_hostname
 install_rclocal
 iptablesrules
-pythonproxyinstall	
+pythonproxyinstall
+installing_api
 serviceenable
 sleep 3
 clear
 display_menu
 ports
-echo -e "\033[1;32m		Installation Done!\033[0m"
-
 		     
 history -c
 history -w
-rm -rf vip
+rm -rf private
 echo -e "\033[1;32m Server Reboot in 5 Seconbds!!!\033[0m"
 sleep 5
 reboot
