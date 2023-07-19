@@ -7,14 +7,14 @@ WHITE='\033[01;37m';
 YELLOW='\033[00;33m';
 
 echo -e "                $GREEN Choose Your Category $RESET"
-echo '$GREEN                                                             
+echo '                                                            
     ██████╗ ███████╗██╗  ██╗████████╗███████╗██████╗        
     ██╔══██╗██╔════╝╚██╗██╔╝╚══██╔══╝██╔════╝██╔══██╗       
     ██║  ██║█████╗   ╚███╔╝    ██║   █████╗  ██████╔╝       
     ██║  ██║██╔══╝   ██╔██╗    ██║   ██╔══╝  ██╔══██╗       
     ██████╔╝███████╗██╔╝ ██╗   ██║   ███████╗██║  ██║       
     ╚═════╝ ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═╝  ╚═╝       
-$RESET'     
+'     
 PS3='Choose or Type a Plan: '
 options=("OVPN+SSH WEBSOCKET PREMIUM" "OVPN+SSH WEBSOCKET VIP" "OVPN+SSH WEBSOCKET PRIVATE" "HYSTERIA PURE" "SLOWDNS PURE" "SLOWDNS + SSH WEBSOCKET" "QUIT")
 select opt in "${options[@]}"; do
@@ -84,6 +84,7 @@ echo -e "                $RED   Rebuild your vps and correct the process.$RESET"
 rm installer.sh
 exit;
 break ;; *)
+echo "";
 echo -e "                $RED   Invalid: Just choose what you want$RESET";
 esac
 done
