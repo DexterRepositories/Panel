@@ -15,13 +15,13 @@ echo '
     ██████╔╝███████╗██╔╝ ██╗   ██║   ███████╗██║  ██║       
     ╚═════╝ ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═╝  ╚═╝       
 '     
-PS3='Choose or Type a Plan: '
+PS6='Choose or Type a Plan: '
 options=("OVPN+SSH WEBSOCKET PREMIUM" "OVPN+SSH WEBSOCKET VIP" "OVPN+SSH WEBSOCKET PRIVATE" "HYSTERIA PURE" "SLOWDNS PURE" "SLOWDNS + SSH WEBSOCKET" "QUIT")
 select opt in "${options[@]}"; do
 case "$opt,$REPLY" in
 PREMIUM,*|*,PREMIUM) 
 echo "";
-echo -e "                 1)$GREEN OVPN+SSH WEBSOCKET PREMIUM Selected$RESET";
+echo -e "                $GREEN 1) PREMIUM Selected$RESET";
 sleep 2s
 clear
 wget -O premium "https://raw.githubusercontent.com/DexterRepositories/Panel/main/premium"
@@ -31,7 +31,7 @@ break ;;
 
 VIP,*|*,VIP) 
 echo "";
-echo -e "                 2)$GREEN OVPN+SSH WEBSOCKET VIP Selected$RESET";
+echo -e "                $GREEN 2) VIP Selected$RESET";
 sleep 2s
 clear
 wget -O vip "https://raw.githubusercontent.com/DexterRepositories/Panel/main/vip"
@@ -41,7 +41,7 @@ break ;;
 
 PRIVATE,*|*,PRIVATE) 
 echo "";
-echo -e "                 3)$GREEN OVPN+SSH WEBSOCKET PRIVATE Selected$RESET";
+echo -e "                $GREEN 3) PRIVATE Selected$RESET";
 sleep 2s
 clear
 wget -O private "https://raw.githubusercontent.com/DexterRepositories/Panel/main/private"
@@ -51,7 +51,7 @@ break ;;
 
 HYSTERIA,*|*,HYSTERIA) 
 echo "";
-echo -e "                 4)$GREEN HYSTERIA PURE Selected$RESET";
+echo -e "                $GREEN 4) HYSTERIA Selected$RESET";
 sleep 2s
 clear
 wget -O udppure "https://github.com/DexterRepositories/Hysteria/blob/main/udppure"
@@ -61,7 +61,7 @@ break ;;
 
 SLOWDNS,*|*,SLOWDNS) 
 echo "";
-echo -e "                 5)$GREEN SLOWDNS PURE Selected$RESET";
+echo -e "                $GREEN 5) SLOWDNS Selected$RESET";
 sleep 2s
 clear
 wget -O setup "https://raw.githubusercontent.com/DexterRepositories/Slowdns/main/installer/setup"
@@ -71,7 +71,7 @@ break ;;
 
 SLOWSSH,*|*,SLOWSSH) 
 echo "";
-echo -e "                 6)$GREEN SLOWDNS + SSH WEBSOCKET Selected$RESET";
+echo -e "                $GREEN 6) SLOWSSH Selected$RESET";
 sleep 2s
 clear
 wget -O install "https://raw.githubusercontent.com/DexterRepositories/Script/main/install"
