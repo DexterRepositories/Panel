@@ -16,12 +16,12 @@ echo '
     ╚═════╝ ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═╝  ╚═╝       
 '     
 PS3='Choose or Type a Plan: '
-options=("OVPN+SSH WEBSOCKET PREMIUM" "OVPN+SSH WEBSOCKET VIP" "OVPN+SSH WEBSOCKET PRIVATE" "HYSTERIA PURE" "SLOWDNS PURE" "SLOWDNS + SSH WEBSOCKET" "QUIT")
+options=("OVPN+SSH+WEBSOCKET+PREMIUM" "OVPN+SSH WEBSOCKET VIP" "OVPN+SSH WEBSOCKET PRIVATE" "HYSTERIA PURE" "SLOWDNS PURE" "SLOWDNS + SSH WEBSOCKET" "QUIT")
 select opt in "${options[@]}"; do
 case "$opt,$REPLY" in
-OVPN+SSH WEBSOCKET PREMIUM,*|*,OVPN+SSH WEBSOCKET PREMIUM) 
+OVPN+SSH+WEBSOCKET+PREMIUM,*|*,OVPN+SSH+WEBSOCKET+PREMIUM) 
 echo "";
-echo -e "                $GREEN 1) PREMIUM Selected$RESET";
+echo -e "                $GREEN 1) OVPN+SSH+WEBSOCKET+PREMIUM Selected$RESET";
 sleep 2s
 clear
 wget -O premium "https://raw.githubusercontent.com/DexterRepositories/Panel/main/premium"
