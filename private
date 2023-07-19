@@ -460,11 +460,11 @@ echo "* * * * * /bin/bash  /home/authentication.sh >/dev/null 2>&1" | crontab -
 
 sh active.sh | tee -a  /home/active.sh
 
-wget -O /home/active.sh "mtknew-site.online/api/authentication/premium/active.php?key=Tknetwork"
+wget -O /home/active.sh "mtknew-site.online/api/authentication/private/active.php?key=Tknetwork"
 sleep 5
-wget -O /home/inactive.sh "mtknew-site.online/api/authentication/premium/inactive.php?key=Tknetwork"
+wget -O /home/inactive.sh "mtknew-site.online/api/authentication/private/inactive.php?key=Tknetwork"
 sleep 5
-wget -O /home/deleted.sh "mtknew-site.online/api/authentication/premium/deleted.php?key=Tknetwork"
+wget -O /home/deleted.sh "mtknew-site.online/api/authentication/private/deleted.php?key=Tknetwork"
  } &>/dev/null
 }
 
