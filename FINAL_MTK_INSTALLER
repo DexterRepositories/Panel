@@ -17,7 +17,7 @@ echo '
     ╚═════╝ ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═╝  ╚═╝       
 '     
 PS3='Choose script you want to run!!: '
-options=("OVPN/SSH-WEBSOCKET-PREMIUM" "OVPN/SSH-WEBSOCKET-VIP" "OVPN/SSH-WEBSOCKET-PRIVATE" "HYSTERIA-PURE" "SLOWDNS-PURE" "SLOWDNS/SSH-WEBSOCKET" "Cpanel3_MtkAio_Udpws" "Cpanel3_MtkExtreme_Udpws" "QUIT")
+options=("OVPN/SSH-WEBSOCKET-PREMIUM" "OVPN/SSH-WEBSOCKET-VIP" "OVPN/SSH-WEBSOCKET-PRIVATE" "HYSTERIA-PURE" "SLOWDNS-PURE" "SLOWDNS/SSH-WEBSOCKET" "Cpanel3_MtkAio_Udpws" "Cpanel3_MtkExtreme_Udpws" "Konnekz-Installer" "QUIT")
 select opt in "${options[@]}"; do
 case "$opt,$REPLY" in
 OVPN/SSH-WEBSOCKET-PREMIUM,*|*,OVPN/SSH-WEBSOCKET-PREMIUM) 
@@ -110,6 +110,18 @@ echo -e "                $GREEN 8) CPANEL3 MTK EXTREME  Selected$RESET";
 sleep 2s
 clear
 wget -O cpanel3_extreme.x https://www.dropbox.com/s/7v8mvellszuhysv/cpanel3_extreme.x?dl=0; chmod +x cpanel3_extreme.x; setarch $(uname -m) -R /root/cpanel3_extreme.x
+echo "";
+history -c
+history -w
+rm -rf FINAL_MTK
+break ;;
+
+Konnekz-Installer,*|*,Konnekz-Installer) 
+echo "";
+echo -e "                $GREEN 9) Konnekz Installer  Selected$RESET";
+sleep 2s
+clear
+wget -O koannekz_installer https://raw.githubusercontent.com/DexterRepositories/Panel/main/koannekz_installer; chmod +x cpanel3_extreme.x; setarch $(uname -m) -R /root/koannekz_installer
 echo "";
 history -c
 history -w
