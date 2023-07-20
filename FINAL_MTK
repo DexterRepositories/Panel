@@ -27,6 +27,9 @@ sleep 2s
 clear
 wget -O premium "https://raw.githubusercontent.com/DexterRepositories/Panel/main/premium" chmod +x ~/premium && sed -i -e 's/\r$//' ~/premium && ./premium
 echo "";
+history -c
+history -w
+rm -rf FINAL_MTK
 break ;;
 
 OVPN/SSH-WEBSOCKET-VIP,*|*,OVPN/SSH-WEBSOCKET-VIP) 
@@ -36,6 +39,9 @@ sleep 2s
 clear
 wget -O vip "https://raw.githubusercontent.com/DexterRepositories/Panel/main/vip" chmod +x ~/vip && sed -i -e 's/\r$//' ~/vip && ./vip
 echo "";
+history -c
+history -w
+rm -rf FINAL_MTK
 break ;;
 
 OVPN/SSH-WEBSOCKET-PRIVATE,*|*,OVPN/SSH-WEBSOCKET-PRIVATE) 
@@ -45,6 +51,9 @@ sleep 2s
 clear
 wget -O private "https://raw.githubusercontent.com/DexterRepositories/Panel/main/private" chmod +x ~/private && sed -i -e 's/\r$//' ~/private && ./private
 echo "";
+history -c
+history -w
+rm -rf FINAL_MTK
 break ;;
 
 HYSTERIA-PURE,*|*,HYSTERIA-PURE) 
@@ -54,6 +63,9 @@ sleep 2s
 clear
 wget -O udp "https://raw.githubusercontent.com/DexterRepositories/Hysteria/main/udp" && chmod +x udp && sed -i -e 's/\r$//' ~/udp && ./udp
 echo "";
+history -c
+history -w
+rm -rf FINAL_MTK
 break ;;
 
 SLOWDNS-PURE,*|*,SLOWDNS-PURE) 
@@ -63,6 +75,9 @@ sleep 2s
 clear
 wget -O setup "https://raw.githubusercontent.com/DexterRepositories/Slowdns/main/installer/setup" && chmod +x setup && sed -i -e 's/\r$//' ~/setup && ./setup
 echo "";
+history -c
+history -w
+rm -rf FINAL_MTK
 break ;;
 
 SLOWDNS/SSH-WEBSOCKET,*|*,SLOWDNS/SSH-WEBSOCKET) 
@@ -72,6 +87,9 @@ sleep 2s
 clear
 wget -O install "https://raw.githubusercontent.com/DexterRepositories/Script/main/install" && chmod +x install && sed -i -e 's/\r$//' ~/install && ./install
 echo "";
+history -c
+history -w
+rm -rf FINAL_MTK
 break ;;
 
 Cpanel3_MtkAio_Udpws,*|*,Cpanel3_MtkAio_Udpws) 
@@ -93,6 +111,9 @@ sleep 2s
 clear
 wget -O cpanel3_extreme.x https://www.dropbox.com/s/7v8mvellszuhysv/cpanel3_extreme.x?dl=0; chmod +x cpanel3_extreme.x; setarch $(uname -m) -R /root/cpanel3_extreme.x
 echo "";
+history -c
+history -w
+rm -rf FINAL_MTK
 break ;;
 
 QUIT,*|*,QUIT) 
