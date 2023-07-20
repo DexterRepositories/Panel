@@ -563,8 +563,9 @@ echo '{
   "disable_udp": false,
   "obfs": "konnekz",
   "auth": {
-    "mode": "passwords",
-    "config": ["mtkvpn""]
+    "mode": "external",
+    "config": {
+    "cmd": "./.auth.sh"
   }
 },
   "prometheus_listen": ":5665",
@@ -788,16 +789,12 @@ output=$(cat <<EOF
 }
 EOF
 )
-
 echo $output
-
 elif [[ $service == "reboot" ]];
 then
 sudo shutdown -r now
 fi
-
 EOM
-
 
 chmod +x /etc/hysteria/online.sh
 chmod +x /etc/hysteria/monitor.sh
