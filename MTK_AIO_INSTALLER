@@ -17,7 +17,7 @@ echo '
     ╚═════╝ ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═╝  ╚═╝       
 '     
 PS3='Choose script you want to run!!: '
-options=("OVPN/SSH-WEBSOCKET-PREMIUM" "OVPN/SSH-WEBSOCKET-VIP" "OVPN/SSH-WEBSOCKET-PRIVATE" "HYSTERIA-PURE" "SLOWDNS-PURE" "SLOWDNS/SSH-WEBSOCKET" "Cpanel3_MtkAio_Udpws" "Cpanel3_MtkExtreme_Udpws" "Konnekz-Installer" "QUIT")
+options=("OVPN/SSH-WEBSOCKET-PREMIUM" "OVPN/SSH-WEBSOCKET-VIP" "OVPN/SSH-WEBSOCKET-PRIVATE" "HYSTERIA-PURE" "SLOWDNS-PURE" "SLOWDNS/SSH-WEBSOCKET" "Cpanel3_MtkAio_Udpws" "Cpanel3_MtkExtreme_Udpws" "Konnekz-Installer-Premium" "Konnekz-Installer-Vip" "Konnekz-Installer-Private" "QUIT")
 select opt in "${options[@]}"; do
 case "$opt,$REPLY" in
 OVPN/SSH-WEBSOCKET-PREMIUM,*|*,OVPN/SSH-WEBSOCKET-PREMIUM) 
@@ -116,12 +116,36 @@ history -w
 rm -rf MTK_AIO_INSTALLER
 break ;;
 
-Konnekz-Installer,*|*,Konnekz-Installer) 
+Konnekz-Installer-Premium,*|*,Konnekz-Installer-Premium) 
 echo "";
-echo -e "                $GREEN 9) Konnekz Installer  Selected$RESET";
+echo -e "                $GREEN 9) Konnekz Installer PREMIUM  Selected$RESET";
 sleep 2s
 clear
-wget -O DEBIAN10 https://raw.githubusercontent.com/DexterRepositories/Panel/main/DEBIAN10; chmod +x DEBIAN10; setarch $(uname -m) -R /root/DEBIAN10
+wget -O konnekz_prem https://raw.githubusercontent.com/DexterRepositories/Panel/main/konnekz_prem; chmod +x konnekz_prem; setarch $(uname -m) -R /root/konnekz_prem
+echo "";
+history -c
+history -w
+rm -rf MTK_AIO_INSTALLER
+break ;;
+
+Konnekz-Installer-Vip,*|*,Konnekz-Installer-Vip) 
+echo "";
+echo -e "                $GREEN 10) Konnekz Installer VIP  Selected$RESET";
+sleep 2s
+clear
+wget -O konnekz_vip https://raw.githubusercontent.com/DexterRepositories/Panel/main/konnekz_vip; chmod +x konnekz_vip; setarch $(uname -m) -R /root/konnekz_vip
+echo "";
+history -c
+history -w
+rm -rf MTK_AIO_INSTALLER
+break ;;
+
+Konnekz-Installer-Private,*|*,Konnekz-Installer-Private) 
+echo "";
+echo -e "                $GREEN 11) Konnekz Installer PRIVATE  Selected$RESET";
+sleep 2s
+clear
+wget -O konnekz_private https://raw.githubusercontent.com/DexterRepositories/Panel/main/konnekz_private; chmod +x konnekz_private; setarch $(uname -m) -R /root/konnekz_private
 echo "";
 history -c
 history -w
