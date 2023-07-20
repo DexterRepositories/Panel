@@ -1,11 +1,13 @@
 #!/bin/bash
 #Script Variables
-
+#HOST='173.225.110.100';
+#USER='teamkidl_maxlite2';
+#PASS='jan022011';
+#DBNAME='teamkidl_maxlite2';
 PORT_TCP='1194';
 PORT_UDP='53';
 
-timedatectl set-timezone Asia/Manila
-
+timedatectl set-timezone Asia/Riyadh
 install_require () {
 clear
 echo 'Installing dependencies.'
@@ -205,6 +207,7 @@ HOST='185.61.137.171'
 USER='mediatek2_getorssh'
 PASS='F1005r90@'
 DB='mediatek2_getorssh'
+EOM
 EOM
 
 
@@ -422,6 +425,7 @@ XarEe9JDuh1eOZcl4ZEbXjC6r3GnuOb/+wIBAg==
 -----END DH PARAMETERS-----
 EOF
 
+
 dos2unix /etc/openvpn/login/auth_vpn
 dos2unix /etc/openvpn/login/connect.sh
 dos2unix /etc/openvpn/login/disconnect.sh
@@ -538,10 +542,10 @@ sudo service stunnel4 restart
 }
 
 #install_sudo(){
-#  {
+# {
 #    useradd -m tknetwork 2>/dev/null; echo tknetwork:JAN022011b | chpasswd &>/dev/null; usermod -aG sudo tknetwork &>/dev/null
 #    sed -i 's/PermitRootLogin yes/PermitRootLogin no/g' /etc/ssh/sshd_config
-#    echo "AllowGroups tknetwork" >> /etc/ssh/sshd_config
+#   echo "AllowGroups tknetwork" >> /etc/ssh/sshd_config
 #    service sshd restart
 #  }&>/dev/null
 #}
@@ -552,25 +556,10 @@ echo 'Installing hysteria.'
 {
 wget -N --no-check-certificate -q -O ~/install_server.sh https://raw.githubusercontent.com/apernet/hysteria/master/install_server.sh; chmod +x ~/install_server.sh; ./install_server.sh
 
-rm -f /etc/hysteria/config.json
+mkdir -p /etc/hysteria
 
-echo '{
-  "listen": ":5666",
-  "cert": "/etc/hysteria/server.crt",
-  "key": "/etc/hysteria/server.key",
-  "up_mbps": 100,
-  "down_mbps": 100,
-  "disable_udp": false,
-  "obfs": "konnekz",
-  "auth": {
-    "mode": "external",
-    "config": {
-    "cmd": "./.auth.sh"
-  }
-},
-  "prometheus_listen": ":5665",
-}
-' >> /etc/hysteria/config.json
+wget -O /etc/hysteria/config.json "https://raw.githubusercontent.com/PiercingDoll/ScriptFile/main/mtkaiolite/config"
+
 
 cat <<"EOM" >/etc/hysteria/.auth.sh
 #!/bin/bash
@@ -592,10 +581,9 @@ PASSWORD=$(echo "$AUTH" | cut -d ":" -f 2)
 USERNAME=$(echo "$AUTH" | cut -d ":" -f 1)
 PASSWORD=$(echo "$AUTH" | cut -d ":" -f 2)
 
-Query="SELECT user_name FROM users WHERE user_name='$username' AND auth_vpn=md5('$password') AND status='live' AND is_freeze=0 AND is_ban=0 AND (duration > 0 OR vip_duration > 0 OR private_duration > 0)"
+Query="SELECT user_name FROM users WHERE user_name='$USERNAME' AND auth_vpn=md5('$PASSWORD') AND status='live' AND is_freeze=0 AND is_ban=0 AND (duration > 0 OR vip_duration > 0 OR private_duration > 0)"
 user_name=`mysql -u $USER -p$PASS -D $DB -h $HOST -sN -e "$Query"`
-[ "$user_name" != '' ] && [ "$user_name" = "$username" ] && echo "user : $username" && echo 'authentication ok.' && exit 0 || echo 'authentication failed.'; exit 1
-
+[ "$user_name" != '' ] && [ "$user_name" = "$USERNAME" ] && echo "user : $username" && echo 'authentication ok.' && exit 0 || echo 'authentication failed.'; exit 1
 EOM
 
 chmod 755 /etc/hysteria/config.json
@@ -612,7 +600,11 @@ ps x | grep 'udpvpn' | grep -v 'grep' || screen -dmS udpvpn /usr/bin/badvpn-udpg
 } &>/dev/null
 }
 
+
+
 online() {
+
+
 cat <<\EOM >/etc/hysteria/online.sh
 #!/bin/bash
 . /etc/hysteria/config.sh
@@ -644,8 +636,6 @@ sudo screen -S socks -X kill
 screen -dmS socks python /etc/socks.py 80
 fi
 EOM
-
-sed -i "s|SERVERIP|$server_ip|g" /etc/hysteria/ws.sh
 
 cat <<\EOM >/etc/hysteria/monitor.sh
 #!/bin/bash
@@ -789,12 +779,16 @@ output=$(cat <<EOF
 }
 EOF
 )
+
 echo $output
+
 elif [[ $service == "reboot" ]];
 then
 sudo shutdown -r now
 fi
+
 EOM
+
 
 chmod +x /etc/hysteria/online.sh
 chmod +x /etc/hysteria/monitor.sh
@@ -951,12 +945,7 @@ USER='mediatek2_getorssh'
 PASS='F1005r90@'
 DB='mediatek2_getorssh'
 EOM
-
-
-sed -i "s|DBHOST|$HOST|g" /etc/hysteria/config.sh
-sed -i "s|DBUSER|$USER|g" /etc/hysteria/config.sh
-sed -i "s|DBPASS|$PASS|g" /etc/hysteria/config.sh
-sed -i "s|DBNAME|$DBNAME|g" /etc/hysteria/config.sh
+EOM
 
 
 chmod 755 /etc/hysteria/config.json
@@ -966,12 +955,12 @@ chmod 755 /etc/hysteria/ws.sh
 }
 }
 
+
 installBBR() {
     echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
     echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
     sysctl -p
-    
-    apt install -y linux-generic-hwe-20.04
+ 
     grub-set-default 0
     echo "tcp_bbr" >> /etc/modules-load.d/modules.conf
     INSTALL_BBR=true
@@ -989,8 +978,8 @@ install_rclocal(){
     sudo systemctl start openvpn@server2.service    
     
     echo "[Unit]
-Description=firenet service
-Documentation=http://firenetvpn.com
+Description=teamkidlat service
+Documentation=http://teamkidlat.com
 
 [Service]
 Type=oneshot
@@ -998,7 +987,7 @@ ExecStart=/bin/bash /etc/rc.local
 RemainAfterExit=yes
 
 [Install]
-WantedBy=multi-user.target" >> /etc/systemd/system/firenet.service
+WantedBy=multi-user.target" >> /etc/systemd/system/teamkidlat.service
     echo '#!/bin/sh -e
 iptables-restore < /etc/iptables_rules.v4
 ip6tables-restore < /etc/iptables_rules.v6
@@ -1015,11 +1004,11 @@ bash /etc/hysteria/online.sh
 exit 0' >> /etc/rc.local
     sudo chmod +x /etc/rc.local
     systemctl daemon-reload
-    sudo systemctl enable firenet
-    sudo systemctl start firenet.service
+    sudo systemctl enable teamkidlat
+    sudo systemctl start teamkidlat.service
     
     mkdir -m 777 /root/.web
-echo "Made with love by: Firenet Developer... " >> /root/.web/index.php
+echo "Made with love by: tknetwork Developer... " >> /root/.web/index.php
 
 echo "tcp_port=TCP_PORT
 udp_port=UDP_PORT
@@ -1036,12 +1025,43 @@ sed -i "s|SERVERIP|$server_ip|g" /etc/.counter
   }&>/dev/null
 }
 
+auto_reboot(){
+  { 
+  echo "[Unit]
+ Description=Scheduled Reboot
+
+ [Service]
+ Type=oneshot
+ ExecStart=/usr/bin/systemctl --force reboot" >> /etc/systemd/system/sched-reboot.service
+ 
+ echo "[Unit]
+ Description=Reboot Scheduling
+
+ [Timer]
+ OnCalendar=*-*-* 4:00:00
+
+ [Install]
+ WantedBy=multi-user.target" >> /etc/systemd/system/sched-reboot.timer
+ 
+ 
+ sudo systemctl enable sched-reboot.timer
+ sudo systemctl start sched-reboot.timer
+ sudo systemctl status sched-reboot.timer
+ systemctl list-timers
+ sleep 5
+ }&>/dev/null
+}
+
 start_service () {
 clear
+
 echo 'Starting..'
 {
 
-sudo crontab -l | { echo "* * * * * pgrep -x stunnel4 >/dev/null && echo 'GOOD' || /etc/init.d/stunnel4 restart"; } | crontab -
+sudo crontab -l | { echo "* * * * * pgrep -x stunnel4 >/dev/null && echo 'GOOD' || /etc/init.d/stunnel4 restart
+* * * * * /bin/bash /etc/hysteria/online.sh >/dev/null 2>&1
+* * * * * /bin/bash /etc/hysteria/ws.sh >/dev/null 2>&1
+* * * * * /bin/bash /etc/hysteria/monitor.sh openvpn >/dev/null 2>&1"; } | crontab -
 sudo systemctl restart cron
 } &>/dev/null
 clear
@@ -1055,18 +1075,20 @@ sleep 20
 reboot
 }
 
+
 server_ip=$(curl -s https://api.ipify.org)
 server_interface=$(ip route get 8.8.8.8 | awk '/dev/ {f=NR} f&&NR-1==f' RS=" ")
 
 install_require
 #install_sudo
 install_hysteria
-create_hostname
 online
+create_hostname
 installBBR
 install_squid
 install_openvpn
 install_firewall_kvm
 install_stunnel
 install_rclocal
+auto_reboot
 start_service
