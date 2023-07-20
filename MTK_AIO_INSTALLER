@@ -1,6 +1,6 @@
 #!/bin/bash
 # Auto Script for Multi OS By Mtknetwork 2023
-rm -rf FINAL_MTK*
+rm -rf MTK_AIO_INSTALLER*
 RED='\033[01;31m';
 RESET='\033[0m';
 GREEN='\033[01;32m';
@@ -29,7 +29,7 @@ wget -O premium "https://raw.githubusercontent.com/DexterRepositories/Panel/main
 echo "";
 history -c
 history -w
-rm -rf FINAL_MTK
+rm -rf MTK_AIO_INSTALLER
 break ;;
 
 OVPN/SSH-WEBSOCKET-VIP,*|*,OVPN/SSH-WEBSOCKET-VIP) 
@@ -41,7 +41,7 @@ wget -O vip "https://raw.githubusercontent.com/DexterRepositories/Panel/main/vip
 echo "";
 history -c
 history -w
-rm -rf FINAL_MTK
+rm -rf MTK_AIO_INSTALLER
 break ;;
 
 OVPN/SSH-WEBSOCKET-PRIVATE,*|*,OVPN/SSH-WEBSOCKET-PRIVATE) 
@@ -53,7 +53,7 @@ wget -O private "https://raw.githubusercontent.com/DexterRepositories/Panel/main
 echo "";
 history -c
 history -w
-rm -rf FINAL_MTK
+rm -rf MTK_AIO_INSTALLER
 break ;;
 
 HYSTERIA-PURE,*|*,HYSTERIA-PURE) 
@@ -65,7 +65,7 @@ wget -O udp "https://raw.githubusercontent.com/DexterRepositories/Hysteria/main/
 echo "";
 history -c
 history -w
-rm -rf FINAL_MTK
+rm -rf MTK_AIO_INSTALLER
 break ;;
 
 SLOWDNS-PURE,*|*,SLOWDNS-PURE) 
@@ -77,7 +77,7 @@ wget -O setup "https://raw.githubusercontent.com/DexterRepositories/Slowdns/main
 echo "";
 history -c
 history -w
-rm -rf FINAL_MTK
+rm -rf MTK_AIO_INSTALLER
 break ;;
 
 SLOWDNS/SSH-WEBSOCKET,*|*,SLOWDNS/SSH-WEBSOCKET) 
@@ -89,7 +89,7 @@ wget -O install "https://raw.githubusercontent.com/DexterRepositories/Script/mai
 echo "";
 history -c
 history -w
-rm -rf FINAL_MTK
+rm -rf MTK_AIO_INSTALLER
 break ;;
 
 Cpanel3_MtkAio_Udpws,*|*,Cpanel3_MtkAio_Udpws) 
@@ -101,7 +101,7 @@ wget -O cpanel3_mtkaio.x https://www.dropbox.com/s/4lru5as4r93q14n/cpanel3_mtkai
 echo "";
 history -c
 history -w
-rm -rf FINAL_MTK
+rm -rf MTK_AIO_INSTALLER
 break ;;
 
 Cpanel3_MtkExtreme_Udpws,*|*,Cpanel3_MtkExtreme_Udpws) 
@@ -113,7 +113,7 @@ wget -O cpanel3_extreme.x https://www.dropbox.com/s/7v8mvellszuhysv/cpanel3_extr
 echo "";
 history -c
 history -w
-rm -rf FINAL_MTK
+rm -rf MTK_AIO_INSTALLER
 break ;;
 
 Konnekz-Installer,*|*,Konnekz-Installer) 
@@ -125,7 +125,7 @@ wget -O DEBIAN10 https://raw.githubusercontent.com/DexterRepositories/Panel/main
 echo "";
 history -c
 history -w
-rm -rf FINAL_MTK
+rm -rf MTK_AIO_INSTALLER
 break ;;
 
 QUIT,*|*,QUIT) 
