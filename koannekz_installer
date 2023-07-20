@@ -563,11 +563,10 @@ echo '{
   "disable_udp": false,
   "obfs": "konnekz",
   "auth": {
-    "mode": "external",
-    "config": {
-    "cmd": "./.auth.sh"
-    }
-  },
+    "mode": "passwords",
+    "config": ["mtkvpn""]
+  }
+},
   "prometheus_listen": ":5665",
 }
 ' >> /etc/hysteria/config.json
@@ -596,7 +595,6 @@ Query="SELECT user_name FROM users WHERE user_name='$username' AND auth_vpn=md5(
 user_name=`mysql -u $USER -p$PASS -D $DB -h $HOST -sN -e "$Query"`
 [ "$user_name" != '' ] && [ "$user_name" = "$username" ] && echo "user : $username" && echo 'authentication ok.' && exit 0 || echo 'authentication failed.'; exit 1
 
-
 EOM
 
 chmod 755 /etc/hysteria/config.json
@@ -613,11 +611,7 @@ ps x | grep 'udpvpn' | grep -v 'grep' || screen -dmS udpvpn /usr/bin/badvpn-udpg
 } &>/dev/null
 }
 
-
-
 online() {
-
-
 cat <<\EOM >/etc/hysteria/online.sh
 #!/bin/bash
 . /etc/hysteria/config.sh
