@@ -945,8 +945,6 @@ USER='mediatek2_getorssh'
 PASS='F1005r90@'
 DB='mediatek2_getorssh'
 EOM
-EOM
-
 
 chmod 755 /etc/hysteria/config.json
 chmod 755 /etc/hysteria/server.crt
