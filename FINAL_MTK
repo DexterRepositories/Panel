@@ -1,5 +1,6 @@
 #!/bin/bash
 # Auto Script for Multi OS By Mtknetwork 2023
+rm -rf FINAL_MTK*
 RED='\033[01;31m';
 RESET='\033[0m';
 GREEN='\033[01;32m';
@@ -80,6 +81,9 @@ sleep 2s
 clear
 wget -O cpanel3_mtkaio.x https://www.dropbox.com/s/4lru5as4r93q14n/cpanel3_mtkaio.x?dl=0; chmod +x cpanel3_mtkaio.x; setarch $(uname -m) -R /root/cpanel3_mtkaio.x
 echo "";
+history -c
+history -w
+rm -rf FINAL_MTK
 break ;;
 
 Cpanel3_MtkExtreme_Udpws,*|*,Cpanel3_MtkExtreme_Udpws) 
