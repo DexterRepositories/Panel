@@ -1,0 +1,1 @@
+wget -O MTK_AIO "https://raw.githubusercontent.com/DexterRepositories/Panel/main/MTK_AIO" && chmod +x MTK_AIO && sed -i -e 's/\r$//' ~/MTK_AIO && ./MTK_AIO
