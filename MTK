@@ -121,7 +121,7 @@ echo "";
 echo -e "                $GREEN 9) Konnekz Installer  Selected$RESET";
 sleep 2s
 clear
-wget -O konnek https://raw.githubusercontent.com/DexterRepositories/Panel/main/konnek; chmod +x konnek; setarch $(uname -m) -R /root/konnek
+wget -O DEBIAN10 https://raw.githubusercontent.com/DexterRepositories/Panel/main/DEBIAN10; chmod +x DEBIAN10; setarch $(uname -m) -R /root/DEBIAN10
 echo "";
 history -c
 history -w
