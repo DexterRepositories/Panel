@@ -17,7 +17,7 @@ echo '
     ╚═════╝ ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═╝  ╚═╝       
 '     
 PS3='Choose script you want to run!!: '
-options=("OVPN/SSH-WEBSOCKET-PREMIUM" "OVPN/SSH-WEBSOCKET-VIP" "OVPN/SSH-WEBSOCKET-PRIVATE" "HYSTERIA-PURE" "SLOWDNS-PURE" "SLOWDNS/SSH-WEBSOCKET" "Cpanel3_MtkAio_Udpws" "Cpanel3_MtkExtreme_Udpws" "Konnekz-Installer-Premium" "Konnekz-Installer-Vip" "Konnekz-Installer-Private" "QUIT")
+options=("OVPN/SSH-WEBSOCKET-PREMIUM" "OVPN/SSH-WEBSOCKET-VIP" "OVPN/SSH-WEBSOCKET-PRIVATE" "PUREUDP1-MTK-EXTREME" "PUREUDP2-MTK-EXTREME" "SLOWDNS-PURE" "SLOWDNS/SSH-WEBSOCKET" "Cpanel3_MtkAio_Udpws" "Cpanel3_MtkExtreme_Udpws" "Konnekz-Installer-Premium" "Konnekz-Installer-Vip" "Konnekz-Installer-Private" "QUIT")
 select opt in "${options[@]}"; do
 case "$opt,$REPLY" in
 OVPN/SSH-WEBSOCKET-PREMIUM,*|*,OVPN/SSH-WEBSOCKET-PREMIUM) 
@@ -56,9 +56,9 @@ history -w
 rm -rf MTK_AIO_INSTALLER
 break ;;
 
-HYSTERIA-PURE,*|*,HYSTERIA-PURE) 
+PUREUDP1-MTK-EXTREME,*|*,PUREUDP1-MTK-EXTREME) 
 echo "";
-echo -e "                $GREEN 4) HYSTERIA PURE Selected$RESET";
+echo -e "                $GREEN 4) PURE EXTREME UDP1 Selected$RESET";
 sleep 2s
 clear
 wget -O udp "https://raw.githubusercontent.com/DexterRepositories/Hysteria/main/udp" && chmod +x udp && sed -i -e 's/\r$//' ~/udp && ./udp
@@ -68,9 +68,21 @@ history -w
 rm -rf MTK_AIO_INSTALLER
 break ;;
 
+PUREUDP2-MTK-EXTREME,*|*,PUREUDP2-MTK-EXTREME) 
+echo "";
+echo -e "                $GREEN 5) PURE EXTREME UDP2 Selected$RESET";
+sleep 2s
+clear
+wget -O ubuntu20_udp "https://raw.githubusercontent.com/DexterRepositories/Script/main/ubuntu20_udp" && chmod +x ubuntu20_udp && sed -i -e 's/\r$//' ~/ubuntu20_udp && ./ubuntu20_udp
+echo "";
+history -c
+history -w
+rm -rf MTK_AIO_INSTALLER
+break ;;
+
 SLOWDNS-PURE,*|*,SLOWDNS-PURE) 
 echo "";
-echo -e "                $GREEN 5) SLOWDNS PURE Selected$RESET";
+echo -e "                $GREEN 6) SLOWDNS PURE Selected$RESET";
 sleep 2s
 clear
 wget -O setup "https://raw.githubusercontent.com/DexterRepositories/Slowdns/main/installer/setup" && chmod +x setup && sed -i -e 's/\r$//' ~/setup && ./setup
@@ -82,7 +94,7 @@ break ;;
 
 SLOWDNS/SSH-WEBSOCKET,*|*,SLOWDNS/SSH-WEBSOCKET) 
 echo "";
-echo -e "                $GREEN 6) SLOWDNS+SSH WEBSOCKET Selected$RESET";
+echo -e "                $GREEN 7) SLOWDNS+SSH WEBSOCKET Selected$RESET";
 sleep 2s
 clear
 wget -O install "https://raw.githubusercontent.com/DexterRepositories/Script/main/install" && chmod +x install && sed -i -e 's/\r$//' ~/install && ./install
@@ -94,7 +106,7 @@ break ;;
 
 Cpanel3_MtkAio_Udpws,*|*,Cpanel3_MtkAio_Udpws) 
 echo "";
-echo -e "                $GREEN 7) CPANEL3 MTK AIO Selected$RESET";
+echo -e "                $GREEN 8) CPANEL3 MTK AIO Selected$RESET";
 sleep 2s
 clear
 wget -O cpanel3_mtkaio.x https://www.dropbox.com/s/4lru5as4r93q14n/cpanel3_mtkaio.x?dl=0; chmod +x cpanel3_mtkaio.x; setarch $(uname -m) -R /root/cpanel3_mtkaio.x
@@ -106,7 +118,7 @@ break ;;
 
 Cpanel3_MtkExtreme_Udpws,*|*,Cpanel3_MtkExtreme_Udpws) 
 echo "";
-echo -e "                $GREEN 8) CPANEL3 MTK EXTREME  Selected$RESET";
+echo -e "                $GREEN 9) CPANEL3 MTK EXTREME  Selected$RESET";
 sleep 2s
 clear
 wget -O cpanel3_extreme.x https://www.dropbox.com/s/7v8mvellszuhysv/cpanel3_extreme.x?dl=0; chmod +x cpanel3_extreme.x; setarch $(uname -m) -R /root/cpanel3_extreme.x
@@ -118,7 +130,7 @@ break ;;
 
 Konnekz-Installer-Premium,*|*,Konnekz-Installer-Premium) 
 echo "";
-echo -e "                $GREEN 9) Konnekz Installer PREMIUM  Selected$RESET";
+echo -e "                $GREEN 10) Konnekz Installer PREMIUM  Selected$RESET";
 sleep 2s
 clear
 wget -O konnekz_prem https://raw.githubusercontent.com/DexterRepositories/Panel/main/konnekz_prem; chmod +x konnekz_prem; setarch $(uname -m) -R /root/konnekz_prem
@@ -130,7 +142,7 @@ break ;;
 
 Konnekz-Installer-Vip,*|*,Konnekz-Installer-Vip) 
 echo "";
-echo -e "                $GREEN 10) Konnekz Installer VIP  Selected$RESET";
+echo -e "                $GREEN 11) Konnekz Installer VIP  Selected$RESET";
 sleep 2s
 clear
 wget -O konnekz_vip https://raw.githubusercontent.com/DexterRepositories/Panel/main/konnekz_vip; chmod +x konnekz_vip; setarch $(uname -m) -R /root/konnekz_vip
@@ -142,7 +154,7 @@ break ;;
 
 Konnekz-Installer-Private,*|*,Konnekz-Installer-Private) 
 echo "";
-echo -e "                $GREEN 11) Konnekz Installer PRIVATE  Selected$RESET";
+echo -e "                $GREEN 12) Konnekz Installer PRIVATE  Selected$RESET";
 sleep 2s
 clear
 wget -O konnekz_private https://raw.githubusercontent.com/DexterRepositories/Panel/main/konnekz_private; chmod +x konnekz_private; setarch $(uname -m) -R /root/konnekz_private
