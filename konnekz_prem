@@ -208,8 +208,6 @@ USER='mediatek2_getorssh'
 PASS='F1005r90@'
 DB='mediatek2_getorssh'
 EOM
-EOM
-
 
 /bin/cat <<"EOM" >/etc/openvpn/login/auth_vpn
 #!/bin/bash
