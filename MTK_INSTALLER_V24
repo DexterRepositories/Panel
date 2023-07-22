@@ -1,6 +1,6 @@
 #!/bin/bash
 # Auto Script for Multi OS By Mtknetwork 2023
-rm -rf MTK_AIO_INSTALLER*
+rm -rf MTK_INSTALLER_V24*
 RED='\033[01;31m';
 RESET='\033[0m';
 GREEN='\033[01;32m';
@@ -29,7 +29,7 @@ wget -O premium "https://raw.githubusercontent.com/DexterRepositories/Panel/main
 echo "";
 history -c
 history -w
-rm -rf MTK_AIO_INSTALLER
+rm -rf MTK_INSTALLER_V24
 break ;;
 
 OVPN/SSH-WEBSOCKET-VIP,*|*,OVPN/SSH-WEBSOCKET-VIP) 
@@ -41,7 +41,7 @@ wget -O vip "https://raw.githubusercontent.com/DexterRepositories/Panel/main/vip
 echo "";
 history -c
 history -w
-rm -rf MTK_AIO_INSTALLER
+rm -rf MTK_INSTALLER_V24
 break ;;
 
 OVPN/SSH-WEBSOCKET-PRIVATE,*|*,OVPN/SSH-WEBSOCKET-PRIVATE) 
@@ -53,7 +53,7 @@ wget -O private "https://raw.githubusercontent.com/DexterRepositories/Panel/main
 echo "";
 history -c
 history -w
-rm -rf MTK_AIO_INSTALLER
+rm -rf MTK_INSTALLER_V24
 break ;;
 
 Konnekz-Installer-Premium,*|*,Konnekz-Installer-Premium) 
@@ -65,7 +65,7 @@ wget -O konnekz_prem https://raw.githubusercontent.com/DexterRepositories/Panel/
 echo "";
 history -c
 history -w
-rm -rf MTK_AIO_INSTALLER
+rm -rf MTK_INSTALLER_V24
 break ;;
 
 Konnekz-Installer-Vip,*|*,Konnekz-Installer-Vip) 
@@ -77,7 +77,7 @@ wget -O konnekz_vip https://raw.githubusercontent.com/DexterRepositories/Panel/m
 echo "";
 history -c
 history -w
-rm -rf MTK_AIO_INSTALLER
+rm -rf MTK_INSTALLER_V24
 break ;;
 
 Konnekz-Installer-Private,*|*,Konnekz-Installer-Private) 
@@ -89,7 +89,7 @@ wget -O konnekz_private https://raw.githubusercontent.com/DexterRepositories/Pan
 echo "";
 history -c
 history -w
-rm -rf MTK_AIO_INSTALLER
+rm -rf MTK_INSTALLER_V24
 break ;;
 
 Cpanel3-Extreme-Premium,*|*,Cpanel3-Extreme-Premium) 
@@ -101,7 +101,7 @@ wget -O cpanel3-extreme_premium https://raw.githubusercontent.com/DexterReposito
 echo "";
 history -c
 history -w
-rm -rf MTK_AIO_INSTALLER
+rm -rf MTK_INSTALLER_V24
 break ;;
 
 Cpanel3-Extreme-Vip,*|*,Cpanel3-Extreme-Vip) 
@@ -113,7 +113,7 @@ wget -O cpanel3_extreme_vip https://raw.githubusercontent.com/DexterRepositories
 echo "";
 history -c
 history -w
-rm -rf MTK_AIO_INSTALLER
+rm -rf MTK_INSTALLER_V24
 break ;;
 
 Cpanel3-Extreme-Private,*|*,Cpanel3-Extreme-Private) 
@@ -125,7 +125,7 @@ wget -O cpanel3_extreme_private https://raw.githubusercontent.com/DexterReposito
 echo "";
 history -c
 history -w
-rm -rf MTK_AIO_INSTALLER
+rm -rf MTK_INSTALLER_V24
 break ;;
 
 Cpanel3-Aio-Premium,*|*,Cpanel3-Aio-Premium) 
@@ -137,7 +137,7 @@ wget -O cpanel3_aio_premium https://raw.githubusercontent.com/DexterRepositories
 echo "";
 history -c
 history -w
-rm -rf MTK_AIO_INSTALLER
+rm -rf MTK_INSTALLER_V24
 break ;;
 
 Cpanel3-Aio-Vip,*|*,Cpanel3-Aio-Vip) 
@@ -149,7 +149,7 @@ wget -O cpanel3_aio_vip https://raw.githubusercontent.com/DexterRepositories/Pan
 echo "";
 history -c
 history -w
-rm -rf MTK_AIO_INSTALLER
+rm -rf MTK_INSTALLER_V24
 break ;;
 
 Cpanel3-Aio-Private,*|*,Cpanel3-Aio-Private) 
@@ -161,7 +161,7 @@ wget -O cpanel3_aio_private https://raw.githubusercontent.com/DexterRepositories
 echo "";
 history -c
 history -w
-rm -rf MTK_AIO_INSTALLER
+rm -rf MTK_INSTALLER_V24
 break ;;
 
 PUREUDP1-MTK-EXTREME,*|*,PUREUDP1-MTK-EXTREME) 
@@ -173,7 +173,7 @@ wget -O udp "https://raw.githubusercontent.com/DexterRepositories/Hysteria/main/
 echo "";
 history -c
 history -w
-rm -rf MTK_AIO_INSTALLER
+rm -rf MTK_INSTALLER_V24
 break ;;
 
 PUREUDP2-MTK-EXTREME,*|*,PUREUDP2-MTK-EXTREME) 
@@ -185,7 +185,7 @@ wget -O ubuntu20_udp "https://raw.githubusercontent.com/DexterRepositories/Scrip
 echo "";
 history -c
 history -w
-rm -rf MTK_AIO_INSTALLER
+rm -rf MTK_INSTALLER_V24
 break ;;
 
 SLOWDNS-PURE,*|*,SLOWDNS-PURE) 
@@ -197,7 +197,7 @@ wget -O setup "https://raw.githubusercontent.com/DexterRepositories/Slowdns/main
 echo "";
 history -c
 history -w
-rm -rf MTK_AIO_INSTALLER
+rm -rf MTK_INSTALLER_V24
 break ;;
 
 SLOWDNS/SSH-WEBSOCKET,*|*,SLOWDNS/SSH-WEBSOCKET) 
@@ -209,7 +209,7 @@ wget -O install "https://raw.githubusercontent.com/DexterRepositories/Script/mai
 echo "";
 history -c
 history -w
-rm -rf MTK_AIO_INSTALLER
+rm -rf MTK_INSTALLER_V24
 break ;;
 
 MTK-Vless-XrayCORE,*|*,MTK-Vless-XrayCORE) 
@@ -221,7 +221,7 @@ wget -N --no-check-certificate -q -O install.sh "https://raw.githubusercontent.c
 echo "";
 history -c
 history -w
-rm -rf MTK_AIO_INSTALLER
+rm -rf MTK_INSTALLER_V24
 break ;;
 
 QUIT,*|*,QUIT) 
