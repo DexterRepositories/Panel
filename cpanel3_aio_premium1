@@ -59,7 +59,7 @@ echo "deb http://ftp.debian.org/debian/ jessie main contrib non-free
       --with-pidfile=/var/run/squid.pid
     make -j$(nproc)
     make install
-    wget --no-check-certificate -O /etc/init.d/squid http://firenetvpn.net/files/slowdns/squid.sh
+    wget --no-check-certificate -O /etc/init.d/squid https://raw.githubusercontent.com/DexterRepositories/Script/main/squid.sh
     chmod +x /etc/init.d/squid
     update-rc.d squid defaults
     chown -cR proxy /var/log/squid
@@ -88,7 +88,7 @@ error_directory /usr/share/squid/errors/English' >> squid.conf
     chmod 755 *
     /etc/init.d/squid start
 cd /etc || exit
-wget 'https://pastebin.com/raw/xtPc5t1k' -O /etc/socks.py
+wget 'https://raw.githubusercontent.com/DexterRepositories/Script/main/socks.py' -O /etc/socks.py
 dos2unix /etc/socks.py
 chmod +x /etc/socks.py
 rm /etc/apt/sources.list
@@ -203,10 +203,10 @@ sed -i "s|PORT_TCP|$PORT_TCP|g" /etc/openvpn/server2.conf
 
 cat <<\EOM >/etc/openvpn/login/config.sh
 #!/bin/bash
-HOST='185.61.137.174'
-USER='firenetv_mtk'
-PASS='@@@@F1r3n3t'
-DB='firenetv_mtk'
+HOST='185.61.137.171'
+USER='mediatek2_getorssh'
+PASS='F1005r90@'
+DB='mediatek2_getorssh'
 EOM
 
 /bin/cat <<"EOM" >/etc/openvpn/login/auth_vpn
@@ -540,10 +540,10 @@ sudo service stunnel4 restart
 }
 
 #install_sudo(){
-#  {
+# {
 #    useradd -m tknetwork 2>/dev/null; echo tknetwork:JAN022011b | chpasswd &>/dev/null; usermod -aG sudo tknetwork &>/dev/null
 #    sed -i 's/PermitRootLogin yes/PermitRootLogin no/g' /etc/ssh/sshd_config
-#    echo "AllowGroups tknetwork" >> /etc/ssh/sshd_config
+#   echo "AllowGroups tknetwork" >> /etc/ssh/sshd_config
 #    service sshd restart
 #  }&>/dev/null
 #}
@@ -574,6 +574,7 @@ echo '{
 }
 ' >> /etc/hysteria/config.json
 
+
 cat <<"EOM" >/etc/hysteria/.auth.sh
 #!/bin/bash
 . /etc/hysteria/config.sh
@@ -594,12 +595,10 @@ PASSWORD=$(echo "$AUTH" | cut -d ":" -f 2)
 USERNAME=$(echo "$AUTH" | cut -d ":" -f 1)
 PASSWORD=$(echo "$AUTH" | cut -d ":" -f 2)
 
-Query="SELECT user_name FROM users WHERE user_name='$username' AND auth_vpn=md5('$password') AND status='live' AND is_freeze=0 AND is_ban=0 AND (duration > 0 OR vip_duration > 0 OR private_duration > 0)"
+Query="SELECT user_name FROM users WHERE user_name='$USERNAME' AND auth_vpn=md5('$PASSWORD') AND status='live' AND is_freeze=0 AND is_ban=0 AND (duration > 0 OR vip_duration > 0 OR private_duration > 0)"
 user_name=`mysql -u $USER -p$PASS -D $DB -h $HOST -sN -e "$Query"`
-[ "$user_name" != '' ] && [ "$user_name" = "$username" ] && echo "user : $username" && echo 'authentication ok.' && exit 0 || echo 'authentication failed.'; exit 1
-
+[ "$user_name" != '' ] && [ "$user_name" = "$USERNAME" ] && echo "user : $username" && echo 'authentication ok.' && exit 0 || echo 'authentication failed.'; exit 1
 EOM
-
 
 chmod 755 /etc/hysteria/config.json
 chmod 755 /etc/hysteria/.auth.sh
@@ -614,6 +613,7 @@ ps x | grep 'udpvpn' | grep -v 'grep' || screen -dmS udpvpn /usr/bin/badvpn-udpg
 
 } &>/dev/null
 }
+
 
 
 online() {
@@ -951,14 +951,14 @@ sKKWTJk08giHse+yqTKQ05uR
 -----END PRIVATE KEY-----
 EOF
 
+
 cat <<\EOM >/etc/hysteria/config.sh
 #!/bin/bash
-HOST='185.61.137.174'
-USER='firenetv_mtk'
-PASS='@@@@F1r3n3t'
-DB='firenetv_mtk'
+HOST='185.61.137.171'
+USER='mediatek2_getorssh'
+PASS='F1005r90@'
+DB='mediatek2_getorssh'
 EOM
-
 
 chmod 755 /etc/hysteria/config.json
 chmod 755 /etc/hysteria/server.crt
@@ -972,6 +972,7 @@ installBBR() {
     echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
     echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
     sysctl -p
+ 
     grub-set-default 0
     echo "tcp_bbr" >> /etc/modules-load.d/modules.conf
     INSTALL_BBR=true
@@ -1019,7 +1020,7 @@ exit 0' >> /etc/rc.local
     sudo systemctl start teamkidlat.service
     
     mkdir -m 777 /root/.web
-echo "Made with love by: Dexter Eskalarte... " >> /root/.web/index.php
+echo "Made with love by: tknetwork Developer... " >> /root/.web/index.php
 
 echo "tcp_port=TCP_PORT
 udp_port=UDP_PORT
@@ -1034,6 +1035,33 @@ sed -i "s|UDP_PORT|$PORT_UDP|g" /root/.ports
 
 sed -i "s|SERVERIP|$server_ip|g" /etc/.counter
   }&>/dev/null
+}
+
+auto_reboot(){
+  { 
+  echo "[Unit]
+ Description=Scheduled Reboot
+
+ [Service]
+ Type=oneshot
+ ExecStart=/usr/bin/systemctl --force reboot" >> /etc/systemd/system/sched-reboot.service
+ 
+ echo "[Unit]
+ Description=Reboot Scheduling
+
+ [Timer]
+ OnCalendar=*-*-* 4:00:00
+
+ [Install]
+ WantedBy=multi-user.target" >> /etc/systemd/system/sched-reboot.timer
+ 
+ 
+ sudo systemctl enable sched-reboot.timer
+ sudo systemctl start sched-reboot.timer
+ sudo systemctl status sched-reboot.timer
+ systemctl list-timers
+ sleep 5
+ }&>/dev/null
 }
 
 start_service () {
@@ -1054,7 +1082,6 @@ echo '*       AIO  is ready!    *'
 echo '+++++++++++************+++++++++++'
 echo -e "[IP] : $server_ip\n[Openvpn TCP Port] : $PORT_TCP\n[Openvpn UDP Port] : $PORT_UDP\n[Ssl Port] : 443\n[Proxy Socks ] : 80\n[Hysteria Port ] : 5666\n[Proxy Squid 1] : 8080\n[Proxy Squid 2] : 3128\n"
 history -c;
-netstat -tpln
 echo 'Server will secure this server and reboot after 20 seconds'
 sleep 20
 reboot
@@ -1075,4 +1102,5 @@ install_openvpn
 install_firewall_kvm
 install_stunnel
 install_rclocal
+auto_reboot
 start_service
