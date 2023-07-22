@@ -569,7 +569,7 @@ echo '{
   "obfs": "dex",
   "auth": {
     "mode": "passwords",
-    "config": ["mtkvpn""]
+    "config": ["mtkvpn"]
   }
 },
   "prometheus_listen": ":5665",
