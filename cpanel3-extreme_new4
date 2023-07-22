@@ -1,9 +1,9 @@
 #!/bin/bash
 #Script Variables
-#HOST='';
-#USER='';
-#PASS='';
-#DBNAME='';
+#HOST='173.225.110.100';
+#USER='teamkidl_maxlite2';
+#PASS='jan022011';
+#DBNAME='teamkidl_maxlite2';
 PORT_TCP='1194';
 PORT_UDP='53';
 
@@ -84,11 +84,11 @@ visible_hostname Firenet-Proxy
 error_directory /usr/share/squid/errors/English' >> squid.conf
     cd /usr/share/squid/errors/English
     rm ERR_INVALID_URL
-    echo '<!--tknetwork--><!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>SECURE PROXY</title><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="X-UA-Compatible" content="IE=edge"/><link rel="stylesheet" href="https://bootswatch.com/4/slate/bootstrap.min.css" media="screen"><link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet"><style>body{font-family: "Press Start 2P", cursive;}.fn-color{color: #ffff; background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a); -webkit-background-clip: text; -webkit-text-fill-color: transparent; -webkit-animation: hue 5s infinite linear;}@-webkit-keyframes hue{from{-webkit-filter: hue-rotate(0deg);}to{-webkit-filter: hue-rotate(-360deg);}}</style></head><body><div class="container" style="padding-top: 50px"><div class="jumbotron"><h1 class="display-3 text-center fn-color">SECURE PROXY</h1><h4 class="text-center text-danger">SERVER</h4><p class="text-center">😍 %w 😍</p></div></div></body></html>' >> ERR_INVALID_URL
+    echo '<!--FirenetDev--><!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>SECURE PROXY</title><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="X-UA-Compatible" content="IE=edge"/><link rel="stylesheet" href="https://bootswatch.com/4/slate/bootstrap.min.css" media="screen"><link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet"><style>body{font-family: "Press Start 2P", cursive;}.fn-color{color: #ffff; background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a); -webkit-background-clip: text; -webkit-text-fill-color: transparent; -webkit-animation: hue 5s infinite linear;}@-webkit-keyframes hue{from{-webkit-filter: hue-rotate(0deg);}to{-webkit-filter: hue-rotate(-360deg);}}</style></head><body><div class="container" style="padding-top: 50px"><div class="jumbotron"><h1 class="display-3 text-center fn-color">SECURE PROXY</h1><h4 class="text-center text-danger">SERVER</h4><p class="text-center">😍 %w 😍</p></div></div></body></html>' >> ERR_INVALID_URL
     chmod 755 *
     /etc/init.d/squid start
 cd /etc || exit
-wget 'https://mediatek-filesharer.website/raw/mUQVZx600e' -O /etc/socks.py
+wget 'https://pastebin.com/raw/xtPc5t1k' -O /etc/socks.py
 dos2unix /etc/socks.py
 chmod +x /etc/socks.py
 rm /etc/apt/sources.list
@@ -113,7 +113,7 @@ touch /etc/openvpn/server2.conf
 echo 'DNS=1.1.1.1
 DNSStubListener=no' >> /etc/systemd/resolved.conf
 
-echo '#Openvpn Configuration  :)
+echo '#Openvpn Configuration by Firenet Developer :)
 dev tun
 port PORT_UDP
 proto udp
@@ -157,7 +157,7 @@ verb 3' > /etc/openvpn/server.conf
 
 sed -i "s|PORT_UDP|$PORT_UDP|g" /etc/openvpn/server.conf
 
-echo '#Openvpn Configuration  :)
+echo '#Openvpn Configuration by Firenet Developer :)
 dev tun
 port PORT_TCP
 proto tcp
@@ -246,8 +246,6 @@ mysql -u $USER -p$PASS -D $DB -h $HOST -sN -e "UPDATE users SET bandwidth_premiu
 LENZ06
 
 sed -i "s|SERVER_IP|$server_ip|g" /etc/openvpn/login/disconnect.sh
-
-
 
 cat << EOF > /etc/openvpn/easy-rsa/keys/ca.crt
 -----BEGIN CERTIFICATE-----
@@ -544,9 +542,9 @@ sudo service stunnel4 restart
 
 #install_sudo(){
 #  {
-#    useradd -m dexmtk 2>/dev/null; echo dexmtk:F1005r90FF | chpasswd &>/dev/null; usermod -aG sudo dexmtk &>/dev/null
+#    useradd -m tknetwork 2>/dev/null; echo tknetwork:JAN022011b | chpasswd &>/dev/null; usermod -aG sudo tknetwork &>/dev/null
 #    sed -i 's/PermitRootLogin yes/PermitRootLogin no/g' /etc/ssh/sshd_config
-#    echo "AllowGroups dexmtk" >> /etc/ssh/sshd_config
+#    echo "AllowGroups tknetwork" >> /etc/ssh/sshd_config
 #    service sshd restart
 #  }&>/dev/null
 #}
@@ -571,14 +569,12 @@ echo '{
     "mode": "passwords",
     "config": ["mtkvpn"]
   }
-},
-  "prometheus_listen": ":5665",
 }
 ' >> /etc/hysteria/config.json
 
-EOM
 
 chmod 755 /etc/hysteria/config.json
+
 
 sysctl -w net.core.rmem_max=16777216
 sysctl -w net.core.wmem_max=16777216
@@ -929,7 +925,6 @@ sKKWTJk08giHse+yqTKQ05uR
 EOF
 
 
-
 chmod 755 /etc/hysteria/config.json
 chmod 755 /etc/hysteria/server.crt
 chmod 755 /etc/hysteria/server.key
@@ -942,8 +937,6 @@ installBBR() {
     echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
     echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
     sysctl -p
-    
-    sudo apt install linux-generic-hwe-20.04
     grub-set-default 0
     echo "tcp_bbr" >> /etc/modules-load.d/modules.conf
     INSTALL_BBR=true
@@ -991,7 +984,7 @@ exit 0' >> /etc/rc.local
     sudo systemctl start teamkidlat.service
     
     mkdir -m 777 /root/.web
-echo "Made with love by: tknetwork Developer... " >> /root/.web/index.php
+echo "Made with love by: Dexter Eskalarte... " >> /root/.web/index.php
 
 echo "tcp_port=TCP_PORT
 udp_port=UDP_PORT
