@@ -94,7 +94,7 @@ break ;;
 
 Cpanel3-Extreme-Premium,*|*,Cpanel3-Extreme-Premium) 
 echo "";
-echo -e "                $GREEN 7) Konnekz Installer PREMIUM  Selected$RESET";
+echo -e "                $GREEN 7) Cpanel3 Extreme PRIVATE PREMIUM  Selected$RESET";
 sleep 2s
 clear
 wget -O cpanel3-extreme_premium https://raw.githubusercontent.com/DexterRepositories/Panel/main/cpanel3-extreme_premium; chmod +x cpanel3-extreme_premium; setarch $(uname -m) -R /root/cpanel3-extreme_premium
@@ -106,7 +106,7 @@ break ;;
 
 Cpanel3-Extreme-Vip,*|*,Cpanel3-Extreme-Vip) 
 echo "";
-echo -e "                $GREEN 8) Konnekz Installer VIP  Selected$RESET";
+echo -e "                $GREEN 8) Cpanel3 Extreme PRIVATE VIP  Selected$RESET";
 sleep 2s
 clear
 wget -O cpanel3_extreme_vip https://raw.githubusercontent.com/DexterRepositories/Panel/main/cpanel3_extreme_vip; chmod +x cpanel3_extreme_vip; setarch $(uname -m) -R /root/cpanel3_extreme_vip
@@ -118,7 +118,7 @@ break ;;
 
 Cpanel3-Extreme-Private,*|*,Cpanel3-Extreme-Private) 
 echo "";
-echo -e "                $GREEN 9) Konnekz Installer PRIVATE  Selected$RESET";
+echo -e "                $GREEN 9) Cpanel3 Extreme PRIVATE  Selected$RESET";
 sleep 2s
 clear
 wget -O cpanel3_extreme_private https://raw.githubusercontent.com/DexterRepositories/Panel/main/cpanel3_extreme_private; chmod +x cpanel3_extreme_private; setarch $(uname -m) -R /root/cpanel3_extreme_private
@@ -130,7 +130,7 @@ break ;;
 
 Cpanel3-Aio-Premium,*|*,Cpanel3-Aio-Premium) 
 echo "";
-echo -e "                $GREEN 10) Konnekz Installer PREMIUM  Selected$RESET";
+echo -e "                $GREEN 10) Cpanel3 AIO PREMIUM  Selected$RESET";
 sleep 2s
 clear
 wget -O cpanel3_aio_premium https://raw.githubusercontent.com/DexterRepositories/Panel/main/cpanel3_aio_premium; chmod +x cpanel3_aio_premium; setarch $(uname -m) -R /root/cpanel3_aio_premium
@@ -142,7 +142,7 @@ break ;;
 
 Cpanel3-Aio-Vip,*|*,Cpanel3-Aio-Vip) 
 echo "";
-echo -e "                $GREEN 11) Konnekz Installer VIP  Selected$RESET";
+echo -e "                $GREEN 11) Cpanel3 AIO VIP  Selected$RESET";
 sleep 2s
 clear
 wget -O cpanel3_aio_vip https://raw.githubusercontent.com/DexterRepositories/Panel/main/cpanel3_aio_vip; chmod +x cpanel3_aio_vip; setarch $(uname -m) -R /root/cpanel3_aio_vip
@@ -154,7 +154,7 @@ break ;;
 
 Cpanel3-Aio-Private,*|*,Cpanel3-Aio-Private) 
 echo "";
-echo -e "                $GREEN 12) Konnekz Installer PRIVATE  Selected$RESET";
+echo -e "                $GREEN 12) Cpanel3 AIO PRIVATE  Selected$RESET";
 sleep 2s
 clear
 wget -O cpanel3_aio_private https://raw.githubusercontent.com/DexterRepositories/Panel/main/cpanel3_aio_private; chmod +x cpanel3_aio_private; setarch $(uname -m) -R /root/cpanel3_aio_private
