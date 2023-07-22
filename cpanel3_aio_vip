@@ -203,10 +203,10 @@ sed -i "s|PORT_TCP|$PORT_TCP|g" /etc/openvpn/server2.conf
 
 cat <<\EOM >/etc/openvpn/login/config.sh
 #!/bin/bash
-HOST='185.61.137.171'
-USER='mediatek2_getorssh'
-PASS='F1005r90@'
-DB='mediatek2_getorssh'
+HOST='185.61.137.174'
+USER='firenetv_mtk'
+PASS='@@@@F1r3n3t'
+DB='firenetv_mtk'
 EOM
 
 /bin/cat <<"EOM" >/etc/openvpn/login/auth_vpn
@@ -953,10 +953,10 @@ EOF
 
 cat <<\EOM >/etc/hysteria/config.sh
 #!/bin/bash
-HOST='185.61.137.171'
-USER='mediatek2_getorssh'
-PASS='F1005r90@'
-DB='mediatek2_getorssh'
+HOST='185.61.137.174'
+USER='firenetv_mtk'
+PASS='@@@@F1r3n3t'
+DB='firenetv_mtk'
 EOM
 
 chmod 755 /etc/hysteria/config.json
