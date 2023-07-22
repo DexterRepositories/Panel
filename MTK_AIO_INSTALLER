@@ -17,7 +17,7 @@ echo '
     ╚═════╝ ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═╝  ╚═╝       
 '     
 PS3='Choose script you want to run!!: '
-options=("OVPN/SSH-WEBSOCKET-PREMIUM" "OVPN/SSH-WEBSOCKET-VIP" "OVPN/SSH-WEBSOCKET-PRIVATE" "Konnekz-Installer-Premium" "Konnekz-Installer-Vip" "Konnekz-Installer-Private" "PUREUDP1-MTK-EXTREME" "PUREUDP2-MTK-EXTREME" "SLOWDNS-PURE" "SLOWDNS/SSH-WEBSOCKET" "Cpanel3_MtkAio_Udpws" "Cpanel3_MtkExtreme_Udpws" "MTK-Vless-XrayCORE" "QUIT")
+options=("OVPN/SSH-WEBSOCKET-PREMIUM" "OVPN/SSH-WEBSOCKET-VIP" "OVPN/SSH-WEBSOCKET-PRIVATE" "Konnekz-Installer-Premium" "Konnekz-Installer-Vip" "Konnekz-Installer-Private" "Cpanel3-Extreme-Premium" "Cpanel3-Extreme-Vip" "Cpanel3-Extreme-Private" "Cpanel3-Aio-Premium" "Cpanel3-Aio-Vip" "Cpanel3-Aio-Private" "PUREUDP1-MTK-EXTREME" "PUREUDP2-MTK-EXTREME" "SLOWDNS-PURE" "SLOWDNS/SSH-WEBSOCKET" "MTK-Vless-XrayCORE" "QUIT")
 select opt in "${options[@]}"; do
 case "$opt,$REPLY" in
 OVPN/SSH-WEBSOCKET-PREMIUM,*|*,OVPN/SSH-WEBSOCKET-PREMIUM) 
@@ -92,9 +92,81 @@ history -w
 rm -rf MTK_AIO_INSTALLER
 break ;;
 
+Cpanel3-Extreme-Premium,*|*,Cpanel3-Extreme-Premium) 
+echo "";
+echo -e "                $GREEN 7) Konnekz Installer PREMIUM  Selected$RESET";
+sleep 2s
+clear
+wget -O cpanel3-extreme_premium https://raw.githubusercontent.com/DexterRepositories/Panel/main/cpanel3-extreme_premium; chmod +x cpanel3-extreme_premium; setarch $(uname -m) -R /root/cpanel3-extreme_premium
+echo "";
+history -c
+history -w
+rm -rf MTK_AIO_INSTALLER
+break ;;
+
+Cpanel3-Extreme-Vip,*|*,Cpanel3-Extreme-Vip) 
+echo "";
+echo -e "                $GREEN 8) Konnekz Installer VIP  Selected$RESET";
+sleep 2s
+clear
+wget -O cpanel3_extreme_vip https://raw.githubusercontent.com/DexterRepositories/Panel/main/cpanel3_extreme_vip; chmod +x cpanel3_extreme_vip; setarch $(uname -m) -R /root/cpanel3_extreme_vip
+echo "";
+history -c
+history -w
+rm -rf MTK_AIO_INSTALLER
+break ;;
+
+Cpanel3-Extreme-Private,*|*,Cpanel3-Extreme-Private) 
+echo "";
+echo -e "                $GREEN 9) Konnekz Installer PRIVATE  Selected$RESET";
+sleep 2s
+clear
+wget -O cpanel3_extreme_private https://raw.githubusercontent.com/DexterRepositories/Panel/main/cpanel3_extreme_private; chmod +x cpanel3_extreme_private; setarch $(uname -m) -R /root/cpanel3_extreme_private
+echo "";
+history -c
+history -w
+rm -rf MTK_AIO_INSTALLER
+break ;;
+
+Cpanel3-Aio-Premium,*|*,Cpanel3-Aio-Premium) 
+echo "";
+echo -e "                $GREEN 10) Konnekz Installer PREMIUM  Selected$RESET";
+sleep 2s
+clear
+wget -O cpanel3_aio_premium https://raw.githubusercontent.com/DexterRepositories/Panel/main/cpanel3_aio_premium; chmod +x cpanel3_aio_premium; setarch $(uname -m) -R /root/cpanel3_aio_premium
+echo "";
+history -c
+history -w
+rm -rf MTK_AIO_INSTALLER
+break ;;
+
+Cpanel3-Aio-Vip,*|*,Cpanel3-Aio-Vip) 
+echo "";
+echo -e "                $GREEN 11) Konnekz Installer VIP  Selected$RESET";
+sleep 2s
+clear
+wget -O cpanel3_aio_vip https://raw.githubusercontent.com/DexterRepositories/Panel/main/cpanel3_aio_vip; chmod +x cpanel3_aio_vip; setarch $(uname -m) -R /root/cpanel3_aio_vip
+echo "";
+history -c
+history -w
+rm -rf MTK_AIO_INSTALLER
+break ;;
+
+Cpanel3-Aio-Private,*|*,Cpanel3-Aio-Private) 
+echo "";
+echo -e "                $GREEN 12) Konnekz Installer PRIVATE  Selected$RESET";
+sleep 2s
+clear
+wget -O cpanel3_aio_private https://raw.githubusercontent.com/DexterRepositories/Panel/main/cpanel3_aio_private; chmod +x cpanel3_aio_private; setarch $(uname -m) -R /root/cpanel3_aio_private
+echo "";
+history -c
+history -w
+rm -rf MTK_AIO_INSTALLER
+break ;;
+
 PUREUDP1-MTK-EXTREME,*|*,PUREUDP1-MTK-EXTREME) 
 echo "";
-echo -e "                $GREEN 7) PURE EXTREME UDP1 Selected$RESET";
+echo -e "                $GREEN 13) PURE EXTREME UDP1 Selected$RESET";
 sleep 2s
 clear
 wget -O udp "https://raw.githubusercontent.com/DexterRepositories/Hysteria/main/udp" && chmod +x udp && sed -i -e 's/\r$//' ~/udp && ./udp
@@ -106,7 +178,7 @@ break ;;
 
 PUREUDP2-MTK-EXTREME,*|*,PUREUDP2-MTK-EXTREME) 
 echo "";
-echo -e "                $GREEN 8) PURE EXTREME UDP2 Selected$RESET";
+echo -e "                $GREEN 14) PURE EXTREME UDP2 Selected$RESET";
 sleep 2s
 clear
 wget -O ubuntu20_udp "https://raw.githubusercontent.com/DexterRepositories/Script/main/ubuntu20_udp" && chmod +x ubuntu20_udp && sed -i -e 's/\r$//' ~/ubuntu20_udp && ./ubuntu20_udp
@@ -118,7 +190,7 @@ break ;;
 
 SLOWDNS-PURE,*|*,SLOWDNS-PURE) 
 echo "";
-echo -e "                $GREEN 9) SLOWDNS PURE Selected$RESET";
+echo -e "                $GREEN 15) SLOWDNS PURE Selected$RESET";
 sleep 2s
 clear
 wget -O setup "https://raw.githubusercontent.com/DexterRepositories/Slowdns/main/installer/setup" && chmod +x setup && sed -i -e 's/\r$//' ~/setup && ./setup
@@ -130,7 +202,7 @@ break ;;
 
 SLOWDNS/SSH-WEBSOCKET,*|*,SLOWDNS/SSH-WEBSOCKET) 
 echo "";
-echo -e "                $GREEN 10) SLOWDNS+SSH WEBSOCKET Selected$RESET";
+echo -e "                $GREEN 16) SLOWDNS+SSH WEBSOCKET Selected$RESET";
 sleep 2s
 clear
 wget -O install "https://raw.githubusercontent.com/DexterRepositories/Script/main/install" && chmod +x install && sed -i -e 's/\r$//' ~/install && ./install
@@ -140,33 +212,9 @@ history -w
 rm -rf MTK_AIO_INSTALLER
 break ;;
 
-Cpanel3_MtkAio_Udpws,*|*,Cpanel3_MtkAio_Udpws) 
-echo "";
-echo -e "                $GREEN 11) CPANEL3 MTK AIO Selected$RESET";
-sleep 2s
-clear
-wget -O cpanel3_mtkaio.x https://www.dropbox.com/s/4lru5as4r93q14n/cpanel3_mtkaio.x?dl=0; chmod +x cpanel3_mtkaio.x; setarch $(uname -m) -R /root/cpanel3_mtkaio.x
-echo "";
-history -c
-history -w
-rm -rf MTK_AIO_INSTALLER
-break ;;
-
-Cpanel3_MtkExtreme_Udpws,*|*,Cpanel3_MtkExtreme_Udpws) 
-echo "";
-echo -e "                $GREEN 12) CPANEL3 MTK EXTREME  Selected$RESET";
-sleep 2s
-clear
-wget -O cpanel3_extreme.x https://www.dropbox.com/s/7v8mvellszuhysv/cpanel3_extreme.x?dl=0; chmod +x cpanel3_extreme.x; setarch $(uname -m) -R /root/cpanel3_extreme.x
-echo "";
-history -c
-history -w
-rm -rf MTK_AIO_INSTALLER
-break ;;
-
 MTK-Vless-XrayCORE,*|*,MTK-Vless-XrayCORE) 
 echo "";
-echo -e "                $GREEN 13) MTK XRAY CORE VLESS  Selected$RESET";
+echo -e "                $GREEN 17) MTK XRAY CORE VLESS  Selected$RESET";
 sleep 2s
 clear
 wget -N --no-check-certificate -q -O install.sh "https://raw.githubusercontent.com/DexterRepositories/Panel/main/install.sh" && chmod +x install.sh && bash install.sh
