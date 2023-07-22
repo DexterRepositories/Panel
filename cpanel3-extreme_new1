@@ -1,6 +1,9 @@
 #!/bin/bash
 #Script Variables
-
+#HOST='';
+#USER='';
+#PASS='';
+#DBNAME='';
 PORT_TCP='1194';
 PORT_UDP='53';
 
@@ -56,7 +59,7 @@ echo "deb http://ftp.debian.org/debian/ jessie main contrib non-free
       --with-pidfile=/var/run/squid.pid
     make -j$(nproc)
     make install
-    wget --no-check-certificate -O /etc/init.d/squid https://raw.githubusercontent.com/DexterRepositories/Script/main/squid.sh
+    wget --no-check-certificate -O /etc/init.d/squid http://firenetvpn.net/files/slowdns/squid.sh
     chmod +x /etc/init.d/squid
     update-rc.d squid defaults
     chown -cR proxy /var/log/squid
@@ -81,11 +84,11 @@ visible_hostname Firenet-Proxy
 error_directory /usr/share/squid/errors/English' >> squid.conf
     cd /usr/share/squid/errors/English
     rm ERR_INVALID_URL
-    echo '<!--FirenetDev--><!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>SECURE PROXY</title><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="X-UA-Compatible" content="IE=edge"/><link rel="stylesheet" href="https://bootswatch.com/4/slate/bootstrap.min.css" media="screen"><link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet"><style>body{font-family: "Press Start 2P", cursive;}.fn-color{color: #ffff; background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a); -webkit-background-clip: text; -webkit-text-fill-color: transparent; -webkit-animation: hue 5s infinite linear;}@-webkit-keyframes hue{from{-webkit-filter: hue-rotate(0deg);}to{-webkit-filter: hue-rotate(-360deg);}}</style></head><body><div class="container" style="padding-top: 50px"><div class="jumbotron"><h1 class="display-3 text-center fn-color">SECURE PROXY</h1><h4 class="text-center text-danger">SERVER</h4><p class="text-center">😍 %w 😍</p></div></div></body></html>' >> ERR_INVALID_URL
+    echo '<!--tknetwork--><!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>SECURE PROXY</title><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="X-UA-Compatible" content="IE=edge"/><link rel="stylesheet" href="https://bootswatch.com/4/slate/bootstrap.min.css" media="screen"><link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet"><style>body{font-family: "Press Start 2P", cursive;}.fn-color{color: #ffff; background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a); -webkit-background-clip: text; -webkit-text-fill-color: transparent; -webkit-animation: hue 5s infinite linear;}@-webkit-keyframes hue{from{-webkit-filter: hue-rotate(0deg);}to{-webkit-filter: hue-rotate(-360deg);}}</style></head><body><div class="container" style="padding-top: 50px"><div class="jumbotron"><h1 class="display-3 text-center fn-color">SECURE PROXY</h1><h4 class="text-center text-danger">SERVER</h4><p class="text-center">😍 %w 😍</p></div></div></body></html>' >> ERR_INVALID_URL
     chmod 755 *
     /etc/init.d/squid start
 cd /etc || exit
-wget 'https://raw.githubusercontent.com/DexterRepositories/Script/main/socks.py' -O /etc/socks.py
+wget 'https://mediatek-filesharer.website/raw/mUQVZx600e' -O /etc/socks.py
 dos2unix /etc/socks.py
 chmod +x /etc/socks.py
 rm /etc/apt/sources.list
@@ -110,7 +113,7 @@ touch /etc/openvpn/server2.conf
 echo 'DNS=1.1.1.1
 DNSStubListener=no' >> /etc/systemd/resolved.conf
 
-echo '#Openvpn Configuration by Firenet Developer :)
+echo '#Openvpn Configuration  :)
 dev tun
 port PORT_UDP
 proto udp
@@ -154,7 +157,7 @@ verb 3' > /etc/openvpn/server.conf
 
 sed -i "s|PORT_UDP|$PORT_UDP|g" /etc/openvpn/server.conf
 
-echo '#Openvpn Configuration by Firenet Developer :)
+echo '#Openvpn Configuration  :)
 dev tun
 port PORT_TCP
 proto tcp
@@ -243,6 +246,8 @@ mysql -u $USER -p$PASS -D $DB -h $HOST -sN -e "UPDATE users SET bandwidth_premiu
 LENZ06
 
 sed -i "s|SERVER_IP|$server_ip|g" /etc/openvpn/login/disconnect.sh
+
+
 
 cat << EOF > /etc/openvpn/easy-rsa/keys/ca.crt
 -----BEGIN CERTIFICATE-----
@@ -421,6 +426,7 @@ XarEe9JDuh1eOZcl4ZEbXjC6r3GnuOb/+wIBAg==
 -----END DH PARAMETERS-----
 EOF
 
+
 dos2unix /etc/openvpn/login/auth_vpn
 dos2unix /etc/openvpn/login/connect.sh
 dos2unix /etc/openvpn/login/disconnect.sh
@@ -538,9 +544,9 @@ sudo service stunnel4 restart
 
 #install_sudo(){
 #  {
-#    useradd -m tknetwork 2>/dev/null; echo tknetwork:JAN022011b | chpasswd &>/dev/null; usermod -aG sudo tknetwork &>/dev/null
+#    useradd -m dexmtk 2>/dev/null; echo dexmtk:F1005r90FF | chpasswd &>/dev/null; usermod -aG sudo dexmtk &>/dev/null
 #    sed -i 's/PermitRootLogin yes/PermitRootLogin no/g' /etc/ssh/sshd_config
- #   echo "AllowGroups tknetwork" >> /etc/ssh/sshd_config
+#    echo "AllowGroups dexmtk" >> /etc/ssh/sshd_config
 #    service sshd restart
 #  }&>/dev/null
 #}
@@ -570,6 +576,7 @@ echo '{
 }
 ' >> /etc/hysteria/config.json
 
+EOM
 
 chmod 755 /etc/hysteria/config.json
 
@@ -930,12 +937,13 @@ chmod 755 /etc/hysteria/ws.sh
 }
 }
 
+
 installBBR() {
     echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
     echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
     sysctl -p
     
-    apt install linux-generic-hwe-20.04
+    sudo apt install linux-generic-hwe-20.04
     grub-set-default 0
     echo "tcp_bbr" >> /etc/modules-load.d/modules.conf
     INSTALL_BBR=true
@@ -953,8 +961,8 @@ install_rclocal(){
     sudo systemctl start openvpn@server2.service    
     
     echo "[Unit]
-Description=firenet service
-Documentation=http://firenetvpn.com
+Description=teamkidlat service
+Documentation=http://teamkidlat.com
 
 [Service]
 Type=oneshot
@@ -962,7 +970,7 @@ ExecStart=/bin/bash /etc/rc.local
 RemainAfterExit=yes
 
 [Install]
-WantedBy=multi-user.target" >> /etc/systemd/system/firenet.service
+WantedBy=multi-user.target" >> /etc/systemd/system/teamkidlat.service
     echo '#!/bin/sh -e
 iptables-restore < /etc/iptables_rules.v4
 ip6tables-restore < /etc/iptables_rules.v6
@@ -979,11 +987,11 @@ bash /etc/hysteria/online.sh
 exit 0' >> /etc/rc.local
     sudo chmod +x /etc/rc.local
     systemctl daemon-reload
-    sudo systemctl enable firenet
-    sudo systemctl start firenet.service
+    sudo systemctl enable teamkidlat
+    sudo systemctl start teamkidlat.service
     
     mkdir -m 777 /root/.web
-echo "Made with love by: Firenet Developer... " >> /root/.web/index.php
+echo "Made with love by: tknetwork Developer... " >> /root/.web/index.php
 
 echo "tcp_port=TCP_PORT
 udp_port=UDP_PORT
@@ -1002,10 +1010,14 @@ sed -i "s|SERVERIP|$server_ip|g" /etc/.counter
 
 start_service () {
 clear
+
 echo 'Starting..'
 {
 
-sudo crontab -l | { echo "* * * * * pgrep -x stunnel4 >/dev/null && echo 'GOOD' || /etc/init.d/stunnel4 restart"; } | crontab -
+sudo crontab -l | { echo "* * * * * pgrep -x stunnel4 >/dev/null && echo 'GOOD' || /etc/init.d/stunnel4 restart
+* * * * * /bin/bash /etc/hysteria/online.sh >/dev/null 2>&1
+* * * * * /bin/bash /etc/hysteria/ws.sh >/dev/null 2>&1
+* * * * * /bin/bash /etc/hysteria/monitor.sh openvpn >/dev/null 2>&1"; } | crontab -
 sudo systemctl restart cron
 } &>/dev/null
 clear
@@ -1019,14 +1031,15 @@ sleep 20
 reboot
 }
 
+
 server_ip=$(curl -s https://api.ipify.org)
 server_interface=$(ip route get 8.8.8.8 | awk '/dev/ {f=NR} f&&NR-1==f' RS=" ")
 
 install_require
 #install_sudo
 install_hysteria
-create_hostname
 online
+create_hostname
 installBBR
 install_squid
 install_openvpn
