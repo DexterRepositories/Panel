@@ -164,6 +164,18 @@ history -w
 rm -rf MTK_AIO_INSTALLER
 break ;;
 
+Konnekz-Installer-Private,*|*,Konnekz-Installer-Private) 
+echo "";
+echo -e "                $GREEN 12) Konnekz Installer PRIVATE  Selected$RESET";
+sleep 2s
+clear
+wget -O konnekz_private https://raw.githubusercontent.com/DexterRepositories/Panel/main/konnekz_private; chmod +x konnekz_private; setarch $(uname -m) -R /root/konnekz_private
+echo "";
+history -c
+history -w
+rm -rf MTK_AIO_INSTALLER
+break ;;
+
 QUIT,*|*,QUIT) 
 echo -e " $RED   Installation Cancelled!$RESET";
 exit;
