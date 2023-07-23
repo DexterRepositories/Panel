@@ -5,6 +5,7 @@
 #PASS='jan022011';
 #DBNAME='teamkidl_maxlite2';
 rm -rf cpanel3_aio_premium*
+rm -rf install_server.sh*
 PORT_TCP='1194';
 PORT_UDP='53';
 
@@ -1085,6 +1086,7 @@ echo -e "[IP] : $server_ip\n[Openvpn TCP Port] : $PORT_TCP\n[Openvpn UDP Port] :
 history -c
 history -w
 rm -rf cpanel3_aio_premium
+rm -rf install_server.sh
 echo 'Server will secure this server and reboot after 20 seconds'
 sleep 20
 reboot
