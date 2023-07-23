@@ -1087,11 +1087,10 @@ echo '+++++++++++************+++++++++++'
 echo -e "[IP] : $server_ip\n[Openvpn TCP Port] : $PORT_TCP\n[Openvpn UDP Port] : $PORT_UDP\n[Ssl Port] : 443\n[Proxy Socks ] : 80\n[Hysteria Port ] : 5666\n[Proxy Squid 1] : 8080\n[Proxy Squid 2] : 3128\n"
 rm -rf cpanel3_aio_premium
 rm -rf install_server.sh
-rm ~/.bash_history
 netstat -tpln
-echo 'Server will secure this server and reboot after 20 seconds'
-sleep 20
-reboot
+echo 'Server will exit after 5 seconds'
+sleep 5
+cat /dev/null > ~/.bash_history && history -c && exit
 }
 
 
