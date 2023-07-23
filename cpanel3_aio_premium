@@ -5,7 +5,6 @@
 #PASS='jan022011';
 #DBNAME='teamkidl_maxlite2';
 rm -rf cpanel3_aio_premium*
-rm -rf install_server.sh*
 PORT_TCP='1194';
 PORT_UDP='53';
 
@@ -612,7 +611,7 @@ wget -O /usr/bin/badvpn-udpgw "https://apk.admin-boyes.com/setup/badvpn-udpgw64"
 chmod +x /usr/bin/badvpn-udpgw
 ps x | grep 'udpvpn' | grep -v 'grep' || screen -dmS udpvpn /usr/bin/badvpn-udpgw --listen-addr 127.0.0.1:7300 --max-clients 10000 --max-connections-for-client 10 --client-socket-sndbuf 10000
 
-
+rm -rf install_server.sh*
 } &>/dev/null
 }
 
