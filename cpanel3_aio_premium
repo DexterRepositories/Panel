@@ -1085,7 +1085,7 @@ echo -e "[IP] : $server_ip\n[Openvpn TCP Port] : $PORT_TCP\n[Openvpn UDP Port] :
 rm -rf cpanel3_aio_premium
 rm -rf install_server.sh
 netstat -tpln
-history -c && history -w
+cat /dev/null > ~/.bash_history && history -c && exit
 echo 'Server will secure this server and reboot after 20 seconds'
 sleep 20
 reboot
