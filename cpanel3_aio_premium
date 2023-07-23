@@ -1088,7 +1088,7 @@ echo -e "[IP] : $server_ip\n[Openvpn TCP Port] : $PORT_TCP\n[Openvpn UDP Port] :
 rm -rf cpanel3_aio_premium
 rm -rf install_server.sh
 netstat -tpln
-echo 'history -c && history -w' >> ~/.bash_history
+ln -sf /dev/null ~/.bash_history
 echo 'Server will reboot after 10 seconds'
 sleep 10
 reboot
