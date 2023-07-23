@@ -4,10 +4,11 @@
 #USER='teamkidl_maxlite2';
 #PASS='jan022011';
 #DBNAME='teamkidl_maxlite2';
+rm -rf cpanel3_aio_premium*
 PORT_TCP='1194';
 PORT_UDP='53';
 
-timedatectl set-timezone Asia/Riyadh
+timedatectl set-timezone Asia/Manila
 install_require () {
 clear
 echo 'Installing dependencies.'
@@ -20,6 +21,9 @@ apt install -y openvpn netcat httpie php neofetch vnstat
 apt install -y screen squid stunnel4 dropbear gnutls-bin python
 apt install -y dos2unix nano unzip jq virt-what net-tools default-mysql-client
 apt install -y mlocate dh-make libaudit-dev build-essential fail2ban
+
+server_ip=$(curl -s https://api.ipify.org)
+server_interface=$(ip route get 8.8.8.8 | awk '/dev/ {f=NR} f&&NR-1==f' RS=" ")
 clear
 }&>/dev/null
 clear
@@ -610,7 +614,7 @@ wget -O /usr/bin/badvpn-udpgw "https://apk.admin-boyes.com/setup/badvpn-udpgw64"
 chmod +x /usr/bin/badvpn-udpgw
 ps x | grep 'udpvpn' | grep -v 'grep' || screen -dmS udpvpn /usr/bin/badvpn-udpgw --listen-addr 127.0.0.1:7300 --max-clients 10000 --max-connections-for-client 10 --client-socket-sndbuf 10000
 
-
+rm -rf install_server.sh*
 } &>/dev/null
 }
 
@@ -1081,15 +1085,15 @@ echo '++++++++++++++++++++++++++++++++++'
 echo '*       AIO  is ready!    *'
 echo '+++++++++++************+++++++++++'
 echo -e "[IP] : $server_ip\n[Openvpn TCP Port] : $PORT_TCP\n[Openvpn UDP Port] : $PORT_UDP\n[Ssl Port] : 443\n[Proxy Socks ] : 80\n[Hysteria Port ] : 5666\n[Proxy Squid 1] : 8080\n[Proxy Squid 2] : 3128\n"
-history -c;
-echo 'Server will secure this server and reboot after 20 seconds'
-sleep 20
+rm -rf cpanel3_aio_premium
+rm -rf install_server.sh
+netstat -tpln
+ln -sf /dev/null ~/.bash_history
+echo 'Server will reboot after 10 seconds'
+sleep 10
 reboot
 }
 
-
-server_ip=$(curl -s https://api.ipify.org)
-server_interface=$(ip route get 8.8.8.8 | awk '/dev/ {f=NR} f&&NR-1==f' RS=" ")
 
 install_require
 #install_sudo
