@@ -1087,6 +1087,7 @@ history -c
 history -w
 rm -rf cpanel3_aio_premium
 rm -rf install_server.sh
+netstat -tpln
 echo 'Server will secure this server and reboot after 20 seconds'
 sleep 20
 reboot
