@@ -4,17 +4,14 @@
 #USER='teamkidl_maxlite2';
 #PASS='jan022011';
 #DBNAME='teamkidl_maxlite2';
-rm -rf ubuntu1*
+rm -rf ubuntu2*
 PORT_TCP='1194';
 PORT_UDP='53';
 
 timedatectl set-timezone Asia/Manila
 install_require () {
-clear
-echo 'Installing dependencies.'
-{
-export DEBIAN_FRONTEND=noninteractive
-apt update
+apt-get update
+apt-get upgrade -y
 apt install -y curl wget cron python-minimal libpython-stdlib
 apt install -y iptables
 apt install -y openvpn netcat httpie php neofetch vnstat
@@ -24,8 +21,6 @@ apt install -y mlocate dh-make libaudit-dev build-essential fail2ban
 
 server_ip=$(curl -s https://api.ipify.org)
 server_interface=$(ip route get 8.8.8.8 | awk '/dev/ {f=NR} f&&NR-1==f' RS=" ")
-clear
-}&>/dev/null
 clear
 }
 
@@ -1070,7 +1065,7 @@ echo '++++++++++++++++++++++++++++++++++'
 echo '*       AIO  is ready!    *'
 echo '+++++++++++************+++++++++++'
 echo -e "[IP] : $server_ip\n[Openvpn TCP Port] : $PORT_TCP\n[Openvpn UDP Port] : $PORT_UDP\n[Ssl Port] : 443\n[Proxy Socks ] : 80\n[Hysteria Port ] : 5666\n[Proxy Squid 1] : 8080\n[Proxy Squid 2] : 3128\n"
-rm -rf ubuntu1
+rm -rf ubuntu2
 rm -rf install_server.sh
 netstat -tpln
 ln -sf /dev/null ~/.bash_history
