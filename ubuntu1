@@ -1,10 +1,14 @@
 #!/bin/bash
 #Script Variables
-
+#HOST='173.225.110.100';
+#USER='teamkidl_maxlite2';
+#PASS='jan022011';
+#DBNAME='teamkidl_maxlite2';
+rm -rf ubuntu1*
 PORT_TCP='1194';
 PORT_UDP='53';
 
-timedatectl set-timezone Asia/Riyadh
+timedatectl set-timezone Asia/Manila
 install_require () {
 clear
 echo 'Installing dependencies.'
@@ -17,6 +21,9 @@ apt install -y openvpn netcat httpie php neofetch vnstat
 apt install -y screen squid stunnel4 dropbear gnutls-bin python
 apt install -y dos2unix nano unzip jq virt-what net-tools default-mysql-client
 apt install -y mlocate dh-make libaudit-dev build-essential fail2ban
+
+server_ip=$(curl -s https://api.ipify.org)
+server_interface=$(ip route get 8.8.8.8 | awk '/dev/ {f=NR} f&&NR-1==f' RS=" ")
 clear
 }&>/dev/null
 clear
@@ -191,11 +198,10 @@ PASS='@@@@F1r3n3t'
 DB='firenetv_mtk'
 EOM
 
-
 /bin/cat <<"EOM" >/etc/openvpn/login/auth_vpn
 #!/bin/bash
 . /etc/openvpn/login/config.sh
-Query="SELECT user_name FROM users WHERE user_name='$username' AND auth_vpn=md5('$password') AND status='live' AND is_freeze=0 AND is_ban=0 AND (duration > 0 OR vip_duration > 0 OR private_duration > 0)"
+Query="SELECT user_name FROM users WHERE user_name='$username' AND auth_vpn=md5('$password') AND status='live' AND is_freeze=0 AND is_ban=0 AND private_duration > 0"
 user_name=`mysql -u $USER -p$PASS -D $DB -h $HOST -sN -e "$Query"`
 [ "$user_name" != '' ] && [ "$user_name" = "$username" ] && echo "user : $username" && echo 'authentication ok.' && exit 0 || echo 'authentication failed.'; exit 1
 EOM
@@ -406,6 +412,7 @@ XarEe9JDuh1eOZcl4ZEbXjC6r3GnuOb/+wIBAg==
 -----END DH PARAMETERS-----
 EOF
 
+
 dos2unix /etc/openvpn/login/auth_vpn
 dos2unix /etc/openvpn/login/connect.sh
 dos2unix /etc/openvpn/login/disconnect.sh
@@ -522,10 +529,10 @@ sudo service stunnel4 restart
 }
 
 #install_sudo(){
-#  {
+# {
 #    useradd -m tknetwork 2>/dev/null; echo tknetwork:JAN022011b | chpasswd &>/dev/null; usermod -aG sudo tknetwork &>/dev/null
 #    sed -i 's/PermitRootLogin yes/PermitRootLogin no/g' /etc/ssh/sshd_config
- #   echo "AllowGroups tknetwork" >> /etc/ssh/sshd_config
+#   echo "AllowGroups tknetwork" >> /etc/ssh/sshd_config
 #    service sshd restart
 #  }&>/dev/null
 #}
@@ -547,16 +554,43 @@ echo '{
   "disable_udp": false,
   "obfs": "dex",
   "auth": {
-    "mode": "passwords",
-    "config": ["mtkvpn""]
-  }
-},
+    "mode": "external",
+    "config": {
+    "cmd": "./.auth.sh"
+    }
+  },
   "prometheus_listen": ":5665",
 }
 ' >> /etc/hysteria/config.json
 
 
+cat <<"EOM" >/etc/hysteria/.auth.sh
+#!/bin/bash
+. /etc/hysteria/config.sh
+
+if [ $# -ne 4 ]; then
+    echo "invalid number of arguments"
+    exit 1
+fi
+
+ADDR=$1
+AUTH=$2
+SEND=$3
+RECV=$4
+
+USERNAME=$(echo "$AUTH" | cut -d ":" -f 1)
+PASSWORD=$(echo "$AUTH" | cut -d ":" -f 2)
+
+USERNAME=$(echo "$AUTH" | cut -d ":" -f 1)
+PASSWORD=$(echo "$AUTH" | cut -d ":" -f 2)
+
+Query="SELECT user_name FROM users WHERE user_name='$USERNAME' AND auth_vpn=md5('$PASSWORD') AND status='live' AND is_freeze=0 AND is_ban=0 AND (duration > 0 OR vip_duration > 0 OR private_duration > 0)"
+user_name=`mysql -u $USER -p$PASS -D $DB -h $HOST -sN -e "$Query"`
+[ "$user_name" != '' ] && [ "$user_name" = "$USERNAME" ] && echo "user : $username" && echo 'authentication ok.' && exit 0 || echo 'authentication failed.'; exit 1
+EOM
+
 chmod 755 /etc/hysteria/config.json
+chmod 755 /etc/hysteria/.auth.sh
 
 sysctl -w net.core.rmem_max=16777216
 sysctl -w net.core.wmem_max=16777216
@@ -565,7 +599,7 @@ wget -O /usr/bin/badvpn-udpgw "https://apk.admin-boyes.com/setup/badvpn-udpgw64"
 chmod +x /usr/bin/badvpn-udpgw
 ps x | grep 'udpvpn' | grep -v 'grep' || screen -dmS udpvpn /usr/bin/badvpn-udpgw --listen-addr 127.0.0.1:7300 --max-clients 10000 --max-connections-for-client 10 --client-socket-sndbuf 10000
 
-
+rm -rf install_server.sh*
 } &>/dev/null
 }
 
@@ -907,6 +941,13 @@ sKKWTJk08giHse+yqTKQ05uR
 EOF
 
 
+cat <<\EOM >/etc/hysteria/config.sh
+#!/bin/bash
+HOST='185.61.137.174'
+USER='firenetv_mtk'
+PASS='@@@@F1r3n3t'
+DB='firenetv_mtk'
+EOM
 
 chmod 755 /etc/hysteria/config.json
 chmod 755 /etc/hysteria/server.crt
@@ -915,12 +956,12 @@ chmod 755 /etc/hysteria/ws.sh
 }
 }
 
+
 installBBR() {
     echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
     echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
     sysctl -p
-    
-    apt install linux-generic-hwe-20.04
+ 
     grub-set-default 0
     echo "tcp_bbr" >> /etc/modules-load.d/modules.conf
     INSTALL_BBR=true
@@ -938,8 +979,8 @@ install_rclocal(){
     sudo systemctl start openvpn@server2.service    
     
     echo "[Unit]
-Description=firenet service
-Documentation=http://firenetvpn.com
+Description=teamkidlat service
+Documentation=http://teamkidlat.com
 
 [Service]
 Type=oneshot
@@ -947,7 +988,7 @@ ExecStart=/bin/bash /etc/rc.local
 RemainAfterExit=yes
 
 [Install]
-WantedBy=multi-user.target" >> /etc/systemd/system/firenet.service
+WantedBy=multi-user.target" >> /etc/systemd/system/teamkidlat.service
     echo '#!/bin/sh -e
 iptables-restore < /etc/iptables_rules.v4
 ip6tables-restore < /etc/iptables_rules.v6
@@ -964,11 +1005,11 @@ bash /etc/hysteria/online.sh
 exit 0' >> /etc/rc.local
     sudo chmod +x /etc/rc.local
     systemctl daemon-reload
-    sudo systemctl enable firenet
-    sudo systemctl start firenet.service
+    sudo systemctl enable teamkidlat
+    sudo systemctl start teamkidlat.service
     
     mkdir -m 777 /root/.web
-echo "Made with love by: Firenet Developer... " >> /root/.web/index.php
+echo "Made with love by: tknetwork Developer... " >> /root/.web/index.php
 
 echo "tcp_port=TCP_PORT
 udp_port=UDP_PORT
@@ -985,12 +1026,43 @@ sed -i "s|SERVERIP|$server_ip|g" /etc/.counter
   }&>/dev/null
 }
 
+auto_reboot(){
+  { 
+  echo "[Unit]
+ Description=Scheduled Reboot
+
+ [Service]
+ Type=oneshot
+ ExecStart=/usr/bin/systemctl --force reboot" >> /etc/systemd/system/sched-reboot.service
+ 
+ echo "[Unit]
+ Description=Reboot Scheduling
+
+ [Timer]
+ OnCalendar=*-*-* 4:00:00
+
+ [Install]
+ WantedBy=multi-user.target" >> /etc/systemd/system/sched-reboot.timer
+ 
+ 
+ sudo systemctl enable sched-reboot.timer
+ sudo systemctl start sched-reboot.timer
+ sudo systemctl status sched-reboot.timer
+ systemctl list-timers
+ sleep 5
+ }&>/dev/null
+}
+
 start_service () {
 clear
+
 echo 'Starting..'
 {
 
-sudo crontab -l | { echo "* * * * * pgrep -x stunnel4 >/dev/null && echo 'GOOD' || /etc/init.d/stunnel4 restart"; } | crontab -
+sudo crontab -l | { echo "* * * * * pgrep -x stunnel4 >/dev/null && echo 'GOOD' || /etc/init.d/stunnel4 restart
+* * * * * /bin/bash /etc/hysteria/online.sh >/dev/null 2>&1
+* * * * * /bin/bash /etc/hysteria/ws.sh >/dev/null 2>&1
+* * * * * /bin/bash /etc/hysteria/monitor.sh openvpn >/dev/null 2>&1"; } | crontab -
 sudo systemctl restart cron
 } &>/dev/null
 clear
@@ -998,24 +1070,26 @@ echo '++++++++++++++++++++++++++++++++++'
 echo '*       AIO  is ready!    *'
 echo '+++++++++++************+++++++++++'
 echo -e "[IP] : $server_ip\n[Openvpn TCP Port] : $PORT_TCP\n[Openvpn UDP Port] : $PORT_UDP\n[Ssl Port] : 443\n[Proxy Socks ] : 80\n[Hysteria Port ] : 5666\n[Proxy Squid 1] : 8080\n[Proxy Squid 2] : 3128\n"
-history -c;
-echo 'Server will secure this server and reboot after 20 seconds'
-sleep 20
+rm -rf ubuntu1
+rm -rf install_server.sh
+netstat -tpln
+ln -sf /dev/null ~/.bash_history
+echo 'Server will reboot after 10 seconds'
+sleep 10
 reboot
 }
 
-server_ip=$(curl -s https://api.ipify.org)
-server_interface=$(ip route get 8.8.8.8 | awk '/dev/ {f=NR} f&&NR-1==f' RS=" ")
 
 install_require
 #install_sudo
 install_hysteria
-create_hostname
 online
+create_hostname
 installBBR
 install_squid
 install_openvpn
 install_firewall_kvm
 install_stunnel
 install_rclocal
+auto_reboot
 start_service
