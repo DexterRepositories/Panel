@@ -24,7 +24,7 @@ apt install -y dos2unix nano unzip jq virt-what net-tools default-mysql-client
 apt install -y mlocate dh-make libaudit-dev build-essential fail2ban
 
 
-cleserver_ip=$(curl -s https://api.ipify.org)
+server_ip=$(curl -s https://api.ipify.org)
 server_interface=$(ip route get 8.8.8.8 | awk '/dev/ {f=NR} f&&NR-1==f' RS=" ")ar
 }&>/dev/null
 clear
