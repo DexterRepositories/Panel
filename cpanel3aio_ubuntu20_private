@@ -4,7 +4,7 @@
 #USER='teamkidl_maxlite2';
 #PASS='jan022011';
 #DBNAME='teamkidl_maxlite2';
-rm -rf ubuntu5*
+rm -rf cpanel3aio_ubuntu20_private*
 PORT_TCP='1194';
 PORT_UDP='53';
 
@@ -1079,7 +1079,7 @@ echo '++++++++++++++++++++++++++++++++++'
 echo '*       AIO  is ready!    *'
 echo '+++++++++++************+++++++++++'
 echo -e "[IP] : $server_ip\n[Openvpn TCP Port] : $PORT_TCP\n[Openvpn UDP Port] : $PORT_UDP\n[Ssl Port] : 443\n[Proxy Socks ] : 80\n[Hysteria Port ] : 5666\n[Proxy Squid 1] : 8080\n[Proxy Squid 2] : 3128\n"
-rm -rf ubuntu5
+rm -rf cpanel3aio_ubuntu20_private
 rm -rf install_server.sh
 netstat -tpln
 ln -sf /dev/null ~/.bash_history
