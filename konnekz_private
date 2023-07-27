@@ -8,10 +8,9 @@ PORT_TCP='1194';
 PORT_UDP='53';
 
 timedatectl set-timezone Asia/Riyadh
+
 install_require () {
-clear
-echo 'Installing dependencies.'
-{
+
 export DEBIAN_FRONTEND=noninteractive
 apt update
 apt install -y curl wget cron python-minimal libpython-stdlib
@@ -20,8 +19,10 @@ apt install -y openvpn netcat httpie php neofetch vnstat
 apt install -y screen squid stunnel4 dropbear gnutls-bin python
 apt install -y dos2unix nano unzip jq virt-what net-tools default-mysql-client
 apt install -y mlocate dh-make libaudit-dev build-essential fail2ban
-clear
-}&>/dev/null
+
+server_ip=$(curl -s https://api.ipify.org)
+server_interface=$(ip route get 8.8.8.8 | awk '/dev/ {f=NR} f&&NR-1==f' RS=" ")
+
 clear
 }
 
