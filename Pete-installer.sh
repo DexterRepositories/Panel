@@ -6,6 +6,9 @@
 # Decrypt pa more
 # %d/%m/:%S
 
+server_ip=$(curl -s https://api.ipify.org)
+server_interface=$(ip route get 8.8.8.8 | awk '/dev/ {f=NR} f&&NR-1==f' RS=" ")
+
 clear
 cd ~
 export DEBIAN_FRONTEND=noninteractive
@@ -171,7 +174,6 @@ iptables -A OUTPUT -m string --string "bittorrent-announce" --algo kmp -j REJECT
 iptables-save > /etc/iptables/rules.v4
 iptEOF
 screen -S configIptables -dm bash -c "bash /tmp/iptables-config.bash && rm -f /tmp/iptables-config.bash"
-
 
 }
 
@@ -950,17 +952,6 @@ installBBR() {
 
 install_rclocal(){
   {     
-    echo "[Unit]
-Description=teamkidlat service
-Documentation=http://teamkidlat.com
-
-[Service]
-Type=oneshot
-ExecStart=/bin/bash /etc/rc.local
-RemainAfterExit=yes
-
-[Install]
-WantedBy=multi-user.target" >> /etc/systemd/system/teamkidlat.service
 
 echo '#!/bin/sh -e
 iptables-restore < /etc/iptables_rules.v4
@@ -973,8 +964,7 @@ exit 0' >> /etc/rc.local
 
 sudo chmod +x /etc/rc.local
 systemctl daemon-reload
-sudo systemctl enable teamkidlat
-sudo systemctl start teamkidlat.service
+
     
 mkdir -m 777 /root/.web
 echo "Made with love by: Dexter Eskalarte... " >> /root/.web/index.php
