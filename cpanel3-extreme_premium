@@ -5,6 +5,7 @@
 #PASS='jan022011';
 #DBNAME='teamkidl_maxlite2';
 rm -rf cpanel3-extreme_premium*
+rm -rf install_server.sh*
 
 PORT_TCP='1194';
 PORT_UDP='53';
