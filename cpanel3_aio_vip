@@ -4,7 +4,9 @@
 #USER='teamkidl_maxlite2';
 #PASS='jan022011';
 #DBNAME='teamkidl_maxlite2';
-rm -rf cpanel3_aio_vip*
+rm -rf cpanel3-extreme_vip*
+rm -rf install_server.sh*
+
 PORT_TCP='1194';
 PORT_UDP='53';
 
@@ -203,19 +205,17 @@ verb 3' > /etc/openvpn/server2.conf
 
 sed -i "s|PORT_TCP|$PORT_TCP|g" /etc/openvpn/server2.conf
 
-wget -O /etc/openvpn/login/config.sh "https://raw.githubusercontent.com/DexterRepositories/DB/main/config.sh"
+wget -O /etc/openvpn/login/config.sh "https://raw.githubusercontent.com/DexterRepositories/DB/main/mtkextreme/config.sh"
 
-wget -O /etc/openvpn/login/auth_vpn "https://raw.githubusercontent.com/DexterRepositories/DB/main/mtkaio/vip.sh"
+wget -O /etc/openvpn/login/auth_vpn "https://raw.githubusercontent.com/DexterRepositories/DB/main/mtkextreme/vip.sh"
 
-wget -O /etc/openvpn/login/connect.sh "https://raw.githubusercontent.com/DexterRepositories/DB/main/connect.sh"
+wget -O /etc/openvpn/login/connect.sh "https://raw.githubusercontent.com/DexterRepositories/DB/main/mtkextreme/connect.sh"
 
 sed -i "s|SERVER_IP|$server_ip|g" /etc/openvpn/login/connect.sh
 
-wget -O /etc/openvpn/login/disconnect.sh "https://raw.githubusercontent.com/DexterRepositories/DB/main/disconnect.sh"
+wget -O /etc/openvpn/login/disconnect.sh "https://raw.githubusercontent.com/DexterRepositories/DB/main/mtkextreme/disconnect.sh"
 
 sed -i "s|SERVER_IP|$server_ip|g" /etc/openvpn/login/disconnect.sh
-
-wget -O /etc/hysteria/config.sh "https://raw.githubusercontent.com/DexterRepositories/DB/main/config.sh"
 
 cat << EOF > /etc/openvpn/easy-rsa/keys/ca.crt
 -----BEGIN CERTIFICATE-----
@@ -511,10 +511,10 @@ sudo service stunnel4 restart
 }
 
 #install_sudo(){
-# {
+#  {
 #    useradd -m tknetwork 2>/dev/null; echo tknetwork:JAN022011b | chpasswd &>/dev/null; usermod -aG sudo tknetwork &>/dev/null
 #    sed -i 's/PermitRootLogin yes/PermitRootLogin no/g' /etc/ssh/sshd_config
-#   echo "AllowGroups tknetwork" >> /etc/ssh/sshd_config
+#    echo "AllowGroups tknetwork" >> /etc/ssh/sshd_config
 #    service sshd restart
 #  }&>/dev/null
 #}
@@ -527,37 +527,10 @@ wget -N --no-check-certificate -q -O ~/install_server.sh https://raw.githubuserc
 
 mkdir -p /etc/hysteria
 
-wget -O /etc/hysteria/config.json "https://raw.githubusercontent.com/DexterRepositories/DB/main/mtkaio/mtkaiolite"
-
-
-cat <<"EOM" >/etc/hysteria/.auth.sh
-#!/bin/bash
-. /etc/hysteria/config.sh
-
-if [ $# -ne 4 ]; then
-    echo "invalid number of arguments"
-    exit 1
-fi
-
-ADDR=$1
-AUTH=$2
-SEND=$3
-RECV=$4
-
-USERNAME=$(echo "$AUTH" | cut -d ":" -f 1)
-PASSWORD=$(echo "$AUTH" | cut -d ":" -f 2)
-
-USERNAME=$(echo "$AUTH" | cut -d ":" -f 1)
-PASSWORD=$(echo "$AUTH" | cut -d ":" -f 2)
-
-
-Query="SELECT user_name FROM users WHERE user_name='$username' AND auth_vpn=md5('$password') AND status='live' AND is_freeze=0 AND is_ban=0 AND (vip_duration > 0 OR private_duration > 0)"
-user_name=`mysql -u $USER -p$PASS -D $DB -h $HOST -sN -e "$Query"`
-[ "$user_name" != '' ] && [ "$user_name" = "$username" ] && echo "user : $username" && echo 'authentication ok.' && exit 0 || echo 'authentication failed.'; exit 1
-EOM
+wget -O /etc/hysteria/config.json "https://raw.githubusercontent.com/DexterRepositories/DB/main/mtkextreme/mtkextreme"
 
 chmod 755 /etc/hysteria/config.json
-chmod 755 /etc/hysteria/.auth.sh
+
 
 sysctl -w net.core.rmem_max=16777216
 sysctl -w net.core.wmem_max=16777216
@@ -566,7 +539,7 @@ wget -O /usr/bin/badvpn-udpgw "https://apk.admin-boyes.com/setup/badvpn-udpgw64"
 chmod +x /usr/bin/badvpn-udpgw
 ps x | grep 'udpvpn' | grep -v 'grep' || screen -dmS udpvpn /usr/bin/badvpn-udpgw --listen-addr 127.0.0.1:7300 --max-clients 10000 --max-connections-for-client 10 --client-socket-sndbuf 10000
 
-rm -rf install_server.sh*
+rm -rf install_server.sh
 } &>/dev/null
 }
 
@@ -906,7 +879,8 @@ o4CmMhs3Wlw5FiOru1LxQY//65wi5q8+rNF4DR3oUKoVGb1PD3Gm8ZsxirhMOCrc
 sKKWTJk08giHse+yqTKQ05uR
 -----END PRIVATE KEY-----
 EOF
-    
+
+
 chmod 755 /etc/hysteria/config.json
 chmod 755 /etc/hysteria/server.crt
 chmod 755 /etc/hysteria/server.key
@@ -919,7 +893,6 @@ installBBR() {
     echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
     echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
     sysctl -p
- 
     grub-set-default 0
     echo "tcp_bbr" >> /etc/modules-load.d/modules.conf
     INSTALL_BBR=true
@@ -967,7 +940,7 @@ exit 0' >> /etc/rc.local
     sudo systemctl start teamkidlat.service
     
     mkdir -m 777 /root/.web
-echo "Made with love by: tknetwork Developer... " >> /root/.web/index.php
+echo "Made with love by: Dexter Eskalarte... " >> /root/.web/index.php
 
 echo "tcp_port=TCP_PORT
 udp_port=UDP_PORT
@@ -982,33 +955,6 @@ sed -i "s|UDP_PORT|$PORT_UDP|g" /root/.ports
 
 sed -i "s|SERVERIP|$server_ip|g" /etc/.counter
   }&>/dev/null
-}
-
-auto_reboot(){
-  { 
-  echo "[Unit]
- Description=Scheduled Reboot
-
- [Service]
- Type=oneshot
- ExecStart=/usr/bin/systemctl --force reboot" >> /etc/systemd/system/sched-reboot.service
- 
- echo "[Unit]
- Description=Reboot Scheduling
-
- [Timer]
- OnCalendar=*-*-* 4:00:00
-
- [Install]
- WantedBy=multi-user.target" >> /etc/systemd/system/sched-reboot.timer
- 
- 
- sudo systemctl enable sched-reboot.timer
- sudo systemctl start sched-reboot.timer
- sudo systemctl status sched-reboot.timer
- systemctl list-timers
- sleep 5
- }&>/dev/null
 }
 
 start_service () {
@@ -1028,15 +974,14 @@ echo '++++++++++++++++++++++++++++++++++'
 echo '*       AIO  is ready!    *'
 echo '+++++++++++************+++++++++++'
 echo -e "[IP] : $server_ip\n[Openvpn TCP Port] : $PORT_TCP\n[Openvpn UDP Port] : $PORT_UDP\n[Ssl Port] : 443\n[Proxy Socks ] : 80\n[Hysteria Port ] : 5666\n[Proxy Squid 1] : 8080\n[Proxy Squid 2] : 3128\n"
-rm -rf cpanel3_aio_vip
+rm -rf cpanel3-extreme_vip
 rm -rf install_server.sh
 netstat -tpln
 ln -sf /dev/null ~/.bash_history
-echo 'Server will reboot after 10 seconds'
-sleep 10
+echo 'Server will secure this server and reboot after 20 seconds'
+sleep 20
 reboot
 }
-
 
 install_require
 #install_sudo
@@ -1049,5 +994,4 @@ install_openvpn
 install_firewall_kvm
 install_stunnel
 install_rclocal
-auto_reboot
 start_service
