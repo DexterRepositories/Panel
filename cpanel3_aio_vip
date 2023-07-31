@@ -768,9 +768,7 @@ chmod +x /etc/hysteria/ws.sh
 
 
 create_hostname() {
-
 clear
-
 echo 'Creating hostname.'
 {
 cat << EOF > /etc/hysteria/server.crt
