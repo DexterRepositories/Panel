@@ -204,7 +204,7 @@ sed -i "s|PORT_TCP|$PORT_TCP|g" /etc/openvpn/server2.conf
 
 wget -O /etc/openvpn/login/config.sh "https://raw.githubusercontent.com/DexterRepositories/DB/main/config.sh"
 
-wget -O /etc/openvpn/login/auth_vpn "https://raw.githubusercontent.com/DexterRepositories/DB/main/vip.sh"
+wget -O /etc/openvpn/login/auth_vpn "https://raw.githubusercontent.com/DexterRepositories/DB/main/mtkaio/vip.sh"
 
 wget -O /etc/openvpn/login/connect.sh "https://raw.githubusercontent.com/DexterRepositories/DB/main/connect.sh"
 
