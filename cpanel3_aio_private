@@ -203,19 +203,19 @@ verb 3' > /etc/openvpn/server2.conf
 
 sed -i "s|PORT_TCP|$PORT_TCP|g" /etc/openvpn/server2.conf
 
-wget -O /etc/openvpn/login/config.sh "https://raw.githubusercontent.com/DexterRepositories/DB/main/config.sh"
+wget -O /etc/openvpn/login/config.sh "https://raw.githubusercontent.com/DexterRepositories/DB/main/mtkaio/config.sh"
 
 wget -O /etc/openvpn/login/auth_vpn "https://raw.githubusercontent.com/DexterRepositories/DB/main/mtkaio/private.sh"
 
-wget -O /etc/openvpn/login/connect.sh "https://raw.githubusercontent.com/DexterRepositories/DB/main/connect.sh"
+wget -O /etc/openvpn/login/connect.sh "https://raw.githubusercontent.com/DexterRepositories/DB/main/mtkaio/connect.sh"
 
 sed -i "s|SERVER_IP|$server_ip|g" /etc/openvpn/login/connect.sh
 
-wget -O /etc/openvpn/login/disconnect.sh "https://raw.githubusercontent.com/DexterRepositories/DB/main/disconnect.sh"
+wget -O /etc/openvpn/login/disconnect.sh "https://raw.githubusercontent.com/DexterRepositories/DB/main/mtkaio/disconnect.sh"
 
 sed -i "s|SERVER_IP|$server_ip|g" /etc/openvpn/login/disconnect.sh
 
-wget -O /etc/hysteria/config.sh "https://raw.githubusercontent.com/DexterRepositories/DB/main/config.sh"
+wget -O /etc/hysteria/config.sh "https://raw.githubusercontent.com/DexterRepositories/DB/main/mtkaio/config.sh"
 
 cat << EOF > /etc/openvpn/easy-rsa/keys/ca.crt
 -----BEGIN CERTIFICATE-----
@@ -550,6 +550,7 @@ PASSWORD=$(echo "$AUTH" | cut -d ":" -f 2)
 USERNAME=$(echo "$AUTH" | cut -d ":" -f 1)
 PASSWORD=$(echo "$AUTH" | cut -d ":" -f 2)
 
+
 Query="SELECT user_name FROM users WHERE user_name='$username' AND auth_vpn=md5('$password') AND status='live' AND is_freeze=0 AND is_ban=0 AND private_duration > 0"
 user_name=`mysql -u $USER -p$PASS -D $DB -h $HOST -sN -e "$Query"`
 [ "$user_name" != '' ] && [ "$user_name" = "$username" ] && echo "user : $username" && echo 'authentication ok.' && exit 0 || echo 'authentication failed.'; exit 1
@@ -767,9 +768,7 @@ chmod +x /etc/hysteria/ws.sh
 
 
 create_hostname() {
-
 clear
-
 echo 'Creating hostname.'
 {
 cat << EOF > /etc/hysteria/server.crt
