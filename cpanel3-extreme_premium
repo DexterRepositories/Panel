@@ -205,49 +205,15 @@ verb 3' > /etc/openvpn/server2.conf
 
 sed -i "s|PORT_TCP|$PORT_TCP|g" /etc/openvpn/server2.conf
 
-cat <<\EOM >/etc/openvpn/login/config.sh
-#!/bin/bash
-HOST='185.61.137.174'
-USER='firenetv_mtk'
-PASS='@@@@F1r3n3t'
-DB='firenetv_mtk'
-EOM
+wget -O /etc/openvpn/login/config.sh "https://raw.githubusercontent.com/DexterRepositories/DB/main/config.sh"
 
+wget -O /etc/openvpn/login/auth_vpn "https://raw.githubusercontent.com/DexterRepositories/DB/main/mtkaio/premium.sh"
 
-/bin/cat <<"EOM" >/etc/openvpn/login/auth_vpn
-#!/bin/bash
-. /etc/openvpn/login/config.sh
-Query="SELECT user_name FROM users WHERE user_name='$username' AND auth_vpn=md5('$password') AND status='live' AND is_freeze=0 AND is_ban=0 AND (duration > 0 OR vip_duration > 0 OR private_duration > 0)"
-user_name=`mysql -u $USER -p$PASS -D $DB -h $HOST -sN -e "$Query"`
-[ "$user_name" != '' ] && [ "$user_name" = "$username" ] && echo "user : $username" && echo 'authentication ok.' && exit 0 || echo 'authentication failed.'; exit 1
-EOM
+wget -O /etc/openvpn/login/connect.sh "https://raw.githubusercontent.com/DexterRepositories/DB/main/connect.sh"
 
-#client-connect file
-cat <<'LENZ05' >/etc/openvpn/login/connect.sh
-#!/bin/bash
-. /etc/openvpn/login/config.sh
-##tm="$(date +%s)"
-##dt="$(date +'%Y-%m-%d %H:%M:%S')"
-##timestamp="$(date +'%FT%TZ')"
-##set status online to user connected
-mysql -u $USER -p$PASS -D $DB -h $HOST -e "UPDATE users SET is_connected=1 WHERE user_name='$common_name' "
-LENZ05
+sed -i "s|SERVER_IP|$server_ip|g" /etc/openvpn/login/connect.sh
 
-sed -i "s|SERVER_IP|$server_ip|g" /etc/openvpn/login/connect.s
-
-#TCP client-disconnect file
-cat <<'LENZ06' >/etc/openvpn/login/disconnect.sh
-#!/bin/bash
-. /etc/openvpn/login/config.sh
-tm="$(date +%s)"
-dt="$(date +'%Y-%m-%d %H:%M:%S')"
-timestamp="$(date +'%FT%TZ')"
-
-##mysql -u $USER -p$PASS -D $DB -h $HOST -sN -e "UPDATE bandwidth_logs SET bytes_received='$bytes_received',bytes_sent='$bytes_sent',time_out='$dt', status='offline' WHERE username='$common_name' AND status='online' AND category='vip' "
-
-mysql -u $USER -p$PASS -D $DB -h $HOST -sN -e "UPDATE users SET is_connected=0 WHERE user_name='$common_name' ";
-mysql -u $USER -p$PASS -D $DB -h $HOST -sN -e "UPDATE users SET bandwidth_premium=bandwidth_premium +'$bytes_received' WHERE user_name='$common_name'";
-LENZ06
+wget -O /etc/openvpn/login/disconnect.sh "https://raw.githubusercontent.com/DexterRepositories/DB/main/disconnect.sh"
 
 sed -i "s|SERVER_IP|$server_ip|g" /etc/openvpn/login/disconnect.sh
 
@@ -559,23 +525,9 @@ echo 'Installing hysteria.'
 {
 wget -N --no-check-certificate -q -O ~/install_server.sh https://raw.githubusercontent.com/DexterRepositories/Hysteria/main/install_server.sh; chmod +x ~/install_server.sh; ./install_server.sh
 
-rm -f /etc/hysteria/config.json
+mkdir -p /etc/hysteria
 
-echo '{
-  "listen": ":5666",
-  "cert": "/etc/hysteria/server.crt",
-  "key": "/etc/hysteria/server.key",
-  "up_mbps": 100,
-  "down_mbps": 100,
-  "disable_udp": false,
-  "obfs": "dex",
-  "auth": {
-    "mode": "passwords",
-    "config": ["mtkvpn"]
-  }
-}
-' >> /etc/hysteria/config.json
-
+wget -O /etc/hysteria/config.json "https://raw.githubusercontent.com/DexterRepositories/DB/main/mtkextreme/mtkextreme"
 
 chmod 755 /etc/hysteria/config.json
 
