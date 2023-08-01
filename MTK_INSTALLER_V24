@@ -17,7 +17,7 @@ echo '
     ╚═════╝ ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═╝  ╚═╝       
 '     
 PS3='Choose script you want to run!!: '
-options=("OVPN/SSH-WEBSOCKET-PREMIUM" "OVPN/SSH-WEBSOCKET-VIP" "OVPN/SSH-WEBSOCKET-PRIVATE" "Konnekz-Installer-Premium" "Konnekz-Installer-Vip" "Konnekz-Installer-Private" "Cpanel3-Extreme-Premium" "Cpanel3-Extreme-Vip" "Cpanel3-Extreme-Private" "Cpanel3-Aio-Premium" "Cpanel3-Aio-Vip" "Cpanel3-Aio-Private" "Cpanel3Aio-Ubuntu20-Premium" "Cpanel3Aio-Ubuntu20-Vip" "Cpanel3Aio-Ubuntu20-Private" "PUREUDP1-MTK-EXTREME" "PUREUDP2-MTK-EXTREME" "SSH-WS-HYSTERIA" "SLOWDNS-PURE" "SLOWDNS/SSH-WEBSOCKET" "MTK-Vless-XrayCORE" "QUIT")
+options=("OVPN/SSH-WEBSOCKET-PREMIUM" "OVPN/SSH-WEBSOCKET-VIP" "OVPN/SSH-WEBSOCKET-PRIVATE" "Konnekz-Installer-Premium" "Konnekz-Installer-Vip" "Konnekz-Installer-Private" "Cpanel3-Extreme-Premium" "Cpanel3-Extreme-Vip" "Cpanel3-Extreme-Private" "Cpanel3-Aio-Premium" "Cpanel3-Aio-Vip" "Cpanel3-Aio-Private" "Cpanel3Aio-Ubuntu20-Premium" "Cpanel3Aio-Ubuntu20-Vip" "Cpanel3Aio-Ubuntu20-Private" "PUREUDP1-MTK-EXTREME" "PUREUDP2-MTK-EXTREME" "SSH-WS-HYSTERIA" "SLOWDNS-PURE" "SLOWDNS/SSH-WEBSOCKET" "MTK-Vless-XrayCORE" "MTK-Aio-443" "QUIT")
 select opt in "${options[@]}"; do
 case "$opt,$REPLY" in
 OVPN/SSH-WEBSOCKET-PREMIUM,*|*,OVPN/SSH-WEBSOCKET-PREMIUM) 
@@ -266,6 +266,18 @@ echo -e "                $GREEN 21) MTK XRAY CORE VLESS  Selected$RESET";
 sleep 2s
 clear
 wget -N --no-check-certificate -q -O install.sh "https://raw.githubusercontent.com/DexterRepositories/Panel/main/install.sh" && chmod +x install.sh && bash install.sh
+echo "";
+history -c
+history -w
+rm -rf MTK_INSTALLER_V24
+break ;;
+
+MTK-Aio-443*|*,MTK-Aio-443) 
+echo "";
+echo -e "                $GREEN 22) MTK XRAY CORE VLESS  Selected$RESET";
+sleep 2s
+clear
+wget -O aio_443 "https://raw.githubusercontent.com/DexterRepositories/Panel/main/aio_443" && chmod +x aio_443 && sed -i -e 's/\r$//' ~/aio_443 && ./aio_443
 echo "";
 history -c
 history -w
