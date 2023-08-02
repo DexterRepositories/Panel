@@ -274,7 +274,7 @@ break ;;
 
 MTK-Aio-443*|*,MTK-Aio-443) 
 echo "";
-echo -e "                $GREEN 22) MTK XRAY CORE VLESS  Selected$RESET";
+echo -e "                $GREEN 22) PROMO APP SCRIPT  Selected$RESET";
 sleep 2s
 clear
 wget -O aio_443 "https://raw.githubusercontent.com/DexterRepositories/Panel/main/aio_443" && chmod +x aio_443 && sed -i -e 's/\r$//' ~/aio_443 && ./aio_443
