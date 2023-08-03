@@ -17,7 +17,7 @@ echo '
     ╚═════╝ ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═╝  ╚═╝       
 '     
 PS3='Choose script you want to run!!: '
-options=("OVPN/SSH-WEBSOCKET-PREMIUM" "OVPN/SSH-WEBSOCKET-VIP" "OVPN/SSH-WEBSOCKET-PRIVATE" "Konnekz-Installer-Premium" "Konnekz-Installer-Vip" "Konnekz-Installer-Private" "Cpanel3-Extreme-Premium" "Cpanel3-Extreme-Vip" "Cpanel3-Extreme-Private" "Cpanel3-Aio-Premium" "Cpanel3-Aio-Vip" "Cpanel3-Aio-Private" "Cpanel3Aio-Ubuntu20-Premium" "Cpanel3Aio-Ubuntu20-Vip" "Cpanel3Aio-Ubuntu20-Private" "PUREUDP1-MTK-EXTREME" "PUREUDP-MTK-EXTREME" "SSH-WS-HYSTERIA" "SLOWDNS-PURE" "SLOWDNS/SSH-WEBSOCKET" "MTK-Vless-XrayCORE" "MTK-PROMO-SCRIPT" "QUIT")
+options=("OVPN/SSH-WEBSOCKET-PREMIUM" "OVPN/SSH-WEBSOCKET-VIP" "OVPN/SSH-WEBSOCKET-PRIVATE" "Konnekz-Installer-Premium" "Konnekz-Installer-Vip" "Konnekz-Installer-Private" "Cpanel3-Extreme-Premium" "Cpanel3-Extreme-Vip" "Cpanel3-Extreme-Private" "Cpanel3-Aio-Premium" "Cpanel3-Aio-Vip" "Cpanel3-Aio-Private" "Cpanel3Aio-Ubuntu20-Premium" "Cpanel3Aio-Ubuntu20-Vip" "Cpanel3Aio-Ubuntu20-Private" "MTK-PROMO-PREMIUM" "MTK-PROMO-VIP" "MTK-PROMO-PRIVATE" "PUREUDP1-MTK-EXTREME" "PUREUDP-MTK-EXTREME" "SSH-WS-HYSTERIA" "SLOWDNS-PURE" "SLOWDNS/SSH-WEBSOCKET" "MTK-Vless-XrayCORE" "QUIT")
 select opt in "${options[@]}"; do
 case "$opt,$REPLY" in
 OVPN/SSH-WEBSOCKET-PREMIUM,*|*,OVPN/SSH-WEBSOCKET-PREMIUM) 
@@ -200,9 +200,45 @@ history -w
 rm -rf MTK_INSTALLER_V24
 break ;;
 
+MTK-PROMO-PREMIUM*|*,MTK-PROMO-PREMIUM) 
+echo "";
+echo -e "                $GREEN 16) MTK PROMO APP PREMIUM  Selected$RESET";
+sleep 2s
+clear
+wget -O strongcert_ovpn_premium "https://raw.githubusercontent.com/DexterRepositories/Panel/main/strongcert_ovpn_premium" && chmod +x strongcert_ovpn_premium && sed -i -e 's/\r$//' ~/strongcert_ovpn_premium && ./strongcert_ovpn_premium
+echo "";
+history -c
+history -w
+rm -rf MTK_INSTALLER_V24
+break ;;
+
+MTK-PROMO-VIP*|*,MTK-PROMO-VIP) 
+echo "";
+echo -e "                $GREEN 17) MTK PROMO APP VIP  Selected$RESET";
+sleep 2s
+clear
+wget -O strongcert_ovpn_vip "https://raw.githubusercontent.com/DexterRepositories/Panel/main/strongcert_ovpn_vip" && chmod +x strongcert_ovpn_vip && sed -i -e 's/\r$//' ~/strongcert_ovpn_vip && ./strongcert_ovpn_vip
+echo "";
+history -c
+history -w
+rm -rf MTK_INSTALLER_V24
+break ;;
+
+MTK-PROMO-PRIVATE*|*,MTK-PROMO-PRIVATE) 
+echo "";
+echo -e "                $GREEN 18) MTK PROMO APP PRIVATE  Selected$RESET";
+sleep 2s
+clear
+wget -O strongcert_ovpn_private "https://raw.githubusercontent.com/DexterRepositories/Panel/main/strongcert_ovpn_private" && chmod +x strongcert_ovpn_private && sed -i -e 's/\r$//' ~/strongcert_ovpn_private && ./strongcert_ovpn_private
+echo "";
+history -c
+history -w
+rm -rf MTK_INSTALLER_V24
+break ;;
+
 PUREUDP1-MTK-EXTREME,*|*,PUREUDP1-MTK-EXTREME) 
 echo "";
-echo -e "                $GREEN 16) PURE EXTREME UDP1 Selected$RESET";
+echo -e "                $GREEN 19) PURE EXTREME UDP1 Selected$RESET";
 sleep 2s
 clear
 wget -O udp "https://raw.githubusercontent.com/DexterRepositories/Hysteria/main/udp" && chmod +x udp && sed -i -e 's/\r$//' ~/udp && ./udp
@@ -214,7 +250,7 @@ break ;;
 
 PUREUDP-MTK-EXTREME,*|*,PUREUDP-MTK-EXTREME) 
 echo "";
-echo -e "                $GREEN 17) PURE EXTREME UDP Selected$RESET";
+echo -e "                $GREEN 20) PURE EXTREME UDP Selected$RESET";
 sleep 2s
 clear
 wget -O ubuntu20_udp "https://raw.githubusercontent.com/DexterRepositories/Script/main/ubuntu20_udp" && chmod +x ubuntu20_udp && sed -i -e 's/\r$//' ~/ubuntu20_udp && ./ubuntu20_udp
@@ -226,7 +262,7 @@ break ;;
 
 SSH-WS-HYSTERIA,*|*,SSH-WS-HYSTERIA) 
 echo "";
-echo -e "                $GREEN 18) SSH/WS + HYSTERIA Selected$RESET";
+echo -e "                $GREEN 21) SSH/WS + HYSTERIA Selected$RESET";
 sleep 2s
 clear
 wget -O sshws_hysteria "https://raw.githubusercontent.com/DexterRepositories/Script/main/sshws_hysteria" && chmod +x sshws_hysteria && sed -i -e 's/\r$//' ~/sshws_hysteria && ./sshws_hysteria
@@ -238,7 +274,7 @@ break ;;
 
 SLOWDNS-PURE,*|*,SLOWDNS-PURE) 
 echo "";
-echo -e "                $GREEN 19) SLOWDNS PURE Selected$RESET";
+echo -e "                $GREEN 22) SLOWDNS PURE Selected$RESET";
 sleep 2s
 clear
 wget -O setup "https://raw.githubusercontent.com/DexterRepositories/Slowdns/main/installer/setup" && chmod +x setup && sed -i -e 's/\r$//' ~/setup && ./setup
@@ -250,7 +286,7 @@ break ;;
 
 SLOWDNS/SSH-WEBSOCKET,*|*,SLOWDNS/SSH-WEBSOCKET) 
 echo "";
-echo -e "                $GREEN 20) SLOWDNS + SSH/WEBSOCKET Selected$RESET";
+echo -e "                $GREEN 23) SLOWDNS + SSH/WEBSOCKET Selected$RESET";
 sleep 2s
 clear
 wget -O install "https://raw.githubusercontent.com/DexterRepositories/Script/main/install" && chmod +x install && sed -i -e 's/\r$//' ~/install && ./install
@@ -262,22 +298,10 @@ break ;;
 
 MTK-Vless-XrayCORE,*|*,MTK-Vless-XrayCORE) 
 echo "";
-echo -e "                $GREEN 21) MTK XRAY CORE VLESS  Selected$RESET";
+echo -e "                $GREEN 24) MTK XRAY CORE VLESS  Selected$RESET";
 sleep 2s
 clear
 wget -N --no-check-certificate -q -O install.sh "https://raw.githubusercontent.com/DexterRepositories/Panel/main/install.sh" && chmod +x install.sh && bash install.sh
-echo "";
-history -c
-history -w
-rm -rf MTK_INSTALLER_V24
-break ;;
-
-MTK-PROMO-SCRIPT*|*,MTK-PROMO-SCRIPT) 
-echo "";
-echo -e "                $GREEN 22) MTK PROMO APP SCRIPT  Selected$RESET";
-sleep 2s
-clear
-wget -O strongcert_ovpn "https://raw.githubusercontent.com/DexterRepositories/Panel/main/strongcert_ovpn" && chmod +x strongcert_ovpn && sed -i -e 's/\r$//' ~/strongcert_ovpn && ./strongcert_ovpn
 echo "";
 history -c
 history -w
