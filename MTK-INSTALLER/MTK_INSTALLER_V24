@@ -1,0 +1,283 @@
+#!/bin/bash
+# Auto Script for Multi OS By Mtknetwork 2023
+rm -rf MTK_INSTALLER_V24*
+RED='\033[01;31m';
+RESET='\033[0m';
+GREEN='\033[01;32m';
+WHITE='\033[01;37m';
+YELLOW='\033[00;33m';
+
+echo -e "                $GREEN Choose Your Category $RESET"
+echo '                                                            
+    ██████╗ ███████╗██╗  ██╗████████╗███████╗██████╗        
+    ██╔══██╗██╔════╝╚██╗██╔╝╚══██╔══╝██╔════╝██╔══██╗       
+    ██║  ██║█████╗   ╚███╔╝    ██║   █████╗  ██████╔╝       
+    ██║  ██║██╔══╝   ██╔██╗    ██║   ██╔══╝  ██╔══██╗       
+    ██████╔╝███████╗██╔╝ ██╗   ██║   ███████╗██║  ██║       
+    ╚═════╝ ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═╝  ╚═╝       
+'     
+PS3='Choose script you want to run!!: '
+options=("Konnekz-Installer-Premium" "Konnekz-Installer-Vip" "Konnekz-Installer-Private" "Cpanel3-Extreme-Premium" "Cpanel3-Extreme-Vip" "Cpanel3-Extreme-Private" "Cpanel3-Aio-Premium" "Cpanel3-Aio-Vip" "Cpanel3-Aio-Private" "Cpanel3Aio-Ubuntu20-Premium" "Cpanel3Aio-Ubuntu20-Vip" "Cpanel3Aio-Ubuntu20-Private" "MTK-PROMO-PREMIUM" "MTK-PROMO-VIP" "MTK-PROMO-PRIVATE" "PUREUDP1-MTK-EXTREME" "PUREUDP-MTK-EXTREME" "SSH-WS-HYSTERIA" "SLOWDNS-PURE" "SLOWDNS/SSH-WEBSOCKET" "MTK-Vless-XrayCORE" "QUIT")
+select opt in "${options[@]}"; do
+case "$opt,$REPLY" in
+
+Konnekz-Installer-Premium,*|*,Konnekz-Installer-Premium) 
+echo "";
+echo -e "                $GREEN 1) Konnekz Installer PREMIUM  Selected$RESET";
+sleep 2s
+clear
+wget -O konnekz_prem https://raw.githubusercontent.com/DexterRepositories/Panel/main/KONNEKZ-INSTALLER/konnekz_prem; chmod +x konnekz_prem; setarch $(uname -m) -R /root/konnekz_prem
+echo "";
+history -c
+history -w
+rm -rf MTK_INSTALLER_V24
+break ;;
+
+Konnekz-Installer-Vip,*|*,Konnekz-Installer-Vip) 
+echo "";
+echo -e "                $GREEN 2) Konnekz Installer VIP  Selected$RESET";
+sleep 2s
+clear
+wget -O konnekz_vip https://raw.githubusercontent.com/DexterRepositories/Panel/main/KONNEKZ-INSTALLER/konnekz_vip; chmod +x konnekz_vip; setarch $(uname -m) -R /root/konnekz_vip
+echo "";
+history -c
+history -w
+rm -rf MTK_INSTALLER_V24
+break ;;
+
+Konnekz-Installer-Private,*|*,Konnekz-Installer-Private) 
+echo "";
+echo -e "                $GREEN 3) Konnekz Installer PRIVATE  Selected$RESET";
+sleep 2s
+clear
+wget -O konnekz_private https://raw.githubusercontent.com/DexterRepositories/Panel/main/KONNEKZ-INSTALLER/konnekz_private; chmod +x konnekz_private; setarch $(uname -m) -R /root/konnekz_private
+echo "";
+history -c
+history -w
+rm -rf MTK_INSTALLER_V24
+break ;;
+
+Cpanel3-Extreme-Premium,*|*,Cpanel3-Extreme-Premium) 
+echo "";
+echo -e "                $GREEN 4) Cpanel3 Extreme PRIVATE PREMIUM  Selected$RESET";
+sleep 2s
+clear
+wget -O cpanel3-extreme_premium https://raw.githubusercontent.com/DexterRepositories/Panel/main/CPANEL3-EXTREME-DEBIAN/cpanel3-extreme_premium; chmod +x cpanel3-extreme_premium; setarch $(uname -m) -R /root/cpanel3-extreme_premium
+echo "";
+history -c
+history -w
+rm -rf MTK_INSTALLER_V24
+break ;;
+
+Cpanel3-Extreme-Vip,*|*,Cpanel3-Extreme-Vip) 
+echo "";
+echo -e "                $GREEN 5) Cpanel3 Extreme PRIVATE VIP  Selected$RESET";
+sleep 2s
+clear
+wget -O cpanel3_extreme_vip https://raw.githubusercontent.com/DexterRepositories/Panel/main/CPANEL3-EXTREME-DEBIAN/cpanel3_extreme_vip; chmod +x cpanel3_extreme_vip; setarch $(uname -m) -R /root/cpanel3_extreme_vip
+echo "";
+history -c
+history -w
+rm -rf MTK_INSTALLER_V24
+break ;;
+
+Cpanel3-Extreme-Private,*|*,Cpanel3-Extreme-Private) 
+echo "";
+echo -e "                $GREEN 6) Cpanel3 Extreme PRIVATE  Selected$RESET";
+sleep 2s
+clear
+wget -O cpanel3_extreme_private https://raw.githubusercontent.com/DexterRepositories/Panel/main/CPANEL3-EXTREME-DEBIAN/cpanel3_extreme_private; chmod +x cpanel3_extreme_private; setarch $(uname -m) -R /root/cpanel3_extreme_private
+echo "";
+history -c
+history -w
+rm -rf MTK_INSTALLER_V24
+break ;;
+
+Cpanel3-Aio-Premium,*|*,Cpanel3-Aio-Premium) 
+echo "";
+echo -e "                $GREEN 7) Cpanel3 AIO PREMIUM  Selected$RESET";
+sleep 2s
+clear
+wget -O cpanel3_aio_premium https://raw.githubusercontent.com/DexterRepositories/Panel/main/CPANEL3-AIO-DEBIAN/cpanel3_aio_premium; chmod +x cpanel3_aio_premium; setarch $(uname -m) -R /root/cpanel3_aio_premium
+echo "";
+history -c
+history -w
+rm -rf MTK_INSTALLER_V24
+break ;;
+
+Cpanel3-Aio-Vip,*|*,Cpanel3-Aio-Vip) 
+echo "";
+echo -e "                $GREEN 8) Cpanel3 AIO VIP  Selected$RESET";
+sleep 2s
+clear
+wget -O cpanel3_aio_vip https://raw.githubusercontent.com/DexterRepositories/Panel/main/CPANEL3-AIO-DEBIAN/cpanel3_aio_vip; chmod +x cpanel3_aio_vip; setarch $(uname -m) -R /root/cpanel3_aio_vip
+echo "";
+history -c
+history -w
+rm -rf MTK_INSTALLER_V24
+break ;;
+
+Cpanel3-Aio-Private,*|*,Cpanel3-Aio-Private) 
+echo "";
+echo -e "                $GREEN 9) Cpanel3 AIO PRIVATE  Selected$RESET";
+sleep 2s
+clear
+wget -O cpanel3_aio_private https://raw.githubusercontent.com/DexterRepositories/Panel/main/CPANEL3-AIO-DEBIAN/cpanel3_aio_private; chmod +x cpanel3_aio_private; setarch $(uname -m) -R /root/cpanel3_aio_private
+echo "";
+history -c
+history -w
+rm -rf MTK_INSTALLER_V24
+break ;;
+
+Cpanel3Aio-Ubuntu20-Premium,*|*,Cpanel3Aio-Ubuntu20-Premium) 
+echo "";
+echo -e "                $GREEN 10) Cpanel3 AIO Ubuntu20  Selected$RESET";
+sleep 2s
+clear
+wget -O cpanel3aio_ubuntu20_premium https://raw.githubusercontent.com/DexterRepositories/Panel/main/CPANEL3-EXTREME-UBUNTU20/cpanel3aio_ubuntu20_premium; chmod +x cpanel3aio_ubuntu20_premium; setarch $(uname -m) -R /root/cpanel3aio_ubuntu20_premium
+echo "";
+history -c
+history -w
+rm -rf MTK_INSTALLER_V24
+break ;;
+
+Cpanel3Aio-Ubuntu20-Vip,*|*,Cpanel3Aio-Ubuntu20-Vip) 
+echo "";
+echo -e "                $GREEN 11) Cpanel3 AIO Ubuntu20  Selected$RESET";
+sleep 2s
+clear
+wget -O cpanel3aio_ubuntu20_vip https://raw.githubusercontent.com/DexterRepositories/Panel/main/CPANEL3-EXTREME-UBUNTU20/cpanel3aio_ubuntu20_vip; chmod +x cpanel3aio_ubuntu20_vip; setarch $(uname -m) -R /root/cpanel3aio_ubuntu20_vip
+echo "";
+history -c
+history -w
+rm -rf MTK_INSTALLER_V24
+break ;;
+
+Cpanel3Aio-Ubuntu20-Private,*|*,Cpanel3Aio-Ubuntu20-Private) 
+echo "";
+echo -e "                $GREEN 12) Cpanel3 AIO Ubuntu20  Selected$RESET";
+sleep 2s
+clear
+wget -O cpanel3aio_ubuntu20_private https://raw.githubusercontent.com/DexterRepositories/Panel/main/CPANEL3-EXTREME-UBUNTU20/cpanel3aio_ubuntu20_private; chmod +x cpanel3aio_ubuntu20_private; setarch $(uname -m) -R /root/cpanel3aio_ubuntu20_private
+echo "";
+history -c
+history -w
+rm -rf MTK_INSTALLER_V24
+break ;;
+
+MTK-PROMO-PREMIUM*|*,MTK-PROMO-PREMIUM) 
+echo "";
+echo -e "                $GREEN 13) MTK PROMO APP PREMIUM  Selected$RESET";
+sleep 2s
+clear
+wget -O strongcert_ovpn_premium "https://raw.githubusercontent.com/DexterRepositories/Panel/main/SCRIPT-PROMO-APPS/strongcert_ovpn_premium" && chmod +x strongcert_ovpn_premium && sed -i -e 's/\r$//' ~/strongcert_ovpn_premium && ./strongcert_ovpn_premium
+echo "";
+history -c
+history -w
+rm -rf MTK_INSTALLER_V24
+break ;;
+
+MTK-PROMO-VIP*|*,MTK-PROMO-VIP) 
+echo "";
+echo -e "                $GREEN 14) MTK PROMO APP VIP  Selected$RESET";
+sleep 2s
+clear
+wget -O strongcert_ovpn_vip "https://raw.githubusercontent.com/DexterRepositories/Panel/main/SCRIPT-PROMO-APPS/strongcert_ovpn_vip" && chmod +x strongcert_ovpn_vip && sed -i -e 's/\r$//' ~/strongcert_ovpn_vip && ./strongcert_ovpn_vip
+echo "";
+history -c
+history -w
+rm -rf MTK_INSTALLER_V24
+break ;;
+
+MTK-PROMO-PRIVATE*|*,MTK-PROMO-PRIVATE) 
+echo "";
+echo -e "                $GREEN 15) MTK PROMO APP PRIVATE  Selected$RESET";
+sleep 2s
+clear
+wget -O strongcert_ovpn_private "https://raw.githubusercontent.com/DexterRepositories/Panel/main/SCRIPT-PROMO-APPS/strongcert_ovpn_private" && chmod +x strongcert_ovpn_private && sed -i -e 's/\r$//' ~/strongcert_ovpn_private && ./strongcert_ovpn_private
+echo "";
+history -c
+history -w
+rm -rf MTK_INSTALLER_V24
+break ;;
+
+PUREUDP1-MTK-EXTREME,*|*,PUREUDP1-MTK-EXTREME) 
+echo "";
+echo -e "                $GREEN 16) PURE EXTREME UDP1 Selected$RESET";
+sleep 2s
+clear
+wget -O udp "https://raw.githubusercontent.com/DexterRepositories/Hysteria/main/udp" && chmod +x udp && sed -i -e 's/\r$//' ~/udp && ./udp
+echo "";
+history -c
+history -w
+rm -rf MTK_INSTALLER_V24
+break ;;
+
+PUREUDP-MTK-EXTREME,*|*,PUREUDP-MTK-EXTREME) 
+echo "";
+echo -e "                $GREEN 17) PURE EXTREME UDP Selected$RESET";
+sleep 2s
+clear
+wget -O ubuntu20_udp "https://raw.githubusercontent.com/DexterRepositories/Script/main/ubuntu20_udp" && chmod +x ubuntu20_udp && sed -i -e 's/\r$//' ~/ubuntu20_udp && ./ubuntu20_udp
+echo "";
+history -c
+history -w
+rm -rf MTK_INSTALLER_V24
+break ;;
+
+SSH-WS-HYSTERIA,*|*,SSH-WS-HYSTERIA) 
+echo "";
+echo -e "                $GREEN 18) SSH/WS + HYSTERIA Selected$RESET";
+sleep 2s
+clear
+wget -O sshws_hysteria "https://raw.githubusercontent.com/DexterRepositories/Script/main/sshws_hysteria" && chmod +x sshws_hysteria && sed -i -e 's/\r$//' ~/sshws_hysteria && ./sshws_hysteria
+echo "";
+history -c
+history -w
+rm -rf MTK_INSTALLER_V24
+break ;;
+
+SLOWDNS-PURE,*|*,SLOWDNS-PURE) 
+echo "";
+echo -e "                $GREEN 19) SLOWDNS PURE Selected$RESET";
+sleep 2s
+clear
+wget -O setup "https://raw.githubusercontent.com/DexterRepositories/Slowdns/main/installer/setup" && chmod +x setup && sed -i -e 's/\r$//' ~/setup && ./setup
+echo "";
+history -c
+history -w
+rm -rf MTK_INSTALLER_V24
+break ;;
+
+SLOWDNS/SSH-WEBSOCKET,*|*,SLOWDNS/SSH-WEBSOCKET) 
+echo "";
+echo -e "                $GREEN 20) SLOWDNS + SSH/WEBSOCKET Selected$RESET";
+sleep 2s
+clear
+wget -O install "https://raw.githubusercontent.com/DexterRepositories/Script/main/install" && chmod +x install && sed -i -e 's/\r$//' ~/install && ./install
+echo "";
+history -c
+history -w
+rm -rf MTK_INSTALLER_V24
+break ;;
+
+MTK-Vless-XrayCORE,*|*,MTK-Vless-XrayCORE) 
+echo "";
+echo -e "                $GREEN 21) MTK XRAY CORE VLESS  Selected$RESET";
+sleep 2s
+clear
+wget -N --no-check-certificate -q -O install.sh "https://raw.githubusercontent.com/DexterRepositories/Panel/main/install.sh" && chmod +x install.sh && bash install.sh
+echo "";
+history -c
+history -w
+rm -rf MTK_INSTALLER_V24
+break ;;
+
+QUIT,*|*,QUIT) 
+echo -e " $RED   Installation Cancelled!$RESET";
+exit;
+break ;; *)
+echo "";
+echo -e "                $RED   Invalid: Just choose what you want$RESET";
+esac
+done
