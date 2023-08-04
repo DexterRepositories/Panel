@@ -219,24 +219,33 @@ wget -O /etc/hysteria/config.sh "https://raw.githubusercontent.com/DexterReposit
 
 cat << EOF > /etc/openvpn/easy-rsa/keys/ca.crt
 -----BEGIN CERTIFICATE-----
-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
+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
 -----END CERTIFICATE-----
 EOF
 
@@ -244,131 +253,144 @@ cat << EOF > /etc/openvpn/easy-rsa/keys/server.crt
 Certificate:
     Data:
         Version: 3 (0x2)
-        Serial Number:
-            3e:5a:17:11:1b:49:4d:5a:4c:8c:f0:00:b5:f8:2e:b0
+        Serial Number: 1 (0x1)
         Signature Algorithm: sha256WithRSAEncryption
-        Issuer: CN=DexterEskalarte
+        Issuer: C=PH, ST=MA, L=PAMPANGA, O=DexterEskalarte, OU=DexterEskalarte, CN=DexterEskalarte CA/name=MediatekVpn/emailAddress=deskalarte@gmail.com
         Validity
-            Not Before: Aug  4 02:10:24 2023 GMT
-            Not After : Nov  6 02:10:24 2025 GMT
-        Subject: CN=DexterEskalarte
+            Not Before: Sep 20 03:54:08 2022 GMT
+            Not After : Sep 17 03:54:08 2032 GMT
+        Subject: C=PH, ST=MA, L=PAMPANGA, O=DexterEskalarte, OU=DexterEskalarte, CN=DexterEskalarte CA/name=MediatekVpn/emailAddress=deskalarte@gmail.com
         Subject Public Key Info:
             Public Key Algorithm: rsaEncryption
-                Public-Key: (2048 bit)
+                RSA Public-Key: (2048 bit)
                 Modulus:
-                    00:b5:81:7f:8b:20:15:2b:83:0d:33:30:fd:eb:aa:
-                    09:f5:b7:6e:da:43:86:5d:c1:ef:af:6e:25:37:17:
-                    9e:22:34:68:08:58:fe:3c:83:2d:fc:a7:6a:c2:d4:
-                    a4:5e:47:f3:24:12:f7:4d:7f:fb:2f:20:12:c8:28:
-                    d1:3d:e1:95:ec:85:89:72:a2:96:b6:a0:84:54:9a:
-                    dd:56:74:69:f6:d8:74:da:23:fb:20:df:1c:a3:a7:
-                    8b:cc:d0:9a:76:aa:83:de:97:a0:89:9d:17:f1:ba:
-                    60:25:63:1c:d0:8a:0a:95:b2:76:aa:ff:06:f8:a4:
-                    91:0e:f7:06:0d:f0:4d:19:04:ba:e3:7d:32:49:6d:
-                    32:88:29:a9:4c:aa:81:12:33:eb:29:4b:34:fb:fa:
-                    06:24:7a:4b:9c:ba:6c:12:39:7d:42:ad:9d:1f:23:
-                    cf:74:ed:b4:8b:f1:ad:1b:93:cb:a7:a9:5d:fa:4b:
-                    b4:25:84:03:7c:66:6b:b0:9e:c5:85:24:51:6a:08:
-                    27:4d:e6:38:16:6d:96:c0:4f:a1:cb:0b:ff:2a:dc:
-                    84:a2:18:99:20:57:91:9e:5b:24:f6:3d:5f:9e:b2:
-                    fb:9d:ad:98:86:c2:eb:47:5e:8e:f9:bb:2b:55:ce:
-                    49:f2:b6:95:6d:7a:18:07:88:52:8e:cf:0e:dc:3f:
-                    63:fb
+                    00:b5:eb:a1:de:45:39:54:a9:12:db:91:b0:68:ac:
+                    77:39:7e:4d:ee:5c:ae:6c:2f:57:a7:70:a6:19:39:
+                    19:b0:46:75:6d:50:81:9d:3c:43:5a:21:49:84:b1:
+                    fa:68:67:2e:05:ba:ec:e1:08:3b:70:07:77:32:03:
+                    19:65:7c:af:d5:10:97:8a:3a:af:11:66:ee:42:b2:
+                    90:b5:1a:34:28:55:76:0f:a3:ac:f3:e9:1d:fc:d7:
+                    5f:7c:89:50:3b:7e:0f:49:61:97:b7:79:b5:c6:29:
+                    2a:c5:e3:ef:38:43:77:12:cb:06:d0:e1:2c:4a:38:
+                    fe:0a:33:ec:2c:b7:79:bf:b9:fa:d7:ea:2c:9f:02:
+                    4f:10:eb:0a:6f:05:5a:50:01:dc:50:93:71:03:b9:
+                    63:34:53:9e:30:9d:23:64:66:e8:9c:73:19:85:39:
+                    b6:79:b4:55:1d:9d:2a:e0:df:4c:b2:5a:c2:e9:0e:
+                    59:a2:3a:70:34:6a:9c:8a:09:34:1d:5e:29:a9:b6:
+                    5b:16:ce:9e:c5:6c:50:d6:4d:10:09:60:f6:c9:00:
+                    81:29:e3:a1:4c:10:fb:fe:a5:14:d6:b5:2a:e0:72:
+                    50:2f:50:dc:bc:34:8d:ca:e2:fb:78:06:4d:b5:cd:
+                    fe:9a:cd:2a:b7:c9:79:32:66:4a:bf:d3:d0:04:25:
+                    9e:d5
                 Exponent: 65537 (0x10001)
         X509v3 extensions:
             X509v3 Basic Constraints: 
                 CA:FALSE
+            Netscape Cert Type: 
+                SSL Server
+            Netscape Comment: 
+                Easy-RSA Generated Server Certificate
             X509v3 Subject Key Identifier: 
-                F8:22:D4:10:3C:D4:DC:42:00:2B:7B:DE:6B:01:98:15:6E:51:81:87
+                28:1D:A2:5E:3A:50:2C:3A:E0:B0:54:57:D6:11:02:FC:D6:1F:FF:35
             X509v3 Authority Key Identifier: 
-                keyid:4A:18:F4:E3:F7:FD:FA:20:DF:2C:5F:45:2B:E3:D3:8B:94:F5:D1:2A
-                DirName:/CN=DexterEskalarte
-                serial:57:D7:5B:66:F2:15:F8:74:18:5A:20:66:E7:1E:B3:FA:54:34:42:18
+                keyid:DB:6B:D9:7E:CC:36:11:1E:67:E8:45:B0:07:26:88:17:F6:8B:F3:AB
+                DirName:/C=PH/ST=MA/L=Antipolo City/O=TKNetwork/OU=TKNerwork/CN=TKNetwork CA/name=TKNetwork/emailAddress=ericlaylay@gmail.com
+                serial:52:67:60:3D:A2:29:17:35:5F:CA:B9:4A:8E:E2:80:74:F3:CE:64:EB
+
             X509v3 Extended Key Usage: 
-                TLS Web Client Authentication
+                TLS Web Server Authentication
             X509v3 Key Usage: 
-                Digital Signature
+                Digital Signature, Key Encipherment
+            X509v3 Subject Alternative Name: 
+                DNS:[server]
     Signature Algorithm: sha256WithRSAEncryption
-    Signature Value:
-        01:14:b7:96:bc:48:06:0f:f9:0e:61:6e:ab:99:e4:87:88:92:
-        bf:2a:f6:dd:8b:be:a3:76:95:84:85:e1:e1:33:f5:d2:73:19:
-        11:70:87:8a:f7:de:81:59:8b:42:5f:0f:10:24:05:3e:b8:72:
-        5e:9a:2b:25:f5:e8:a5:a5:df:b4:94:9d:64:85:81:05:42:e7:
-        ff:c9:26:0f:91:b9:8a:32:79:56:92:c2:f6:cc:01:b2:c6:9a:
-        4d:b6:71:06:a4:8a:37:25:05:0b:85:88:50:82:8d:7d:3f:1b:
-        ce:e5:7e:1c:65:32:8b:cd:5b:01:f3:4e:4a:40:66:68:53:34:
-        fb:89:3b:2a:8a:d6:9d:5f:e9:a0:14:d1:38:66:ad:77:4f:a1:
-        0a:3b:2a:0d:61:9f:a3:60:6c:d1:14:78:a2:96:f0:30:8f:3b:
-        76:d8:4c:56:d1:18:14:b7:ab:6d:41:de:fe:91:26:2e:31:ba:
-        62:56:e4:4d:12:1c:ae:90:b5:50:a4:34:95:be:77:15:ab:9b:
-        6d:02:3c:4c:b5:10:1d:d9:bc:97:2d:50:dc:56:92:6a:84:fb:
-        47:60:ed:e5:15:61:35:e4:23:c9:8d:ab:61:32:02:d4:4b:ee:
-        85:68:97:68:2f:08:be:68:37:bc:21:3f:9a:8a:fb:7e:b7:b0:
-        9a:fa:40:cb
+         0c:5a:d1:93:48:73:de:35:f0:1b:b5:88:71:be:ce:04:e0:f7:
+         c3:b1:ef:48:05:2f:20:ff:68:6c:e6:10:0f:d2:65:6b:57:e4:
+         cc:36:af:4c:ec:d4:0c:46:4c:76:5a:7d:20:74:92:67:41:5f:
+         74:27:3b:48:39:51:65:ff:86:3b:1b:6a:15:b1:11:99:45:cd:
+         03:0e:e2:46:5d:c0:19:e0:07:0c:18:1e:6e:a1:f6:f2:32:b5:
+         3d:91:27:0a:e8:ae:e5:22:a0:f1:87:9f:b8:ba:d8:eb:6b:2b:
+         82:8d:e4:2e:66:0a:2a:1f:f6:bb:ee:6a:92:8f:c7:77:0d:ee:
+         68:96:58:ce:52:c5:6a:c5:7a:24:fd:ee:83:ba:0b:4e:28:b6:
+         92:60:f1:ce:24:bc:9e:a5:ca:73:d3:cc:69:48:a4:8b:31:c3:
+         7f:41:d1:31:2d:1e:e8:c7:4f:5d:d6:c1:e8:8d:b7:44:49:0a:
+         5a:6c:ea:44:a3:70:19:12:2d:a9:d1:90:bd:3a:3d:4b:85:c0:
+         35:d0:03:94:1f:de:68:1c:a0:5d:f0:b9:6c:40:68:97:1a:25:
+         c1:5a:a0:cc:a9:51:68:d5:37:be:74:e4:23:0a:fd:74:92:54:
+         9e:2f:fc:65:56:d1:27:3b:05:01:b4:c1:b4:a9:10:8d:70:30:
+         a0:b6:74:55
 -----BEGIN CERTIFICATE-----
-MIIDZTCCAk2gAwIBAgIQPloXERtJTVpMjPAAtfgusDANBgkqhkiG9w0BAQsFADAa
-MRgwFgYDVQQDDA9EZXh0ZXJFc2thbGFydGUwHhcNMjMwODA0MDIxMDI0WhcNMjUx
-MTA2MDIxMDI0WjAaMRgwFgYDVQQDDA9EZXh0ZXJFc2thbGFydGUwggEiMA0GCSqG
-SIb3DQEBAQUAA4IBDwAwggEKAoIBAQC1gX+LIBUrgw0zMP3rqgn1t27aQ4Zdwe+v
-biU3F54iNGgIWP48gy38p2rC1KReR/MkEvdNf/svIBLIKNE94ZXshYlyopa2oIRU
-mt1WdGn22HTaI/sg3xyjp4vM0Jp2qoPel6CJnRfxumAlYxzQigqVsnaq/wb4pJEO
-9wYN8E0ZBLrjfTJJbTKIKalMqoESM+spSzT7+gYkekucumwSOX1CrZ0fI8907bSL
-8a0bk8unqV36S7QlhAN8ZmuwnsWFJFFqCCdN5jgWbZbAT6HLC/8q3ISiGJkgV5Ge
-WyT2PV+esvudrZiGwutHXo75uytVzknytpVtehgHiFKOzw7cP2P7AgMBAAGjgaYw
-gaMwCQYDVR0TBAIwADAdBgNVHQ4EFgQU+CLUEDzU3EIAK3veawGYFW5RgYcwVQYD
-VR0jBE4wTIAUShj04/f9+iDfLF9FK+PTi5T10SqhHqQcMBoxGDAWBgNVBAMMD0Rl
-eHRlckVza2FsYXJ0ZYIUV9dbZvIV+HQYWiBm5x6z+lQ0QhgwEwYDVR0lBAwwCgYI
-KwYBBQUHAwIwCwYDVR0PBAQDAgeAMA0GCSqGSIb3DQEBCwUAA4IBAQABFLeWvEgG
-D/kOYW6rmeSHiJK/Kvbdi76jdpWEheHhM/XScxkRcIeK996BWYtCXw8QJAU+uHJe
-misl9eilpd+0lJ1khYEFQuf/ySYPkbmKMnlWksL2zAGyxppNtnEGpIo3JQULhYhQ
-go19PxvO5X4cZTKLzVsB805KQGZoUzT7iTsqitadX+mgFNE4Zq13T6EKOyoNYZ+j
-YGzRFHiilvAwjzt22ExW0RgUt6ttQd7+kSYuMbpiVuRNEhyukLVQpDSVvncVq5tt
-AjxMtRAd2byXLVDcVpJqhPtHYO3lFWE15CPJjathMgLUS+6FaJdoLwi+aDe8IT+a
-ivt+t7Ca+kDL
+MIIFazCCBFOgAwIBAgIBATANBgkqhkiG9w0BAQsFADCBqjELMAkGA1UEBhMCUEgx
+CzAJBgNVBAgTAk1BMRYwFAYDVQQHEw1BbnRpcG9sbyBDaXR5MRIwEAYDVQQKEwlU
+S05ldHdvcmsxEjAQBgNVBAsTCVRLTmVyd29yazEVMBMGA1UEAxMMVEtOZXR3b3Jr
+IENBMRIwEAYDVQQpEwlUS05ldHdvcmsxIzAhBgkqhkiG9w0BCQEWFGVyaWNsYXls
+YXlAZ21haWwuY29tMB4XDTIyMDkyMDAzNTQwOFoXDTMyMDkxNzAzNTQwOFowgacx
+CzAJBgNVBAYTAlBIMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNQW50aXBvbG8gQ2l0
+eTESMBAGA1UEChMJVEtOZXR3b3JrMRIwEAYDVQQLEwlUS05lcndvcmsxEjAQBgNV
+BAMTCVRLTmV0d29yazESMBAGA1UEKRMJVEtOZXR3b3JrMSMwIQYJKoZIhvcNAQkB
+FhRlcmljbGF5bGF5QGdtYWlsLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCC
+AQoCggEBALXrod5FOVSpEtuRsGisdzl+Te5crmwvV6dwphk5GbBGdW1QgZ08Q1oh
+SYSx+mhnLgW67OEIO3AHdzIDGWV8r9UQl4o6rxFm7kKykLUaNChVdg+jrPPpHfzX
+X3yJUDt+D0lhl7d5tcYpKsXj7zhDdxLLBtDhLEo4/goz7Cy3eb+5+tfqLJ8CTxDr
+Cm8FWlAB3FCTcQO5YzRTnjCdI2Rm6JxzGYU5tnm0VR2dKuDfTLJawukOWaI6cDRq
+nIoJNB1eKam2WxbOnsVsUNZNEAlg9skAgSnjoUwQ+/6lFNa1KuByUC9Q3Lw0jcri
++3gGTbXN/prNKrfJeTJmSr/T0AQlntUCAwEAAaOCAZswggGXMAkGA1UdEwQCMAAw
+EQYJYIZIAYb4QgEBBAQDAgZAMDQGCWCGSAGG+EIBDQQnFiVFYXN5LVJTQSBHZW5l
+cmF0ZWQgU2VydmVyIENlcnRpZmljYXRlMB0GA1UdDgQWBBQoHaJeOlAsOuCwVFfW
+EQL81h//NTCB6gYDVR0jBIHiMIHfgBTba9l+zDYRHmfoRbAHJogX9ovzq6GBsKSB
+rTCBqjELMAkGA1UEBhMCUEgxCzAJBgNVBAgTAk1BMRYwFAYDVQQHEw1BbnRpcG9s
+byBDaXR5MRIwEAYDVQQKEwlUS05ldHdvcmsxEjAQBgNVBAsTCVRLTmVyd29yazEV
+MBMGA1UEAxMMVEtOZXR3b3JrIENBMRIwEAYDVQQpEwlUS05ldHdvcmsxIzAhBgkq
+hkiG9w0BCQEWFGVyaWNsYXlsYXlAZ21haWwuY29tghRSZ2A9oikXNV/KuUqO4oB0
+885k6zATBgNVHSUEDDAKBggrBgEFBQcDATALBgNVHQ8EBAMCBaAwEwYDVR0RBAww
+CoIIW3NlcnZlcl0wDQYJKoZIhvcNAQELBQADggEBAAxa0ZNIc9418Bu1iHG+zgTg
+98Ox70gFLyD/aGzmEA/SZWtX5Mw2r0zs1AxGTHZafSB0kmdBX3QnO0g5UWX/hjsb
+ahWxEZlFzQMO4kZdwBngBwwYHm6h9vIytT2RJwroruUioPGHn7i62OtrK4KN5C5m
+Ciof9rvuapKPx3cN7miWWM5SxWrFeiT97oO6C04otpJg8c4kvJ6lynPTzGlIpIsx
+w39B0TEtHujHT13WweiNt0RJClps6kSjcBkSLanRkL06PUuFwDXQA5Qf3mgcoF3w
+uWxAaJcaJcFaoMypUWjVN7505CMK/XSSVJ4v/GVW0Sc7BQG0wbSpEI1wMKC2dFU=
 -----END CERTIFICATE-----
 EOF
 
 cat << EOF > /etc/openvpn/easy-rsa/keys/server.key
 -----BEGIN PRIVATE KEY-----
-MIIFHDBOBgkqhkiG9w0BBQ0wQTApBgkqhkiG9w0BBQwwHAQIn2RO2gfgkRsCAggA
-MAwGCCqGSIb3DQIJBQAwFAYIKoZIhvcNAwcECBQSsfxmQgc+BIIEyGkYlFPFrH/U
-Shchk8Sf97qssfKrm1jyoCsO54QPeEdQ40iyJkw9D2g4OmL1nweORODPnejCP38N
-AID74HgagfYueC7Is2jsc5KFtvtHzCpqDbCgFZpej06GUOuofnCcnQVzhAgKnnk+
-oQVKH3Umhwiczfqc+EJJ7wAActki6lFOJFi1w5cJlyvswjMJHHNXm7KzMf9AW/T+
-b8m4HJvebhKrNRPx1X6qKYBKGCsH2H8B20vNwhj9mFDDZ5+6FV6JoTLsWpZ8vy7H
-LOYABKnBlZgVWZILX7YFL7HyNfbpDcs4SOTpAqlJIgWaG/3HtJKvDuJNiA6X4gQL
-cFTzrGM0VqpQQSSMjhnStCZSGapz5pkT3bnvq+fa06NIMvuXlYHJRKSzdFZDSdUe
-/sZ7DdoMhnR37zXLc9ac97IrOIFVTgPRRIx5pYJVDfPAaHbu9vgVvsTEkiadGJ1v
-GWhuFxMDIQWN3h8X0FBQ3dsD1iMMrhij0ow4UWFC1u6yVADRHqr8nBxqRS+xeOdO
-4V1tCRqfhl+0ZNTJf6rZrUN83n7nCcd0+fcE5TNrsENKukr/bWkrmlOtcBlDKLBH
-ZJTqaeF+EQiXQekeCTlRVZ5jUTTRi4kzboh/iI9o7QK8HRi46PRe5N55tQ3a0jax
-7Us+H6/09/ukJ6Qn5iZiaJZ977On0/+WlcxwUpNF/rvPE5pnB7fixbi9GUbp82kE
-WO0+N/X/7nvDvHMY9iqBBTjUSsnCER+v4hQHFeDCXhcl3aCSMaPMvlEF3KYMG8fL
-1eAvpshEvffPl4WbglFgssRpwBGnmJpfBjwRN1KUBIoA/MHB0o5NaT1Vs4BZZQ4a
-slyL4JxBtD468Oq02anefbVDL6HvZnE46hVUTAG9JouuBj3GnrFlqfJLe/0+4UUu
-h5y63YbNS3Q7/q2iIGKYG5vJWdBJOry5D4R4Eryo1+OTK70opAONAGkavCfeSxIC
-d+g1Zvf3GPYGB8C8AVjrEjC9cEOB9RY33B6L139smhPh42ZLve3mWsIcUGJwtBdF
-6Dvv3QcMMgVNaXVN8rg8gWufNMExGlf/9vdZJQdACNYZ3qH+wgbxuLTGlY5p3u7U
-/NDCWPykRPb+3LNZFvuZCV7V/79impg5my3Pkm0ygWNRjy5JL75em8NKPJ1Ud7yq
-yJHJ0P9ZjPsLTXpEsmzRy5rqPP3SSto0kv7qRLTptBZ3+fLpW91bbmSlvNkj/sxj
-PBzGeDoRexfqz5GQ02ZssnlPLQQkkM6U2hLe1s3tTHdj7cf1KW0JGYAndJlJlAlz
-uMYwVYcYZUerkbJpMMywNgHn3x45DybBLQ8BoPwbai2NSQG2IibnJjc6x2HF5TFu
-zF0bGZPxzs2G1SnVXae/VltBv4pXkntZO9mRW24XEf1A/IDYypbpmnpc/NB9odhB
-OTTjNW8HweOLiXqmDedtGGqCqdaylWj08mn93ERAKqlZTL6Itc0g3RtkVREX+zG4
-1kIL3UawYeoz9RySoBTBo8Vz/tS8csq9bi9jEA9o4yYXEnoki6bsBxtOcp1G1X8D
-hKpYm6TcNlhgfLSeKRyo7qb2yCf79APNgXvkfU77znC/0QIWhu6oyplEvVhhHli/
-LJxtL9ufVinbzEzBwGO+Ug==
+MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC166HeRTlUqRLb
+kbBorHc5fk3uXK5sL1encKYZORmwRnVtUIGdPENaIUmEsfpoZy4FuuzhCDtwB3cy
+AxllfK/VEJeKOq8RZu5CspC1GjQoVXYPo6zz6R381198iVA7fg9JYZe3ebXGKSrF
+4+84Q3cSywbQ4SxKOP4KM+wst3m/ufrX6iyfAk8Q6wpvBVpQAdxQk3EDuWM0U54w
+nSNkZuiccxmFObZ5tFUdnSrg30yyWsLpDlmiOnA0apyKCTQdXimptlsWzp7FbFDW
+TRAJYPbJAIEp46FMEPv+pRTWtSrgclAvUNy8NI3K4vt4Bk21zf6azSq3yXkyZkq/
+09AEJZ7VAgMBAAECggEBALI+EPcKtEVy8vsXH9UvRhGa4xhszqlJKYTxJo0IGVdR
+cbSNcLFyXjts6e+Nwl+Q2NLcd0N1IWd+qRbjWnrJVC5ad2AEZ4uRYlkPRCFtbzUl
+putj3w2Mlsko7HHEyEvCE5A+grxOD//8TeBemAB0ebJ8Ik1+kjqW5LFydjDKBAwI
+sYjXpYGkMST9rqG82EToQn9jL5Ncby35Ls3owzWDfd/1Y4NQmk6gO09spoMzWJpS
+mSiV+w83QxxJtOgT00O9NuDz9skotW3v2xWTZue0BzMirCTQWPiFRL1476/O9KYD
+KUBAcWynC/PE4ub0lMfaesdrggjRoDYvaQp3xLx/6HECgYEA4siN9t7Ogwhf/4X7
+BAN+2OSRWRW8tn9wzzNAPzhjs8igm4W+C4lQtMmW9eFOHuRj6TiWp4w36m4cs5VF
+eK39mp3/nyd9l68bFjGxw3XZsI/5bTGgcrSVAAAGp65xadI3+1Ozy7OmFoRF/Gkv
+X7+/DyWz5nb9yAH/N69vPpVek8sCgYEAzVt4qpMc5tX6tMxCAC1ZUFo8fwSZndmk
+jDTgb2G2O1YIqrYHqVjtwMQiDxvBGdkVJuy8QQQHM6YCD3o1Jq56bjvY1IlumXCW
+0YeKfSeqfXN/nBCkyZxa79DkQSPeYEjFTFABVe/SEEcasn8HrlyygtFT+nLCcEz/
+V1ekP5Mmg98CgYEApsGOEh9XfuZjoIKmRxdC6L15WyYus4sWKmWnMlWGiqZV4sX/
+LoB0BdvN01MunGyYQt/Hd8AVRZ5eIHb8tHZL6quPUTo6kZTCuBkme3Fm9vuHDxHU
+x0Od5HggbKBK6OMZIwczR+/7iscMp0O5ABEArmSs2iRZC/7b6dhoVn6DIu0CgYA+
+tOvHylxM8JI5mxWcUDyxmJxYfOMbnFXuqkbOPBwVSlQjLKpyP8F512o/Cs6QQgV/
+eVKS19QLJWoDp+GLCkRAXO39GGo5WHP1T1oulWouHJKe6UYoeiIakMLiUT2aUR5O
+CzAdObn/VncEgl2qFIw9/gWSuHA/MoPV++EfuKNOKQKBgDbyYfG3JESaLpaEiPED
+UQDv4iVBzaqA3sMpmpA2YRIUZE4ZzSuiVMxGHfhAvueuiMwyzqsLe0BOgCNtJDg3
+o4CmMhs3Wlw5FiOru1LxQY//65wi5q8+rNF4DR3oUKoVGb1PD3Gm8ZsxirhMOCrc
+sKKWTJk08giHse+yqTKQ05uR
 -----END PRIVATE KEY-----
 EOF
 
 cat << EOF > /etc/openvpn/easy-rsa/keys/dh.pem
 -----BEGIN DH PARAMETERS-----
-MIIBCAKCAQEA7JJPfOriRZFu0im5sBPX0X5kYEmd3aULS1Rd9OTRgTo1wU6kEKEX
-UuAtsZv8H99vU9rMrpF5hHNPQXBseUr+cH7cbaqkix2ESF+dydRc6Rkyy61Fq7rU
-lZ4Nga+jISOplMgQV/7QTiSxrooTR0teFTSWTBJ4yx5VHPWUPqWSbn2Gxdex59yV
-cf6uD91wPz5kF+X+bfB5pAId/jS+kMshSFUJaQGTnxx4pEmvlSEx4lXogp+P2awf
-3OFAbTtJXQMl7AX1C9aWOQdBNItTvPygAqKZlyFSTV+geRweonQnWo+8LJ57UYko
-2znqu4eQ9OZp5x7M3ErJV8AffaQn8k3s3wIBAg==
+MIIBCAKCAQEAuAz9Bv9pwxWbbb8BQZ/TxfRtI6pStmlhgDbuZbAWj5KL2dHabaHd
+xmbijMA3XM0VYzwrtVldeu9ejrJ16fWKDdjkBFxhHXNWyJjz5IqATpujsr9ft0zK
+9UZlkSFiJJQj5rZXd7Ls6SyPE6u/lfude12D3GF0uEUg0YPwl9n6J6Hmjo4UZ1HJ
+DXfuYxY9CVKEXBfNqxshQw4FuNqZajCCA9dWdYZDOkzcWo2QQYxXBWLwJZZ4EKY9
+aNu/vLxRe+2b3gUSkE6KIhN5/2fQyZgVY4NGkTtDIbLlpwQO/ZT/kFwJ8RShWdOo
+XarEe9JDuh1eOZcl4ZEbXjC6r3GnuOb/+wIBAg==
 -----END DH PARAMETERS-----
 EOF
 
