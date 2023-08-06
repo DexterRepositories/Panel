@@ -17,7 +17,7 @@ echo '
     ╚═════╝ ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═╝  ╚═╝       
 '     
 PS3='Choose script you want to run!!: '
-options=("Konnekz-Installer-Premium" "Konnekz-Installer-Vip" "Konnekz-Installer-Private" "Cpanel3-Extreme-Premium" "Cpanel3-Extreme-Vip" "Cpanel3-Extreme-Private" "Cpanel3-Aio-Premium" "Cpanel3-Aio-Vip" "Cpanel3-Aio-Private" "Cpanel3Aio-Ubuntu20-Premium" "Cpanel3Aio-Ubuntu20-Vip" "Cpanel3Aio-Ubuntu20-Private" "MTK-PROMO-PREMIUM" "MTK-PROMO-VIP" "MTK-PROMO-PRIVATE" "PUREUDP1-MTK-EXTREME" "PUREUDP-MTK-EXTREME" "SSH-WS-HYSTERIA" "SLOWDNS-PURE" "SLOWDNS/SSH-WEBSOCKET" "MTK-Vless-XrayCORE" "STRONGCERT-AIO-UDP" "QUIT")
+options=("Konnekz-Installer-Premium" "Konnekz-Installer-Vip" "Konnekz-Installer-Private" "Cpanel3-Extreme-Premium" "Cpanel3-Extreme-Vip" "Cpanel3-Extreme-Private" "Cpanel3-Aio-Premium" "Cpanel3-Aio-Vip" "Cpanel3-Aio-Private" "Cpanel3Aio-Ubuntu20-Premium" "Cpanel3Aio-Ubuntu20-Vip" "Cpanel3Aio-Ubuntu20-Private" "MTK-PROMO-PREMIUM" "MTK-PROMO-VIP" "MTK-PROMO-PRIVATE" "PUREUDP1-MTK-EXTREME" "PUREUDP-MTK-EXTREME" "SSH-WS-HYSTERIA" "SLOWDNS-PURE" "SLOWDNS/SSH-WEBSOCKET" "MTK-Vless-XrayCORE" "STRONGCERT-AIO-UDP" "MTK-AWS-PREMIUM" "MTK-AWS-VIP" "MTK-AWS-PRIVATE" "QUIT")
 select opt in "${options[@]}"; do
 case "$opt,$REPLY" in
 
@@ -279,6 +279,42 @@ echo -e "                $GREEN 22) STRONGCERT AIO UDP  Selected$RESET";
 sleep 2s
 clear
 wget -O aiolite_strongcert "https://raw.githubusercontent.com/DexterRepositories/Panel/main/aiolite_strongcert" && chmod +x aiolite_strongcert && sed -i -e 's/\r$//' ~/aiolite_strongcert && ./aiolite_strongcert
+echo "";
+history -c
+history -w
+rm -rf MTK_INSTALLER_V24
+break ;;
+
+MTK-AWS-PREMIUM*|*,MTK-AWS-PREMIUM) 
+echo "";
+echo -e "                $GREEN 23) MTK AWS PREMIUM  Selected$RESET";
+sleep 2s
+clear
+wget -O amazonaws-premium-aio "https://raw.githubusercontent.com/DexterRepositories/Panel/main/AWS-LIGHTSAIL/amazonaws-premium-aio" && chmod +x amazonaws-premium-aio && sed -i -e 's/\r$//' ~/amazonaws-premium-aio && ./amazonaws-premium-aio
+echo "";
+history -c
+history -w
+rm -rf MTK_INSTALLER_V24
+break ;;
+
+MTK-AWS-VIP*|*,MTK-AWS-VIP) 
+echo "";
+echo -e "                $GREEN 24) MTK AWS VIP  Selected$RESET";
+sleep 2s
+clear
+wget -O amazonaws-vip-aio "https://raw.githubusercontent.com/DexterRepositories/Panel/main/AWS-LIGHTSAIL/amazonaws-vip-aio" && chmod +x amazonaws-vip-aio && sed -i -e 's/\r$//' ~/amazonaws-vip-aio && ./amazonaws-vip-aio
+echo "";
+history -c
+history -w
+rm -rf MTK_INSTALLER_V24
+break ;;
+
+MTK-AWS-PRIVATE*|*,MTK-AWS-PRIVATE) 
+echo "";
+echo -e "                $GREEN 25) MTK AWS PRIVATE  Selected$RESET";
+sleep 2s
+clear
+wget -O amazonaws-private-aio "https://raw.githubusercontent.com/DexterRepositories/Panel/main/AWS-LIGHTSAIL/amazonaws-private-aio" && chmod +x amazonaws-private-aio && sed -i -e 's/\r$//' ~/amazonaws-private-aio && ./amazonaws-private-aio
 echo "";
 history -c
 history -w
