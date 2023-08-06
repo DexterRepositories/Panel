@@ -4,11 +4,9 @@
 #USER='teamkidl_maxlite2';
 #PASS='jan022011';
 #DBNAME='teamkidl_maxlite2';
-rm -rf aiolite_strongcert*
-PORT_TCP='443';
+rm -rf amazonaws-premium-aio*
+PORT_TCP='1194';
 PORT_UDP='53';
-PORT_WS='80';
-
 
 timedatectl set-timezone Asia/Manila
 
@@ -117,81 +115,95 @@ touch /etc/openvpn/server2.conf
 echo 'DNS=1.1.1.1
 DNSStubListener=no' >> /etc/systemd/resolved.conf
 
-echo '#Openvpn Configuration by: Dexter Eskalarte :)
-PORT_UDP
-sndbuf 0
-rcvbuf 0
-push "sndbuf 393216"
-push "rcvbuf 393216"
-reneg-sec 432000
-push "persist-key"
-push "persist-tun"
-proto tcp
+echo '#Openvpn Configuration by Firenet Developer :)
 dev tun
+port PORT_UDP
+proto udp
+server 10.10.0.0 255.255.0.0
 ca /etc/openvpn/easy-rsa/keys/ca.crt
 cert /etc/openvpn/easy-rsa/keys/server.crt
 key /etc/openvpn/easy-rsa/keys/server.key
 dh /etc/openvpn/easy-rsa/keys/dh.pem
-server 10.8.0.0 255.255.0.0
-user nobody
-username-as-common-name
-client-cert-not-required
-auth-user-pass-verify "/etc/openvpn/login/auth_vpn" via-env #
-push "redirect-gateway def1 bypass-dhcp"
-push "dhcp-option DNS 8.8.4.4"
-push "dhcp-option DNS 8.8.8.8"
-client-to-client
-keepalive 10 120
-comp-lzo
-script-security 3
+ncp-disable
+tls-server
+tls-version-min 1.2
+tls-cipher TLS-ECDHE-RSA-WITH-AES-128-GCM-SHA256
+cipher none
+auth none
 persist-key
 persist-tun
+ping-timer-rem
+compress lz4-v2
+keepalive 10 120
+reneg-sec 86400
+user nobody
+group nogroup
+client-to-client
+duplicate-cn
+username-as-common-name
+verify-client-cert none
+script-security 3
+auth-user-pass-verify "/etc/openvpn/login/auth_vpn" via-env #
+push "redirect-gateway def1 bypass-dhcp"
+push "dhcp-option DNS 8.8.8.8"
+push "dhcp-option DNS 8.8.4.4"
+push "compress lz4-v2"
+push "persist-key"
+push "persist-tun"
 client-connect /etc/openvpn/login/connect.sh
 client-disconnect /etc/openvpn/login/disconnect.sh
-log /etc/openvpn/server/tcpserver.log
-status /etc/openvpn/server/tcpclient.log
+log /etc/openvpn/server/udpserver.log
+status /etc/openvpn/server/udpclient.log
+status-version 2
 verb 3' > /etc/openvpn/server.conf
 
 sed -i "s|PORT_UDP|$PORT_UDP|g" /etc/openvpn/server.conf
 
-echo '#Openvpn Configuration by Dexter Eskalarte :)
-port PORT_TCP
-sndbuf 0
-rcvbuf 0
-push "sndbuf 393216"
-push "rcvbuf 393216"
-reneg-sec 432000
-push "persist-key"
-push "persist-tun"
-proto tcp
+echo '#Openvpn Configuration by Firenet Developer :)
 dev tun
+port PORT_TCP
+proto tcp
+server 10.20.0.0 255.255.0.0
 ca /etc/openvpn/easy-rsa/keys/ca.crt
 cert /etc/openvpn/easy-rsa/keys/server.crt
 key /etc/openvpn/easy-rsa/keys/server.key
 dh /etc/openvpn/easy-rsa/keys/dh.pem
-server 10.8.0.0 255.255.0.0
-user nobody
-username-as-common-name
-client-cert-not-required
-auth-user-pass-verify "/etc/openvpn/login/auth_vpn" via-env #
-push "redirect-gateway def1 bypass-dhcp"
-push "dhcp-option DNS 8.8.4.4"
-push "dhcp-option DNS 8.8.8.8"
-client-to-client
-keepalive 10 120
-comp-lzo
-script-security 3
+ncp-disable
+tls-server
+tls-version-min 1.2
+tls-cipher TLS-ECDHE-RSA-WITH-AES-128-GCM-SHA256
+cipher none
+auth none
 persist-key
 persist-tun
+ping-timer-rem
+compress lz4-v2
+keepalive 10 120
+reneg-sec 86400
+user nobody
+group nogroup
+client-to-client
+duplicate-cn
+username-as-common-name
+verify-client-cert none
+script-security 3
+auth-user-pass-verify "/etc/openvpn/login/auth_vpn" via-env #
+push "redirect-gateway def1 bypass-dhcp"
+push "dhcp-option DNS 8.8.8.8"
+push "dhcp-option DNS 8.8.4.4"
+push "compress lz4-v2"
+push "persist-key"
+push "persist-tun"
 client-connect /etc/openvpn/login/connect.sh
 client-disconnect /etc/openvpn/login/disconnect.sh
 log /etc/openvpn/server/tcpserver.log
 status /etc/openvpn/server/tcpclient.log
+status-version 2
 verb 3' > /etc/openvpn/server2.conf
 
 sed -i "s|PORT_TCP|$PORT_TCP|g" /etc/openvpn/server2.conf
 
-wget -O /etc/openvpn/login/config.sh "https://raw.githubusercontent.com/DexterRepositories/DB/main/strongcert/config"
+wget -O /etc/openvpn/login/config.sh "https://raw.githubusercontent.com/DexterRepositories/DB/main/mtkaio/config.sh"
 
 wget -O /etc/openvpn/login/auth_vpn "https://raw.githubusercontent.com/DexterRepositories/DB/main/mtkaio/premium.sh"
 
@@ -205,141 +217,13 @@ sed -i "s|SERVER_IP|$server_ip|g" /etc/openvpn/login/disconnect.sh
 
 wget -O /etc/hysteria/config.sh "https://raw.githubusercontent.com/DexterRepositories/DB/main/mtkaio/config.sh"
 
-cat << EOF > /etc/openvpn/easy-rsa/keys/ca.crt
------BEGIN CERTIFICATE-----
-MIID1zCCA0CgAwIBAgIJAIf0ZhcijVyOMA0GCSqGSIb3DQEBBQUAMIGkMQswCQYD
-VQQGEwJVUzELMAkGA1UECBMCQ0ExEDAOBgNVBAcTB2J1ZmZhbG8xFTATBgNVBAoT
-DEZvcnQtRnVuc3RvbjESMBAGA1UECxMJZ2FtaW5ndnBuMRIwEAYDVQQDEwlnYW1p
-bmd2cG4xEjAQBgNVBCkTCWdhbWluZ3ZwbjEjMCEGCSqGSIb3DQEJARYUY2Fydmlj
-MTk5OEBnbWFpbC5jb20wHhcNMTYwNDEyMDQxNzE3WhcNMjYwNDEwMDQxNzE3WjCB
-pDELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRAwDgYDVQQHEwdidWZmYWxvMRUw
-EwYDVQQKEwxGb3J0LUZ1bnN0b24xEjAQBgNVBAsTCWdhbWluZ3ZwbjESMBAGA1UE
-AxMJZ2FtaW5ndnBuMRIwEAYDVQQpEwlnYW1pbmd2cG4xIzAhBgkqhkiG9w0BCQEW
-FGNhcnZpYzE5OThAZ21haWwuY29tMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKB
-gQC6woe2R8MjAdN5KT+ccmhmDTjXIzQVNWSL+q7VRgqB7pmVgtoCE1Ti2l60jGzN
-OGU7WeT43+nOa9iKBag5KvLOLzFpVnKFPXgrG0GUyGPHEf11jqreYBq7T3kFwGYM
-WnKKiCG2FyWlZc/Fe2iQwEFyQ1o2uQaf/iP+gIdjk8Z6owIDAQABo4IBDTCCAQkw
-HQYDVR0OBBYEFDNbVb2UowyA/pYt+MaCGZLZ2ehHMIHZBgNVHSMEgdEwgc6AFDNb
-Vb2UowyA/pYt+MaCGZLZ2ehHoYGqpIGnMIGkMQswCQYDVQQGEwJVUzELMAkGA1UE
-CBMCQ0ExEDAOBgNVBAcTB2J1ZmZhbG8xFTATBgNVBAoTDEZvcnQtRnVuc3RvbjES
-MBAGA1UECxMJZ2FtaW5ndnBuMRIwEAYDVQQDEwlnYW1pbmd2cG4xEjAQBgNVBCkT
-CWdhbWluZ3ZwbjEjMCEGCSqGSIb3DQEJARYUY2FydmljMTk5OEBnbWFpbC5jb22C
-CQCH9GYXIo1cjjAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBBQUAA4GBAF+A6zox
-senbKlz8OlzINM4CHFknHHbCXAfIsVgLA+Dsau40PB3TsHmLiWtEnzVKQ91VAMXU
-z89ilB4pPYP6RijHyCAbtWyWxHSdxFTOzjVQyYpvNHSAXd+0ntaNhpSrv3toMedh
-i8VauAMaG2SWG2hGCxEjHKH7qXrs1s2NKihO
------END CERTIFICATE-----
-EOF
+wget -O /etc/openvpn/easy-rsa/keys/ca.crt "https://raw.githubusercontent.com/DexterRepositories/DB/main/mtkaio/cacrt"
 
-cat << EOF > /etc/openvpn/easy-rsa/keys/server.crt
-Certificate:
-    Data:
-        Version: 3 (0x2)
-        Serial Number: 1 (0x1)
-    Signature Algorithm: sha1WithRSAEncryption
-        Issuer: C=US, ST=CA, L=buffalo, O=Fort-Funston, OU=OragonVPN, CN=OragonVPN/name=OragonVPN/emailAddress=carvic1998@gmail.com
-        Validity
-            Not Before: Apr 12 04:17:47 2016 GMT
-            Not After : Apr 10 04:17:47 2026 GMT
-        Subject: C=US, ST=CA, L=buffalo, O=Fort-Funston, OU=OragonVPN, CN=OragonVPN/name=OragonVPN/emailAddress=carvic1998@gmail.com
-        Subject Public Key Info:
-            Public Key Algorithm: rsaEncryption
-                Public-Key: (1024 bit)
-                Modulus:
-                    00:c5:fd:a6:d6:bf:4d:6b:b0:a9:fc:db:97:02:d3:
-                    9b:ab:a8:7e:44:95:4d:fb:d8:55:ad:c0:99:78:21:
-                    bb:a9:fa:78:36:96:2e:c5:f0:c3:57:ca:40:30:c4:
-                    24:4a:3d:25:91:0c:93:52:c2:a7:ab:f8:90:40:bb:
-                    60:f5:1d:15:e7:96:cc:8a:ca:fe:41:69:e2:85:cd:
-                    e4:e0:99:66:cf:86:52:84:ae:ed:56:25:1e:f4:46:
-                    b2:08:db:29:c0:f5:61:aa:0e:c8:fb:99:4c:0b:8d:
-                    bb:3e:8a:03:de:25:c0:ac:0c:8d:06:1e:fa:e0:a7:
-                    e6:82:50:49:93:e4:f2:e2:7f
-                Exponent: 65537 (0x10001)
-        X509v3 extensions:
-            X509v3 Basic Constraints: 
-                CA:FALSE
-            Netscape Cert Type: 
-                SSL Server
-            Netscape Comment: 
-                Easy-RSA Generated Server Certificate
-            X509v3 Subject Key Identifier: 
-                11:39:E8:C7:D4:76:29:1F:5E:76:E0:82:6E:93:5E:3F:93:B2:51:06
-            X509v3 Authority Key Identifier: 
-                keyid:33:5B:55:BD:94:A3:0C:80:FE:96:2D:F8:C6:82:19:92:D9:D9:E8:47
-                DirName:/C=US/ST=CA/L=buffalo/O=Fort-Funston/OU=OragonVPN/CN=OragonVPN/name=OragonVPN/emailAddress=carvic1998@gmail.com
-                serial:87:F4:66:17:22:8D:5C:8E
+wget -O /etc/openvpn/easy-rsa/keys/server.crt "https://raw.githubusercontent.com/DexterRepositories/DB/main/mtkaio/servercrt"
 
-            X509v3 Extended Key Usage: 
-                TLS Web Server Authentication
-            X509v3 Key Usage: 
-                Digital Signature, Key Encipherment
-    Signature Algorithm: sha1WithRSAEncryption
-         32:fa:26:e4:38:d4:8f:85:75:d3:fa:d4:ca:9d:d5:27:78:99:
-         c5:fc:bd:5f:6a:b0:65:56:8d:69:5a:8f:41:e3:d1:55:02:3d:
-         82:bd:4e:d6:3d:a5:fc:45:ce:8a:bd:ba:bc:9a:02:ea:37:64:
-         64:54:d4:ff:f8:c9:d1:05:6e:b7:76:88:de:96:d3:dd:70:08:
-         a5:1f:28:71:a4:e8:ab:95:d6:e9:98:10:1c:6d:62:4a:6a:32:
-         25:c1:50:36:05:4a:6f:15:84:cf:9a:6a:0e:79:d5:46:37:ba:
-         0c:65:17:f9:0a:58:46:e6:a2:f1:61:f6:36:38:f6:95:ff:3e:
-         47:ec
------BEGIN CERTIFICATE-----
-MIIENzCCA6CgAwIBAgIBATANBgkqhkiG9w0BAQUFADCBpDELMAkGA1UEBhMCVVMx
-CzAJBgNVBAgTAkNBMRAwDgYDVQQHEwdidWZmYWxvMRUwEwYDVQQKEwxGb3J0LUZ1
-bnN0b24xEjAQBgNVBAsTCWdhbWluZ3ZwbjESMBAGA1UEAxMJZ2FtaW5ndnBuMRIw
-EAYDVQQpEwlnYW1pbmd2cG4xIzAhBgkqhkiG9w0BCQEWFGNhcnZpYzE5OThAZ21h
-aWwuY29tMB4XDTE2MDQxMjA0MTc0N1oXDTI2MDQxMDA0MTc0N1owgaQxCzAJBgNV
-BAYTAlVTMQswCQYDVQQIEwJDQTEQMA4GA1UEBxMHYnVmZmFsbzEVMBMGA1UEChMM
-Rm9ydC1GdW5zdG9uMRIwEAYDVQQLEwlnYW1pbmd2cG4xEjAQBgNVBAMTCWdhbWlu
-Z3ZwbjESMBAGA1UEKRMJZ2FtaW5ndnBuMSMwIQYJKoZIhvcNAQkBFhRjYXJ2aWMx
-OTk4QGdtYWlsLmNvbTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAxf2m1r9N
-a7Cp/NuXAtObq6h+RJVN+9hVrcCZeCG7qfp4NpYuxfDDV8pAMMQkSj0lkQyTUsKn
-q/iQQLtg9R0V55bMisr+QWnihc3k4Jlmz4ZShK7tViUe9EayCNspwPVhqg7I+5lM
-C427PooD3iXArAyNBh764KfmglBJk+Ty4n8CAwEAAaOCAXUwggFxMAkGA1UdEwQC
-MAAwEQYJYIZIAYb4QgEBBAQDAgZAMDQGCWCGSAGG+EIBDQQnFiVFYXN5LVJTQSBH
-ZW5lcmF0ZWQgU2VydmVyIENlcnRpZmljYXRlMB0GA1UdDgQWBBQROejH1HYpH152
-4IJuk14/k7JRBjCB2QYDVR0jBIHRMIHOgBQzW1W9lKMMgP6WLfjGghmS2dnoR6GB
-qqSBpzCBpDELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRAwDgYDVQQHEwdidWZm
-YWxvMRUwEwYDVQQKEwxGb3J0LUZ1bnN0b24xEjAQBgNVBAsTCWdhbWluZ3ZwbjES
-MBAGA1UEAxMJZ2FtaW5ndnBuMRIwEAYDVQQpEwlnYW1pbmd2cG4xIzAhBgkqhkiG
-9w0BCQEWFGNhcnZpYzE5OThAZ21haWwuY29tggkAh/RmFyKNXI4wEwYDVR0lBAww
-CgYIKwYBBQUHAwEwCwYDVR0PBAQDAgWgMA0GCSqGSIb3DQEBBQUAA4GBADL6JuQ4
-1I+FddP61Mqd1Sd4mcX8vV9qsGVWjWlaj0Hj0VUCPYK9TtY9pfxFzoq9uryaAuo3
-ZGRU1P/4ydEFbrd2iN6W091wCKUfKHGk6KuV1umYEBxtYkpqMiXBUDYFSm8VhM+a
-ag551UY3ugxlF/kKWEbmovFh9jY49pX/Pkfs
------END CERTIFICATE-----
-EOF
+wget -O /etc/openvpn/easy-rsa/keys/server.key "https://raw.githubusercontent.com/DexterRepositories/DB/main/mtkaio/serverkey"
 
-cat << EOF > /etc/openvpn/easy-rsa/keys/server.key
------BEGIN PRIVATE KEY-----
-MIICeQIBADANBgkqhkiG9w0BAQEFAASCAmMwggJfAgEAAoGBAMX9pta/TWuwqfzb
-lwLTm6uofkSVTfvYVa3AmXghu6n6eDaWLsXww1fKQDDEJEo9JZEMk1LCp6v4kEC7
-YPUdFeeWzIrK/kFp4oXN5OCZZs+GUoSu7VYlHvRGsgjbKcD1YaoOyPuZTAuNuz6K
-A94lwKwMjQYe+uCn5oJQSZPk8uJ/AgMBAAECgYEAl4GAd/gv4GZxzeKjbjBLgVIQ
-PZ8a68sh1TH6vmjh2DKoZu0JocKZWMaV1DtjocOkyZgb7Eq0T+6HRGGe0jKNnS/C
-4VfA04dlYI3/vQQjuTKzexc8V9/VdxG+gISN/jOIS9nIchL/ea4SuubcX//Cmj5m
-PlaoG6j9Ea1OXyGjJJECQQDhhluhJjIjNd1YmHMyPlOFvNdkpj/ayeFILPGO98Bp
-K+qzrMjOZXYkds4ry2VRl+BfCFKQwtlVPuEx0JD+pV/dAkEA4L7NZTCw3m6gSzwE
-Bb8q+oGyv53sHVKUGIPf7+ErseaBZ6/D8SrxL4AopjiExeTPtzHBthrG8nqSb6By
-qVyUCwJBAKLtH/FR2NLbLSe+KyrXIBv0C1/pQyRayGgOIAz7K4RPd+WKJCAH6Mv7
-EINPE8lYgX3mU0/FlKEjJimI1ddBvfkCQQDbfdzQ97W09qu77lgrWKFb2DE/bLc9
-h/m0245oEyv+aZV2MzWVIhA9CNgqRkZ9ktK+Im0CMbKc+9JqDHQPLagzAkEA32ZL
-sWWrJCTXItLxqREf2VTozxezL+Kn8W2c+X7YZT6tjcmPbbMbq0XaC4eRT4a5I7y4
-MhZ/R1wSBx9xz+14PQ==
------END PRIVATE KEY-----
-EOF
-
-cat << EOF > /etc/openvpn/easy-rsa/keys/dh.pem
------BEGIN DH PARAMETERS-----
-MIIBCAKCAQEAohzwXz9fsjw+G9Q14qINNOhZnTt/b30zzJYm4o2NIzAngM6E6GPm
-N5USUt0grZw6h3VP9LyqQoGi/bHFz33YFG5lgDF8FAASEh07/leF7s0ohhK8pspC
-JVD+mRatwBrIImXUpJvYI2pXKxtCOnDa2FFjAOHKixiAXqVcmJRwNaSklQcrpXdn
-/09cr0rbFoovn+f1agly4FxYYs7P0XkvSHm3gVW/mhAUr1hvZlbBaWFSVUdgcVOi
-FXQ/AVkvxYaO8pFI2Vh+CNMk7Vvi8d3DTayvoL2HTgFi+OIEbiiE/Nzryu+jDGc7
-79FkBHWOa/7eD2nFrHScUJcwWiSevPQjQwIBAg==
------END DH PARAMETERS-----
-EOF
-
+wget -O /etc/openvpn/easy-rsa/keys/dh.pem "https://raw.githubusercontent.com/DexterRepositories/DB/main/mtkaio/dhpem"
 
 dos2unix /etc/openvpn/login/auth_vpn
 dos2unix /etc/openvpn/login/connect.sh
@@ -369,25 +253,20 @@ net.core.rmem_max=16777216
 net.ipv4.tcp_rmem=4096 262144 16777216
 net.ipv4.tcp_wmem=4096 262144 16777216" > /etc/sysctl.conf
 sysctl -e -p
+
+grub-set-default 0
+echo "tcp_bbr" >> /etc/modules-load.d/modules.conf
+INSTALL_BBR=true
 {
 iptables -F
-iptables -t nat -A POSTROUTING -s 172.20.0.0/16 -o eth0 -j MASQUERADE
-iptables -t nat -A POSTROUTING -s 172.20.0.0/16 -o eth0 -j SNAT --to-source `curl ipecho.net/plain`
-iptables -t nat -A POSTROUTING -s 172.20.0.0/16 -o ens3 -j MASQUERADE
-iptables -t nat -A POSTROUTING -s 172.20.0.0/16 -o ens3 -j SNAT --to-source `curl ipecho.net/plain`
-iptables -t nat -A POSTROUTING -s 10.8.0.0/16 -o eth0 -j MASQUERADE
-iptables -t nat -A POSTROUTING -s 10.8.0.0/16 -o eth0 -j SNAT --to-source `curl ipecho.net/plain`
-iptables -t nat -A POSTROUTING -s 10.8.0.0/16 -o ens3 -j MASQUERADE
-iptables -t nat -A POSTROUTING -s 10.8.0.0/16 -o ens3 -j SNAT --to-source `curl ipecho.net/plain`
-iptables -t nat -A POSTROUTING -s 10.9.0.0/16 -o eth0 -j MASQUERADE
-iptables -t nat -A POSTROUTING -s 10.9.0.0/16 -o eth0 -j SNAT --to-source `curl ipecho.net/plain`
-iptables -t nat -A POSTROUTING -s 10.9.0.0/16 -o ens3 -j MASQUERADE
-iptables -t nat -A POSTROUTING -s 10.9.0.0/16 -o ens3 -j SNAT --to-source `curl ipecho.net/plain`
-echo iptables-persistent iptables-persistent/autosave_v4 boolean true | sudo debconf-set-selections
-echo iptables-persistent iptables-persistent/autosave_v6 boolean true | sudo debconf-set-selections
-mkdir /etc/iptables
-iptables-save > /etc/iptables/rules.v4
-systemctl start openvpn@server
+iptables -t nat -A POSTROUTING -s 10.20.0.0/22 -o "$server_interface" -j MASQUERADE
+iptables -t nat -A POSTROUTING -s 10.20.0.0/22 -o "$server_interface" -j SNAT --to-source "$server_ip"
+iptables -t nat -A POSTROUTING -s 10.30.0.0/22 -o "$server_interface" -j MASQUERADE
+iptables -t nat -A POSTROUTING -s 10.30.0.0/22 -o "$server_interface" -j SNAT --to-source "$server_ip"
+iptables -t filter -A INPUT -p udp -m udp --dport 20100:20900 -m state --state NEW -m recent --update --seconds 30 --hitcount 10 --name DEFAULT --mask 255.255.255.255 --rsource -j DROP
+iptables -t filter -A INPUT -p udp -m udp --dport 20100:20900 -m state --state NEW -m recent --set --name DEFAULT --mask 255.255.255.255 --rsource
+iptables-save > /etc/iptables_rules.v4
+ip6tables-save > /etc/iptables_rules.v6
 }&>/dev/null
 }
 
@@ -447,22 +326,14 @@ enL3UGT+BhRAPiA1I5CcG29RqjCzQoaCNg==
 echo "debug = 0
 output = /tmp/stunnel.log
 cert = /etc/stunnel/stunnel.pem
-
 [openvpn-tcp]
 connect = PORT_TCP  
-accept = 445 
-
-[websocket]
-connect = PORT_WS
-accept = 1194
-
+accept = 443 
 [openvpn-udp]
 connect = PORT_UDP
 accept = 444
-
 " >> stunnel.conf
 
-sed -i "s|PORT_WS|$PORT_WS|g" /etc/stunnel/stunnel.conf
 sed -i "s|PORT_TCP|$PORT_TCP|g" /etc/stunnel/stunnel.conf
 sed -i "s|PORT_UDP|$PORT_UDP|g" /etc/stunnel/stunnel.conf
 cd /etc/default && rm stunnel4
@@ -497,32 +368,7 @@ mkdir -p /etc/hysteria
 
 wget -O /etc/hysteria/config.json "https://raw.githubusercontent.com/DexterRepositories/DB/main/mtkaio/mtkaiolite"
 
-
-cat <<"EOM" >/etc/hysteria/.auth.sh
-#!/bin/bash
-. /etc/hysteria/config.sh
-
-if [ $# -ne 4 ]; then
-    echo "invalid number of arguments"
-    exit 1
-fi
-
-ADDR=$1
-AUTH=$2
-SEND=$3
-RECV=$4
-
-USERNAME=$(echo "$AUTH" | cut -d ":" -f 1)
-PASSWORD=$(echo "$AUTH" | cut -d ":" -f 2)
-
-USERNAME=$(echo "$AUTH" | cut -d ":" -f 1)
-PASSWORD=$(echo "$AUTH" | cut -d ":" -f 2)
-
-
-Query="SELECT user_name FROM users WHERE user_name='$USERNAME' AND auth_vpn=md5('$PASSWORD') AND status='live' AND is_freeze=0 AND is_ban=0 AND (duration > 0 OR vip_duration > 0 OR private_duration > 0)"
-user_name=`mysql -u $USER -p$PASS -D $DB -h $HOST -sN -e "$Query"`
-[ "$user_name" != '' ] && [ "$user_name" = "$USERNAME" ] && echo "user : $username" && echo 'authentication ok.' && exit 0 || echo 'authentication failed.'; exit 1
-EOM
+wget -O /etc/hysteria/.auth.sh "https://raw.githubusercontent.com/DexterRepositories/DB/main/mtkaio/hysteriaauth"
 
 chmod 755 /etc/hysteria/config.json
 chmod 755 /etc/hysteria/.auth.sh
@@ -542,7 +388,6 @@ rm -rf install_server.sh*
 
 online() {
 
-
 cat <<\EOM >/etc/hysteria/online.sh
 #!/bin/bash
 . /etc/hysteria/config.sh
@@ -558,7 +403,6 @@ hysteria_udpz=$(cat /etc/hysteria/logs | grep -w 'hysteria_active_conn{auth=' | 
 hysteriausers=$(echo "$hysteria_udpz" | grep '[^[:space:]]' | wc -l)
 
 mysql -u $USER -p$PASS -D $DB -h $HOST -e "UPDATE server_list SET online='$total', hysteria_online='$hysteriausers' WHERE server_ip='$serverip' "
-
 EOM
 
 sed -i "s|SERVERIP|$server_ip|g" /etc/hysteria/online.sh
@@ -724,15 +568,21 @@ elif [[ $service == "reboot" ]];
 then
 sudo shutdown -r now
 fi
+
 EOM
+
 
 chmod +x /etc/hysteria/online.sh
 chmod +x /etc/hysteria/monitor.sh
 chmod +x /etc/hysteria/ws.sh
 }
 
+
+
 create_hostname() {
+
 clear
+
 echo 'Creating hostname.'
 {
 cat << EOF > /etc/hysteria/server.crt
@@ -876,6 +726,7 @@ chmod 755 /etc/hysteria/ws.sh
 }
 }
 
+
 install_rclocal(){
   {
   sed -i 's/Listen 80/Listen 81/g' /etc/apache2/ports.conf
@@ -922,14 +773,12 @@ echo "Made with love by: tknetwork Developer... " >> /root/.web/index.php
 
 echo "tcp_port=TCP_PORT
 udp_port=UDP_PORT
-ws_port=WS_PORT
 socket_port=80
 squid_port=8080
 hysteria_port=5666
-tcp_ssl_port=442
-udp_ssl_port=444" >> /root/.ports
+tcp_ssl_port=443
+udp_ssl_port=442" >> /root/.ports
 
-sed -i "s|WS_PORT|$PORT_WS|g" /root/.ports
 sed -i "s|TCP_PORT|$PORT_TCP|g" /root/.ports
 sed -i "s|UDP_PORT|$PORT_UDP|g" /root/.ports
 
@@ -987,9 +836,7 @@ echo '
    ╚═════╝ ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═╝  ╚═╝  
  '
 echo -e " \033[0;35m══════════════════════════════════════════════════════════════════\033[0m"
-echo -e "[IP] : $server_ip\n[Openvpn TCP Port] : $PORT_TCP\n[Openvpn UDP Port] : $PORT_UDP\n[Ssl Port] : 442\n[Websocket Port ] : 80\n[Websocket Ssl ] : 1194\n[Hysteria Port ] : 5666\n[Proxy Squid 1] : 8080\n[Proxy Squid 2] : 3128\n"
-echo -e " \033[0;35m══════════════════════════════════════════════════════════════════\033[0m"
-rm -rf aiolite_strongcert
+rm -rf amazonaws-premium-aio
 rm -rf install_server.sh
 netstat -tpln
 ln -sf /dev/null ~/.bash_history
