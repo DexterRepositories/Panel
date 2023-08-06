@@ -922,7 +922,6 @@ chmod 755 /etc/hysteria/ws.sh
 }
 }
 
-
 install_rclocal(){
   {
   sed -i 's/Listen 80/Listen 81/g' /etc/apache2/ports.conf
