@@ -409,7 +409,6 @@ chmod 755 /etc/openvpn/login/auth_vpn
 }&>/dev/null
 }
 
-
 install_firewall_kvm () {
 clear
 echo "Installing iptables."
