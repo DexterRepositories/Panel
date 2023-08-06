@@ -11,7 +11,7 @@ YELLOW='\033[00;33m';
 timedatectl set-timezone Asia/Manila
 
 systemupdate () {
-apt update
+apt-get update
 apt-get -y install dropbear
 sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear
 sed -i 's/DROPBEAR_PORT=22/DROPBEAR_PORT=442/g' /etc/default/dropbear
