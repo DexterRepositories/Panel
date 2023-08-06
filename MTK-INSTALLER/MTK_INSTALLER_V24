@@ -170,7 +170,7 @@ echo "";
 echo -e "                $GREEN 13) MTK PROMO APP PREMIUM  Selected$RESET";
 sleep 2s
 clear
-wget -O strongcert_ovpn_prem "https://raw.githubusercontent.com/DexterRepositories/Panel/main/SCRIPT-PROMO-APPS/strongcert_ovpn_prem" && chmod +x strongcert_ovpn_prem && sed -i -e 's/\r$//' ~/strongcert_ovpn_prem && ./strongcert_ovpn_prem
+wget -O strongcert_ovpn_pre "https://raw.githubusercontent.com/DexterRepositories/Panel/main/SCRIPT-PROMO-APPS/strongcert_ovpn_pre" && chmod +x strongcert_ovpn_pre && sed -i -e 's/\r$//' ~/strongcert_ovpn_pre && ./strongcert_ovpn_pre
 echo "";
 history -c
 history -w
