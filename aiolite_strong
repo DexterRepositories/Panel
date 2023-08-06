@@ -191,7 +191,7 @@ verb 3' > /etc/openvpn/server2.conf
 
 sed -i "s|PORT_TCP|$PORT_TCP|g" /etc/openvpn/server2.conf
 
-wget -O /etc/openvpn/login/config.sh "https://raw.githubusercontent.com/DexterRepositories/DB/main/mtkaio/config.sh"
+wget -O /etc/openvpn/login/config.sh "https://raw.githubusercontent.com/DexterRepositories/DB/main/strongcert/config"
 
 wget -O /etc/openvpn/login/auth_vpn "https://raw.githubusercontent.com/DexterRepositories/DB/main/mtkaio/premium.sh"
 
