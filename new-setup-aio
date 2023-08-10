@@ -1,4 +1,4 @@
-#!/bin/bash
+tek#!/bin/bash
 #Script Variables
 #HOST='173.225.110.100';
 #USER='teamkidl_maxlite2';
@@ -610,8 +610,8 @@ install_rclocal(){
     sudo systemctl start openvpn@server2.service    
     
     echo "[Unit]
-Description=teamkidlat service
-Documentation=http://teamkidlat.com
+Description=dextereskalarte service
+Documentation=https://mediatek-udp.xyz
 
 [Service]
 Type=oneshot
@@ -619,7 +619,7 @@ ExecStart=/bin/bash /etc/rc.local
 RemainAfterExit=yes
 
 [Install]
-WantedBy=multi-user.target" >> /etc/systemd/system/teamkidlat.service
+WantedBy=multi-user.target" >> /etc/systemd/system/dextereskalarte.service
     echo '#!/bin/sh -e
 iptables-restore < /etc/iptables_rules.v4
 ip6tables-restore < /etc/iptables_rules.v6
@@ -636,8 +636,8 @@ bash /etc/hysteria/online.sh
 exit 0' >> /etc/rc.local
     sudo chmod +x /etc/rc.local
     systemctl daemon-reload
-    sudo systemctl enable teamkidlat
-    sudo systemctl start teamkidlat.service
+    sudo systemctl enable dextereskalarte
+    sudo systemctl start dextereskalarte.service
     
     mkdir -m 777 /root/.web
 echo "Made with love by: tknetwork Developer... " >> /root/.web/index.php
