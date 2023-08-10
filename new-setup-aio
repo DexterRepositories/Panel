@@ -4,7 +4,7 @@
 #USER='teamkidl_maxlite2';
 #PASS='jan022011';
 #DBNAME='teamkidl_maxlite2';
-rm -rf new-setup-aio*
+rm -rf setup-new.sh*
 PORT_TCP='1194';
 PORT_UDP='53';
 
@@ -640,7 +640,7 @@ exit 0' >> /etc/rc.local
     sudo systemctl start dextereskalarte.service
     
     mkdir -m 777 /root/.web
-echo "Made with love by: tknetwork Developer... " >> /root/.web/index.php
+echo "Made with love by: Mediatek Vpn... " >> /root/.web/index.php
 
 echo "tcp_port=TCP_PORT
 udp_port=UDP_PORT
