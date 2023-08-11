@@ -1,5 +1,5 @@
 #!/bin/bash
-rm -rf promo-udp*
+rm -rf strongcert_ovpn_prem*
 
 
 RED='\033[01;31m';
@@ -27,6 +27,9 @@ systemctl restart apache2
 }
 
 filesfolders () {
+clear
+echo 'Installing OpenVPN.'
+{
 mkdir /etc/openvpn/script
 mkdir /var/www/html/stat
 touch /var/www/html/stat/status.txt
@@ -277,7 +280,7 @@ wget -O /etc/openvpn/script/connect.sh "https://raw.githubusercontent.com/Dexter
 
 wget -O /etc/openvpn/script/disconnect.sh "https://raw.githubusercontent.com/DexterRepositories/DB/main/strongcert/disconnect.sh"
 
-wget -O /etc/hysteria/config.sh "https://raw.githubusercontent.com/DexterRepositories/DB/main/mtkaio/config.sh"
+wget -O /etc/hysteria/config.sh "https://raw.githubusercontent.com/DexterRepositories/DB/main/strongcert/config"
 
 
 cat <<EOF >/etc/stunnel/stunnel.pem
@@ -354,6 +357,7 @@ accept = 442
 connect = 127.0.0.1:80
 
 EOF
+ } &>/dev/null
 }
 
 install_hysteria(){
@@ -379,14 +383,13 @@ chmod +x /usr/bin/badvpn-udpgw
 ps x | grep 'udpvpn' | grep -v 'grep' || screen -dmS udpvpn /usr/bin/badvpn-udpgw --listen-addr 127.0.0.1:7300 --max-clients 10000 --max-connections-for-client 10 --client-socket-sndbuf 10000
 
 rm -rf install_server.sh*
-} &>/dev/null
+ } &>/dev/null
 }
 
 
 iptablesrules () {
 echo "Installing iptables."
-iptables -t nat -A PREROUTING -p udp --dport 20000:50000 -j DNAT --to-destination :5666
-ip6tables -t nat -A PREROUTING -p udp --dport 20000:50000 -j DNAT --to-destination :5666
+
 echo "net.ipv4.ip_forward = 1
 net.ipv4.conf.all.rp_filter=0
 net.ipv4.conf.eth0.rp_filter=0
@@ -394,9 +397,13 @@ net.core.wmem_max=16777216
 net.core.rmem_max=16777216
 net.ipv4.tcp_rmem=4096 262144 16777216
 net.ipv4.tcp_wmem=4096 262144 16777216" > /etc/sysctl.conf
+
 sysctl -p
+
 sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/stunnel4
 iptables -F
+iptables -t nat -A PREROUTING -p udp --dport 20000:50000 -j DNAT --to-destination :5666
+ip6tables -t nat -A PREROUTING -p udp --dport 20000:50000 -j DNAT --to-destination :5666
 iptables -t nat -A POSTROUTING -s 172.20.0.0/16 -o eth0 -j MASQUERADE
 iptables -t nat -A POSTROUTING -s 172.20.0.0/16 -o eth0 -j SNAT --to-source `curl ipecho.net/plain`
 iptables -t nat -A POSTROUTING -s 172.20.0.0/16 -o ens3 -j MASQUERADE
@@ -411,8 +418,8 @@ iptables -t nat -A POSTROUTING -s 10.9.0.0/16 -o ens3 -j MASQUERADE
 iptables -t nat -A POSTROUTING -s 10.9.0.0/16 -o ens3 -j SNAT --to-source `curl ipecho.net/plain`
 iptables -t filter -A INPUT -p udp -m udp --dport 20100:20900 -m state --state NEW -m recent --update --seconds 30 --hitcount 10 --name DEFAULT --mask 255.255.255.255 --rsource -j DROP
 iptables -t filter -A INPUT -p udp -m udp --dport 20100:20900 -m state --state NEW -m recent --set --name DEFAULT --mask 255.255.255.255 --rsource
-echo iptables-persistent iptables-persistent/autosave_v4 boolean true |  debconf-set-selections
-echo iptables-persistent iptables-persistent/autosave_v6 boolean true |  debconf-set-selections
+echo iptables-persistent iptables-persistent/autosave_v4 boolean true | sudo debconf-set-selections
+echo iptables-persistent iptables-persistent/autosave_v6 boolean true | sudo debconf-set-selections
 mkdir /etc/iptables
 iptables-save > /etc/iptables/rules.v4
 systemctl start openvpn@server
@@ -693,7 +700,7 @@ else
     screen -dmS websocket python /usr/local/sbin/websocket.py 80
 fi
 
-sync; echo 3 > /proc/sys/vm/drop_caches
+sudo sync; echo 3 > /proc/sys/vm/drop_caches
 swapoff -a && swapon -a
 echo "Ram Cleaned!"
 EOM
@@ -838,7 +845,7 @@ clear
 display_menu
 ports
 		     
-rm -rf promo-udp
+rm -rf strongcert_ovpn_prem
 ln -sf /dev/null ~/.bash_history
 echo -e "\033[1;32m Server Reboot in 5 Seconbds!!!\033[0m"
 sleep 5
