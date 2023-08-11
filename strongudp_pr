@@ -181,11 +181,11 @@ Certificate:
         Serial Number:
             40:26:da:91:18:2b:77:9c:85:6a:0c:bb:ca:90:53:fe
         Signature Algorithm: sha256WithRSAEncryption
-        Issuer: C=PH, ST=BULACAN, L=PLARIDEL, O=SIPAT, OU=MediatekVPN, CN=MediatekVPN/name=DexterEskalarte/emailAddress=deskalarte@gmail.com
+        Issuer: CN=KobZ
         Validity
             Not Before: Jul 22 22:23:55 2020 GMT
             Not After : Jul 20 22:23:55 2030 GMT
-        Subject: C=PH, ST=BULACAN, L=PLARIDEL, O=SIPAT, OU=MediatekVPN, CN=MediatekVPN/name=DexterEskalarte/emailAddress=deskalarte@gmail.com
+        Subject: CN=server
         Subject Public Key Info:
             Public Key Algorithm: rsaEncryption
                 RSA Public-Key: (1024 bit)
@@ -207,7 +207,7 @@ Certificate:
                 6B:08:C0:64:10:71:A8:32:7F:0B:FE:1E:98:1F:BD:72:74:0F:C8:66
             X509v3 Authority Key Identifier: 
                 keyid:64:49:32:6F:FE:66:62:F1:57:4D:BB:91:A8:5D:BD:26:3E:51:A4:D2
-                DirName:/C=PH/ST=BULACAN/L=PLARIDEL/O=SIPAT/OU=MediatekVPN/CN=MediatekVPN/name=DexterEskalarte/emailAddress=deskalarte@gmail.com
+                DirName:/CN=KobZ
                 serial:01:A4:01:02:93:12:D9:D6:01:A9:83:DC:03:73:DA:ED:C8:E3:C3:B7
             X509v3 Extended Key Usage: 
                 TLS Web Server Authentication
