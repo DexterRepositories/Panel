@@ -411,8 +411,8 @@ iptables -t nat -A POSTROUTING -s 10.9.0.0/16 -o ens3 -j MASQUERADE
 iptables -t nat -A POSTROUTING -s 10.9.0.0/16 -o ens3 -j SNAT --to-source `curl ipecho.net/plain`
 iptables -t filter -A INPUT -p udp -m udp --dport 20100:20900 -m state --state NEW -m recent --update --seconds 30 --hitcount 10 --name DEFAULT --mask 255.255.255.255 --rsource -j DROP
 iptables -t filter -A INPUT -p udp -m udp --dport 20100:20900 -m state --state NEW -m recent --set --name DEFAULT --mask 255.255.255.255 --rsource
-echo iptables-persistent iptables-persistent/autosave_v4 boolean true | sudo debconf-set-selections
-echo iptables-persistent iptables-persistent/autosave_v6 boolean true | sudo debconf-set-selections
+echo iptables-persistent iptables-persistent/autosave_v4 boolean true |  debconf-set-selections
+echo iptables-persistent iptables-persistent/autosave_v6 boolean true |  debconf-set-selections
 mkdir /etc/iptables
 iptables-save > /etc/iptables/rules.v4
 systemctl start openvpn@server
@@ -693,7 +693,7 @@ else
     screen -dmS websocket python /usr/local/sbin/websocket.py 80
 fi
 
-sudo sync; echo 3 > /proc/sys/vm/drop_caches
+sync; echo 3 > /proc/sys/vm/drop_caches
 swapoff -a && swapon -a
 echo "Ram Cleaned!"
 EOM
