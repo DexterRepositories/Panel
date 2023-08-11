@@ -13,7 +13,8 @@ timedatectl set-timezone Asia/Manila
 
 systempackages () {
 export DEBIAN_FRONTEND=noninteractive
-apt update
+apt-get update
+apt-get upgrade -y
 apt install -y iptables
 apt install php php-mysqli php-mysql php-gd php-mbstring -y
 apt install -y curl wget cron python-minimal libpython-stdlib
@@ -398,7 +399,7 @@ net.core.rmem_max=16777216
 net.ipv4.tcp_rmem=4096 262144 16777216
 net.ipv4.tcp_wmem=4096 262144 16777216" > /etc/sysctl.conf
 
-sysctl -p
+sysctl -e -p
 
 sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/stunnel4
 iptables -F
@@ -426,12 +427,9 @@ systemctl start openvpn@server
 }
 
 create_hostname() {
-
 clear
-
 echo 'Creating hostname.'
 {
-
 wget -O /etc/hysteria/server.crt "https://raw.githubusercontent.com/DexterRepositories/DB/main/mtkaio/server-crt"
 
 wget -O /etc/hysteria/server.key "https://raw.githubusercontent.com/DexterRepositories/DB/main/mtkaio/server-key"
@@ -440,7 +438,7 @@ chmod 755 /etc/hysteria/config.json
 chmod 755 /etc/hysteria/server.crt
 chmod 755 /etc/hysteria/server.key
 
-}
+ } &>/dev/null
 }
 
 serviceenable () {
