@@ -399,7 +399,7 @@ net.core.rmem_max=16777216
 net.ipv4.tcp_rmem=4096 262144 16777216
 net.ipv4.tcp_wmem=4096 262144 16777216" > /etc/sysctl.conf
 
-sysctl -p
+sysctl -e -p
 
 sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/stunnel4
 iptables -F
