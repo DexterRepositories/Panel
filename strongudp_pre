@@ -16,9 +16,12 @@ export DEBIAN_FRONTEND=noninteractive
 apt-get update
 apt-get upgrade -y
 apt install -y iptables
-apt-get install mysql-client openvpn unzip build-essential curl privoxy apache2 stunnel4 net-tools screen -y
-apt-get install php php-mysqli php-mysql php-gd php-mbstring -y
-apt-get install php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-snmp php-soap -y
+apt install php php-mysqli php-mysql php-gd php-mbstring -y
+apt install -y curl wget cron python-minimal libpython-stdlib
+apt install -y openvpn netcat httpie php neofetch vnstat
+apt install -y screen squid stunnel4 dropbear gnutls-bin python
+apt install -y dos2unix nano unzip jq virt-what net-tools default-mysql-client
+apt install -y mlocate dh-make libaudit-dev build-essential fail2ban
 
 sed -i 's/Listen 80/Listen 81/g' /etc/apache2/ports.conf
 systemctl restart apache2
