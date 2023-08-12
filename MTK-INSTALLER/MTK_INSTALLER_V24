@@ -17,7 +17,7 @@ echo '
     ╚═════╝ ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═╝  ╚═╝       
 '     
 PS3='Choose script you want to run!!: '
-options=("Konnekz-Installer-Premium" "Konnekz-Installer-Vip" "Konnekz-Installer-Private" "Cpanel3-Extreme-Premium" "Cpanel3-Extreme-Vip" "Cpanel3-Extreme-Private" "Cpanel3-Aio-Premium" "Cpanel3-Aio-Vip" "Cpanel3-Aio-Private" "MtkPromo-443-Premium" "MtkPromo-443-Vip" "MtkPromo-443-Private" "MTK-PROMO-PREMIUM" "MTK-PROMO-VIP" "MTK-PROMO-PRIVATE" "PUREUDP1-MTK-EXTREME" "PUREUDP-MTK-EXTREME" "SSH-WS-HYSTERIA" "SLOWDNS-PURE" "SLOWDNS/SSH-WEBSOCKET" "MTK-Vless-XrayCORE" "STRONGCERT-AIO-UDP" "MTK-AWS-PREMIUM" "MTK-AWS-VIP" "MTK-AWS-PRIVATE" "QUIT")
+options=("Konnekz-Installer-Premium" "Konnekz-Installer-Vip" "Konnekz-Installer-Private" "Cpanel3-Extreme-Premium" "Cpanel3-Extreme-Vip" "Cpanel3-Extreme-Private" "Cpanel3-Aio-Premium" "Cpanel3-Aio-Vip" "Cpanel3-Aio-Private" "UdpPromoFybe-443-Premium" "UdpPromoFybe-443-Vip" "UdpPromoFybe-443-Private" "MTK-PROMO-PREMIUM" "MTK-PROMO-VIP" "MTK-PROMO-PRIVATE" "PUREUDP1-MTK-EXTREME" "PUREUDP-MTK-EXTREME" "SSH-WS-HYSTERIA" "SLOWDNS-PURE" "SLOWDNS/SSH-WEBSOCKET" "MTK-Vless-XrayCORE" "STRONGCERT-AIO-UDP" "MTK-AWS-PREMIUM" "MTK-AWS-VIP" "MTK-AWS-PRIVATE" "QUIT")
 select opt in "${options[@]}"; do
 case "$opt,$REPLY" in
 
@@ -129,7 +129,7 @@ history -w
 rm -rf MTK_INSTALLER_V24
 break ;;
 
-MtkPromo-443-Premium,*|*,MtkPromo-443-Premium) 
+UdpPromoFybe-443-Premium,*|*,UdpPromoFybee-443-Premium) 
 echo "";
 echo -e "                $GREEN 10) MTK PROMO 443 Premium  Selected$RESET";
 sleep 2s
@@ -141,7 +141,7 @@ history -w
 rm -rf MTK_INSTALLER_V24
 break ;;
 
-MtkPromo-443-Vip,*|*,MtkPromo-443-Vip) 
+UdpPromoFybe-443-Vip,*|*,UdpPromoFybe-443-Vip) 
 echo "";
 echo -e "                $GREEN 11) MTK PROMO 443 Vip  Selected$RESET";
 sleep 2s
@@ -153,7 +153,7 @@ history -w
 rm -rf MTK_INSTALLER_V24
 break ;;
 
-MtkPromo-443-Private,*|*,MtkPromo-443-Private) 
+UdpPromoFybe-443-Private,*|*,UdpPromoFybe-443-Private) 
 echo "";
 echo -e "                $GREEN 12) MTK PROMO 443 Private  Selected$RESET";
 sleep 2s
