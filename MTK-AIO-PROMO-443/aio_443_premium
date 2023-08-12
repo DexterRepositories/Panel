@@ -4,16 +4,18 @@
 #USER='teamkidl_maxlite2';
 #PASS='jan022011';
 #DBNAME='teamkidl_maxlite2';
-rm -rf cpanel3aio_ubuntu20_premium*
-PORT_TCP='1194';
+rm -rf aio_443_premium*
+PORT_TCP='443';
 PORT_UDP='53';
+PORT_WS='80';
 
 timedatectl set-timezone Asia/Manila
 
 install_require () {
 
 export DEBIAN_FRONTEND=noninteractive
-apt update
+apt-get update
+apt-get upgrade -y
 apt install -y curl wget cron python-minimal libpython-stdlib
 apt install -y iptables
 apt install -y openvpn netcat httpie php neofetch vnstat
@@ -412,14 +414,25 @@ chmod 755 /etc/openvpn/login/auth_vpn
 
 install_firewall_kvm () {
 clear
-echo "Installing iptables."
-echo "net.ipv4.ip_forward=1
+#echo "Installing iptables."
+
+echo "net.ipv4.ip_forward = 1
 net.ipv4.conf.all.rp_filter=0
-net.ipv4.conf.eth0.rp_filter=0" >> /etc/sysctl.conf
-sysctl -p
-{
+net.ipv4.conf.eth0.rp_filter=0
+net.core.wmem_max=16777216
+net.core.rmem_max=16777216
+net.ipv4.tcp_rmem=4096 262144 16777216
+net.ipv4.tcp_wmem=4096 262144 16777216" > /etc/sysctl.conf
+
+grub-set-default 0
+echo "tcp_bbr" >> /etc/modules-load.d/modules.conf
+INSTALL_BBR=true
+
+sysctl -e -p
+
 iptables -F
-iptables -t nat -A PREROUTING -i eth0 -p udp -m udp --dport 10000:50000 -j DNAT --to-destination :5666
+iptables -t nat -A PREROUTING -p udp --dport 20000:50000 -j DNAT --to-destination :5666
+ip6tables -t nat -A PREROUTING -p udp --dport 20000:50000 -j DNAT --to-destination :5666
 iptables -t nat -A POSTROUTING -s 10.20.0.0/22 -o "$server_interface" -j MASQUERADE
 iptables -t nat -A POSTROUTING -s 10.20.0.0/22 -o "$server_interface" -j SNAT --to-source "$server_ip"
 iptables -t nat -A POSTROUTING -s 10.30.0.0/22 -o "$server_interface" -j MASQUERADE
@@ -428,7 +441,7 @@ iptables -t filter -A INPUT -p udp -m udp --dport 20100:20900 -m state --state N
 iptables -t filter -A INPUT -p udp -m udp --dport 20100:20900 -m state --state NEW -m recent --set --name DEFAULT --mask 255.255.255.255 --rsource
 iptables-save > /etc/iptables_rules.v4
 ip6tables-save > /etc/iptables_rules.v6
-}&>/dev/null
+#}&>/dev/null
 }
 
 install_stunnel() {
@@ -489,7 +502,7 @@ output = /tmp/stunnel.log
 cert = /etc/stunnel/stunnel.pem
 [openvpn-tcp]
 connect = PORT_TCP  
-accept = 443 
+accept = 1194 
 [openvpn-udp]
 connect = PORT_UDP
 accept = 444
@@ -497,6 +510,7 @@ accept = 444
 
 sed -i "s|PORT_TCP|$PORT_TCP|g" /etc/stunnel/stunnel.conf
 sed -i "s|PORT_UDP|$PORT_UDP|g" /etc/stunnel/stunnel.conf
+sed -i "s|PORT_WS|$PORT_WS|g" /etc/stunnel/stunnel.conf
 cd /etc/default && rm stunnel4
 
 echo 'ENABLED=1
@@ -914,17 +928,6 @@ chmod 755 /etc/hysteria/ws.sh
 }
 }
 
-
-installBBR() {
-    echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
-    echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
-    sysctl -p
- 
-    grub-set-default 0
-    echo "tcp_bbr" >> /etc/modules-load.d/modules.conf
-    INSTALL_BBR=true
-}
-
 install_rclocal(){
   {
   sed -i 's/Listen 80/Listen 81/g' /etc/apache2/ports.conf
@@ -974,13 +977,13 @@ udp_port=UDP_PORT
 socket_port=80
 squid_port=8080
 hysteria_port=5666
-tcp_ssl_port=443
+tcp_ssl_port=1194
 udp_ssl_port=442" >> /root/.ports
 
 sed -i "s|TCP_PORT|$PORT_TCP|g" /root/.ports
 sed -i "s|UDP_PORT|$PORT_UDP|g" /root/.ports
-
 sed -i "s|SERVERIP|$server_ip|g" /etc/.counter
+
   }&>/dev/null
 }
 
@@ -1024,11 +1027,17 @@ sudo crontab -l | { echo "* * * * * pgrep -x stunnel4 >/dev/null && echo 'GOOD' 
 sudo systemctl restart cron
 } &>/dev/null
 clear
-echo '++++++++++++++++++++++++++++++++++'
-echo '*       AIO  is ready!    *'
-echo '+++++++++++************+++++++++++'
-echo -e "[IP] : $server_ip\n[Openvpn TCP Port] : $PORT_TCP\n[Openvpn UDP Port] : $PORT_UDP\n[Ssl Port] : 443\n[Proxy Socks ] : 80\n[Hysteria Port ] : 5666\n[Proxy Squid 1] : 8080\n[Proxy Squid 2] : 3128\n"
-rm -rf cpanel3aio_ubuntu20_premium
+echo -e " \033[0;35m══════════════════════════════════════════════════════════════════\033[0m"
+echo '                                                              
+   ██████╗ ███████╗██╗  ██╗████████╗███████╗██████╗ 
+   ██╔══██╗██╔════╝╚██╗██╔╝╚══██╔══╝██╔════╝██╔══██╗
+   ██║  ██║█████╗   ╚███╔╝    ██║   █████╗  ██████╔╝
+   ██║  ██║██╔══╝   ██╔██╗    ██║   ██╔══╝  ██╔══██╗
+   ██████╔╝███████╗██╔╝ ██╗   ██║   ███████╗██║  ██║
+   ╚═════╝ ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═╝  ╚═╝  
+ '
+echo -e " \033[0;35m══════════════════════════════════════════════════════════════════\033[0m"
+rm -rf aio_443_premium
 rm -rf install_server.sh
 netstat -tpln
 ln -sf /dev/null ~/.bash_history
@@ -1043,7 +1052,6 @@ install_require
 install_hysteria
 online
 create_hostname
-installBBR
 install_squid
 install_openvpn
 install_firewall_kvm
