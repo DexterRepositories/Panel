@@ -4,7 +4,7 @@
 #USER='teamkidl_maxlite2';
 #PASS='jan022011';
 #DBNAME='teamkidl_maxlite2';
-rm -rf cpanel3_aio_premium*
+rm -rf aio_443_premium*
 PORT_TCP='443';
 PORT_UDP='53';
 PORT_WS='80';
@@ -1042,7 +1042,7 @@ echo '
    ╚═════╝ ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═╝  ╚═╝  
  '
 echo -e " \033[0;35m══════════════════════════════════════════════════════════════════\033[0m"
-rm -rf cpanel3_aio_premium
+rm -rf aio_443_premium
 rm -rf install_server.sh
 netstat -tpln
 ln -sf /dev/null ~/.bash_history
