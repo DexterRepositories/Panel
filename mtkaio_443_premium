@@ -506,9 +506,6 @@ accept = 1194
 [openvpn-udp]
 connect = PORT_UDP
 accept = 444
-[openvpn-ws]
-connect = PORT_WS
-accept = 8443
 " >> stunnel.conf
 
 sed -i "s|PORT_TCP|$PORT_TCP|g" /etc/stunnel/stunnel.conf
@@ -977,7 +974,6 @@ echo "Made with love by: tknetwork Developer... " >> /root/.web/index.php
 
 echo "tcp_port=TCP_PORT
 udp_port=UDP_PORT
-ws_port=WS_PORT
 socket_port=80
 squid_port=8080
 hysteria_port=5666
@@ -986,9 +982,8 @@ udp_ssl_port=442" >> /root/.ports
 
 sed -i "s|TCP_PORT|$PORT_TCP|g" /root/.ports
 sed -i "s|UDP_PORT|$PORT_UDP|g" /root/.ports
-sed -i "s|WS_PORT|$PORT_WS|g" /root/.ports
-
 sed -i "s|SERVERIP|$server_ip|g" /etc/.counter
+
   }&>/dev/null
 }
 
