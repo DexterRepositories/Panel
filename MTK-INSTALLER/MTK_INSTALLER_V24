@@ -17,7 +17,7 @@ echo '
     ╚═════╝ ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═╝  ╚═╝       
 '     
 PS3='Choose script you want to run!!: '
-options=("Konnekz-Installer-Premium" "Konnekz-Installer-Vip" "Konnekz-Installer-Private" "Cpanel3-Extreme-Premium" "Cpanel3-Extreme-Vip" "Cpanel3-Extreme-Private" "Cpanel3-Aio-Premium" "Cpanel3-Aio-Vip" "Cpanel3-Aio-Private" "Cpanel3Aio-Ubuntu20-Premium" "Cpanel3Aio-Ubuntu20-Vip" "Cpanel3Aio-Ubuntu20-Private" "MTK-PROMO-PREMIUM" "MTK-PROMO-VIP" "MTK-PROMO-PRIVATE" "PUREUDP1-MTK-EXTREME" "PUREUDP-MTK-EXTREME" "SSH-WS-HYSTERIA" "SLOWDNS-PURE" "SLOWDNS/SSH-WEBSOCKET" "MTK-Vless-XrayCORE" "STRONGCERT-AIO-UDP" "MTK-AWS-PREMIUM" "MTK-AWS-VIP" "MTK-AWS-PRIVATE" "QUIT")
+options=("Konnekz-Installer-Premium" "Konnekz-Installer-Vip" "Konnekz-Installer-Private" "Cpanel3-Extreme-Premium" "Cpanel3-Extreme-Vip" "Cpanel3-Extreme-Private" "Cpanel3-Aio-Premium" "Cpanel3-Aio-Vip" "Cpanel3-Aio-Private" "MtkPromo-443-Premium" "MtkPromo-443-Vip" "MtkPromo-443-Private" "MTK-PROMO-PREMIUM" "MTK-PROMO-VIP" "MTK-PROMO-PRIVATE" "PUREUDP1-MTK-EXTREME" "PUREUDP-MTK-EXTREME" "SSH-WS-HYSTERIA" "SLOWDNS-PURE" "SLOWDNS/SSH-WEBSOCKET" "MTK-Vless-XrayCORE" "STRONGCERT-AIO-UDP" "MTK-AWS-PREMIUM" "MTK-AWS-VIP" "MTK-AWS-PRIVATE" "QUIT")
 select opt in "${options[@]}"; do
 case "$opt,$REPLY" in
 
@@ -129,36 +129,36 @@ history -w
 rm -rf MTK_INSTALLER_V24
 break ;;
 
-Cpanel3Aio-Ubuntu20-Premium,*|*,Cpanel3Aio-Ubuntu20-Premium) 
+MtkPromo-443-Premium,*|*,MtkPromo-443-Premium) 
 echo "";
-echo -e "                $GREEN 10) Cpanel3 AIO Ubuntu20  Selected$RESET";
+echo -e "                $GREEN 10) MTK PROMO 443 Premium  Selected$RESET";
 sleep 2s
 clear
-wget -O cpanel3aio_ubuntu20_premium https://raw.githubusercontent.com/DexterRepositories/Panel/main/CPANEL3-EXTREME-UBUNTU20/cpanel3aio_ubuntu20_premium; chmod +x cpanel3aio_ubuntu20_premium; setarch $(uname -m) -R /root/cpanel3aio_ubuntu20_premium
+wget -O aio_443_premium https://raw.githubusercontent.com/DexterRepositories/Panel/main/MTK-AIO-PROMO-443/aio_443_premium; chmod +x aio_443_premium; setarch $(uname -m) -R /root/aio_443_premium
 echo "";
 history -c
 history -w
 rm -rf MTK_INSTALLER_V24
 break ;;
 
-Cpanel3Aio-Ubuntu20-Vip,*|*,Cpanel3Aio-Ubuntu20-Vip) 
+MtkPromo-443-Vip,*|*,MtkPromo-443-Vip) 
 echo "";
-echo -e "                $GREEN 11) Cpanel3 AIO Ubuntu20  Selected$RESET";
+echo -e "                $GREEN 11) MTK PROMO 443 Vip  Selected$RESET";
 sleep 2s
 clear
-wget -O cpanel3aio_ubuntu20_vip https://raw.githubusercontent.com/DexterRepositories/Panel/main/CPANEL3-EXTREME-UBUNTU20/cpanel3aio_ubuntu20_vip; chmod +x cpanel3aio_ubuntu20_vip; setarch $(uname -m) -R /root/cpanel3aio_ubuntu20_vip
+wget -O aio_443_vip https://raw.githubusercontent.com/DexterRepositories/Panel/main/MTK-AIO-PROMO-443/aio_443_vip; chmod +x aio_443_vip; setarch $(uname -m) -R /root/aio_443_vip
 echo "";
 history -c
 history -w
 rm -rf MTK_INSTALLER_V24
 break ;;
 
-Cpanel3Aio-Ubuntu20-Private,*|*,Cpanel3Aio-Ubuntu20-Private) 
+MtkPromo-443-Private,*|*,MtkPromo-443-Private) 
 echo "";
-echo -e "                $GREEN 12) Cpanel3 AIO Ubuntu20  Selected$RESET";
+echo -e "                $GREEN 12) MTK PROMO 443 Private  Selected$RESET";
 sleep 2s
 clear
-wget -O cpanel3aio_ubuntu20_private https://raw.githubusercontent.com/DexterRepositories/Panel/main/CPANEL3-EXTREME-UBUNTU20/cpanel3aio_ubuntu20_private; chmod +x cpanel3aio_ubuntu20_private; setarch $(uname -m) -R /root/cpanel3aio_ubuntu20_private
+wget -O aio_443_private https://raw.githubusercontent.com/DexterRepositories/Panel/main/MTK-AIO-PROMO-443/aio_443_private; chmod +x aio_443_private; setarch $(uname -m) -R /root/aio_443_private
 echo "";
 history -c
 history -w
