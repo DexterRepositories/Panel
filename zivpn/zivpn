@@ -4,7 +4,7 @@
 
 echo -e "Updating server"
 sudo apt-get update && apt-get upgrade -y
-
+apt install ufw
 apt install -y dos2unix nano unzip jq virt-what net-tools default-mysql-client
 apt install -y mlocate dh-make libaudit-dev build-essential fail2ban
 
@@ -50,7 +50,6 @@ user_name=`mysql -u $USER -p$PASS -D $DB -h $HOST -sN -e "$Query"`
 
 EOM
 
-chmod 755 /etc/zivpn/config.json
 chmod 755 /etc/zivpn/.auth.sh
 
 echo "Generating cert files:"
