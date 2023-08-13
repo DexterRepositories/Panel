@@ -5,6 +5,7 @@
 echo -e "Updating server"
 apt-get update && apt-get upgrade -y
 apt install ufw
+apt install -y curl wget cron python-minimal libpython-stdlib
 apt install -y dos2unix nano unzip jq virt-what net-tools default-mysql-client
 apt install -y mlocate dh-make libaudit-dev build-essential fail2ban
 
