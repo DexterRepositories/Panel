@@ -1,25 +1,42 @@
 #!/bin/bash
 # Zivpn UDP Module installer
 # Creator Zahid Islam
-rm -rf udp_zivpn_mtk*
 
-echo -e "Updating server"
-apt-get update
-apt-get upgrade -y
-apt install ufw
 
-systemctl stop hysteria-server.service
+apt-get update && apt-get upgrade -y
+systemctl stop hysteria.service
 
-wget -N --no-check-certificate -q -O ~/install_server.sh https://raw.githubusercontent.com/DexterRepositories/Hysteria/main/install_server.sh; chmod +x ~/install_server.sh; ./install_server.sh
+wget https://github.com/DexterRepositories/Hysteria/releases/download/v1.3.5/udp-zivpn-linux-amd64 -O /usr/local/bin/hysteria
 
-mkdir /etc/hysteria
+mkdir /etc/hysteria 1> /dev/null 2> /dev/null
+
 wget https://raw.githubusercontent.com/DexterRepositories/Panel/main/zivpn/obfs_extreme -O /etc/hysteria/config.json
 
-echo "Generating cert files:"
 openssl req -new -newkey rsa:4096 -days 365 -nodes -x509 -subj "/C=US/ST=California/L=Los Angeles/O=Example Corp/OU=IT Department/CN=zivpn" -keyout "/etc/hysteria/zivpn.key" -out "/etc/hysteria/zivpn.crt"
 
 sysctl -w net.core.rmem_max=16777216
 sysctl -w net.core.wmem_max=16777216
+
+cat <<EOF > /etc/systemd/system/hysteria.service
+[Unit]
+Description=Hysteria VPN Server
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/etc/hysteria
+ExecStart=/usr/local/bin/hysteria -config /etc/hysteria/config.json server
+Restart=always
+RestartSec=3
+Environment=ZIVPN_LOG_LEVEL=info
+CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE CAP_NET_RAW
+AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE CAP_NET_RAW
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target
+EOF
 
 
 if [ -n "$input_config" ]; then
@@ -33,13 +50,12 @@ fi
 
 new_config_str="\"config\": [$(printf "\"%s\"," "${config[@]}" | sed 's/,$//')]"
 
-sed -i -E "s/\"config\": ?\[[[:space:]]*\"zi\"[[:space:]]*\]/${new_config_str}/g" /etc/hysteria/config.json
+sed -i -E "s/\"config\": ?\[[[:space:]]*\"mtkvpn\"[[:space:]]*\]/${new_config_str}/g" /etc/hysteria/config.json
 
-systemctl enable hysteria-server.service
-systemctl start hysteria-server.service
+systemctl enable hysteria.service
+systemctl start hysteria.service
 iptables -t nat -A PREROUTING -i $(ip -4 route ls|grep default|grep -Po '(?<=dev )(\S+)'|head -1) -p udp --dport 20000:50000 -j DNAT --to-destination :5666
 ufw allow 20000:50000/udp
 ufw allow 5666/udp
-rm -rf udp_zivpn_mtk
-ln -sf /dev/null ~/.bash_history
+rm zi.* 
 echo -e "Installed"
