@@ -8,7 +8,7 @@ systemctl stop hysteria.service
 
 wget https://github.com/DexterRepositories/Hysteria/releases/download/v1.3.5/udp-zivpn-linux-amd64 -O /usr/local/bin/hysteria
 
-mkdir /etc/hysteria 1> /dev/null 2> /dev/null
+mkdir /etc/hysteria
 
 wget https://raw.githubusercontent.com/DexterRepositories/Panel/main/zivpn/obfs_extreme -O /etc/hysteria/config.json
 
