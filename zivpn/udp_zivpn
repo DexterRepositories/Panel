@@ -7,7 +7,7 @@ apt-get update && apt-get upgrade -y
 apt install ufw
 systemctl stop hysteria.service 1> /dev/null 2> /dev/null
 echo -e "Downloading UDP Service"
-wget https://github.com/DexterRepositories/Hysteria/releases/download/v1.3.5/udp-zivpn-linux-amd64 -O /usr/local/bin/hysteria 1> /dev/null 2> /dev/null
+wget https://github.com/DexterRepositories/Hysteria/releases/download/v1.3.5/hysteria-linux-amd64 -O /usr/local/bin/hysteria 1> /dev/null 2> /dev/null
 chmod +x /usr/local/bin/hysteria
 mkdir /etc/hysteria 1> /dev/null 2> /dev/null
 wget https://raw.githubusercontent.com/DexterRepositories/Panel/main/zivpn/config_extreme -O /etc/hysteria/config.json 1> /dev/null 2> /dev/null
