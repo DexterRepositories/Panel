@@ -2,9 +2,12 @@
   "listen": ":5666",
   "cert": "/etc/zivpn/zivpn.crt",
   "key":  "/etc/zivpn/zivpn.key",
-  "obfs":"dex",
+  "up_mbps": 100,
+  "down_mbps": 100,
+  "disable_udp": false,
+  "obfs": "dex",
   "auth": {
-    "mode": "passwords", 
+    "mode": "passwords",
     "config": ["mtkvpn"]
   }
 }
