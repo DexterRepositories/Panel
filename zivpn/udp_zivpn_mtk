@@ -19,20 +19,15 @@ sysctl -w net.core.wmem_max=16777216 1> /dev/null 2> /dev/null
 
 cat <<EOF > /etc/systemd/system/hysteria-server.service
 [Unit]
-Description=hysteria VPN Server
+Description=HYSTERIA Service
 After=network.target
 
 [Service]
-Type=simple
 User=root
+Group=root
 WorkingDirectory=/etc/hysteria
+Environment="PATH=/usr/local/bin/hysteria"
 ExecStart=/usr/local/bin/hysteria -config /etc/hysteria/config.json server
-Restart=always
-RestartSec=3
-Environment=HYSTERIA_LOG_LEVEL=info
-CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE CAP_NET_RAW
-AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE CAP_NET_RAW
-NoNewPrivileges=true
 
 [Install]
 WantedBy=multi-user.target
