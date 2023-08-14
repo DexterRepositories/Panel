@@ -1,7 +1,7 @@
 {
   "listen": ":5666",
-  "cert": "/etc/hysteria/zivpn.crt",
-  "key":  "/etc/hysteria/zivpn.key",
+  "cert": "/etc/zivpn/zivpn.crt",
+  "key":  "/etc/zivpn/zivpn.key",
   "obfs": "dex",
   "auth": {
     "mode": "passwords", 
