@@ -2,8 +2,8 @@
 # ZiVPN Remover
 clear
 echo -e "Uninstalling Hysteria ..."
-systemctl stop hysteria.services
-systemctl disable hysteria.service
+systemctl stop hysteria-server.services
+systemctl disable hysteria-server.service
 rm /etc/systemd/system/hysteria.service 1> /dev/null 2> /dev/null
 killall hysteria 
 rm -rf /etc/hysteria 1> /dev/null 2> /dev/null
