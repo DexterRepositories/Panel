@@ -5,7 +5,7 @@
 #PASS='jan022011';
 #DBNAME='teamkidl_maxlite2';
 rm -rf cpanel3_aio_private*
-PORT_TCP='1194';
+PORT_TCP='443';
 PORT_UDP='53';
 
 timedatectl set-timezone Asia/Manila
@@ -494,7 +494,7 @@ output = /tmp/stunnel.log
 cert = /etc/stunnel/stunnel.pem
 [openvpn-tcp]
 connect = PORT_TCP  
-accept = 443 
+accept = 1194 
 [openvpn-udp]
 connect = PORT_UDP
 accept = 444
@@ -977,7 +977,7 @@ udp_port=UDP_PORT
 socket_port=80
 squid_port=8080
 hysteria_port=5666
-tcp_ssl_port=443
+tcp_ssl_port=1194
 udp_ssl_port=442" >> /root/.ports
 
 sed -i "s|TCP_PORT|$PORT_TCP|g" /root/.ports
@@ -1030,7 +1030,7 @@ clear
 echo '++++++++++++++++++++++++++++++++++'
 echo '*       AIO  is ready!    *'
 echo '+++++++++++************+++++++++++'
-echo -e "[IP] : $server_ip\n[Openvpn TCP Port] : $PORT_TCP\n[Openvpn UDP Port] : $PORT_UDP\n[Ssl Port] : 443\n[Proxy Socks ] : 80\n[Hysteria Port ] : 5666\n[Proxy Squid 1] : 8080\n[Proxy Squid 2] : 3128\n"
+echo -e "[IP] : $server_ip\n[Openvpn TCP Port] : $PORT_TCP\n[Openvpn UDP Port] : $PORT_UDP\n[Ssl Port] : 1194\n[Proxy Socks ] : 80\n[Hysteria Port ] : 5666\n[Proxy Squid 1] : 8080\n[Proxy Squid 2] : 3128\n"
 rm -rf cpanel3_aio_private
 rm -rf install_server.sh
 netstat -tpln
