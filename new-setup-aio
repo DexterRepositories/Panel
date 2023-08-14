@@ -14,6 +14,8 @@ install_require () {
 
 export DEBIAN_FRONTEND=noninteractive
 apt update
+apt upgrade -y
+apt-get install ufw -y
 apt install -y curl wget cron python-minimal libpython-stdlib
 apt install -y iptables
 apt install -y openvpn netcat httpie php neofetch vnstat
@@ -243,8 +245,7 @@ chmod 755 /etc/openvpn/login/auth_vpn
 install_firewall_kvm () {
 clear
 echo "Installing iptables."
-iptables -t nat -A PREROUTING -p udp --dport 20000:50000 -j DNAT --to-destination :5666
-ip6tables -t nat -A PREROUTING -p udp --dport 20000:50000 -j DNAT --to-destination :5666
+
 echo "net.ipv4.ip_forward = 1
 net.ipv4.conf.all.rp_filter=0
 net.ipv4.conf.eth0.rp_filter=0
@@ -254,11 +255,9 @@ net.ipv4.tcp_rmem=4096 262144 16777216
 net.ipv4.tcp_wmem=4096 262144 16777216" > /etc/sysctl.conf
 sysctl -p
 
-grub-set-default 0
-echo "tcp_bbr" >> /etc/modules-load.d/modules.conf
-INSTALL_BBR=true
 {
 iptables -F
+iptables -t nat -A PREROUTING -i $(ip -4 route ls|grep default|grep -Po '(?<=dev )(\S+)'|head -1) -p udp --dport 20000:50000 -j DNAT --to-destination :5666
 iptables -t nat -A POSTROUTING -s 10.20.0.0/22 -o "$server_interface" -j MASQUERADE
 iptables -t nat -A POSTROUTING -s 10.20.0.0/22 -o "$server_interface" -j SNAT --to-source "$server_ip"
 iptables -t nat -A POSTROUTING -s 10.30.0.0/22 -o "$server_interface" -j MASQUERADE
@@ -695,6 +694,8 @@ sudo crontab -l | { echo "* * * * * pgrep -x stunnel4 >/dev/null && echo 'GOOD' 
 * * * * * /bin/bash /etc/hysteria/ws.sh >/dev/null 2>&1
 * * * * * /bin/bash /etc/hysteria/monitor.sh openvpn >/dev/null 2>&1"; } | crontab -
 sudo systemctl restart cron
+ufw allow 20000:50000/udp
+ufw allow 5666/udp
 } &>/dev/null
 clear
 echo -e " \033[0;35m══════════════════════════════════════════════════════════════════\033[0m"
