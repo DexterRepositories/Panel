@@ -2,12 +2,9 @@
   "listen": ":5666",
   "cert": "/etc/hysteria/zivpn.crt",
   "key":  "/etc/hysteria/zivpn.key",
-  "up_mbps": 100,
-  "down_mbps": 100,
-  "disable_udp": false,
   "obfs": "dex",
   "auth": {
-    "mode": "passwords",
-    "config": ["mtkvpn"]
+    "mode": "passwords", 
+  "config": ["mtkvpn"]
   }
 }
