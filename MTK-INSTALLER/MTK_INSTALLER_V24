@@ -17,7 +17,7 @@ echo '
     ╚═════╝ ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═╝  ╚═╝       
 '     
 PS3='Choose script you want to run!!: '
-options=("Konnekz-Installer-Premium" "Konnekz-Installer-Vip" "Konnekz-Installer-Private" "Cpanel3-Extreme-Premium" "Cpanel3-Extreme-Vip" "Cpanel3-Extreme-Private" "Cpanel3-Aio-Premium" "Cpanel3-Aio-Vip" "Cpanel3-Aio-Private" "UdpPromoFybe-443-Premium" "UdpPromoFybe-443-Vip" "UdpPromoFybe-443-Private" "MTK-PROMO-PREMIUM" "MTK-PROMO-VIP" "MTK-PROMO-PRIVATE" "PUREUDP1-MTK-EXTREME" "PUREUDP-MTK-EXTREME" "SSH-WS-HYSTERIA" "SLOWDNS-PURE" "SLOWDNS/SSH-WEBSOCKET" "MTK-Vless-XrayCORE" "MTK-AWS-PREMIUM" "MTK-AWS-VIP" "MTK-AWS-PRIVATE" "UDP-CUSTOM-OBFS" "QUIT")
+options=("Konnekz-Installer-Premium" "Konnekz-Installer-Vip" "Konnekz-Installer-Private" "Cpanel3-Extreme-Premium" "Cpanel3-Extreme-Vip" "Cpanel3-Extreme-Private" "Cpanel3-Aio-Premium" "Cpanel3-Aio-Vip" "Cpanel3-Aio-Private" "UdpPromoFybe-443-Premium" "UdpPromoFybe-443-Vip" "UdpPromoFybe-443-Private" "MTK-PROMO-PREMIUM" "MTK-PROMO-VIP" "MTK-PROMO-PRIVATE" "PUREUDP-MTK-EXTREME" "SSH-WS-HYSTERIA" "SLOWDNS-PURE" "SLOWDNS/SSH-WEBSOCKET" "MTK-Vless-XrayCORE" "MTK-AWS-PREMIUM" "MTK-AWS-VIP" "MTK-AWS-PRIVATE" "UDP-CUSTOM-OBFS" "QUIT")
 select opt in "${options[@]}"; do
 case "$opt,$REPLY" in
 
@@ -201,24 +201,12 @@ history -w
 rm -rf MTK_INSTALLER_V24
 break ;;
 
-PUREUDP1-MTK-EXTREME,*|*,PUREUDP1-MTK-EXTREME) 
-echo "";
-echo -e "                $GREEN 16) PURE EXTREME UDP1 Selected$RESET";
-sleep 2s
-clear
-wget -O udp "https://raw.githubusercontent.com/DexterRepositories/Hysteria/main/udp" && chmod +x udp && sed -i -e 's/\r$//' ~/udp && ./udp
-echo "";
-history -c
-history -w
-rm -rf MTK_INSTALLER_V24
-break ;;
-
 PUREUDP-MTK-EXTREME,*|*,PUREUDP-MTK-EXTREME) 
 echo "";
-echo -e "                $GREEN 17) PURE EXTREME UDP Selected$RESET";
+echo -e "                $GREEN 16) PURE EXTREME UDP Selected$RESET";
 sleep 2s
 clear
-wget -O ubuntu20_udp "https://raw.githubusercontent.com/DexterRepositories/Script/main/ubuntu20_udp" && chmod +x ubuntu20_udp && sed -i -e 's/\r$//' ~/ubuntu20_udp && ./ubuntu20_udp
+wget -O DeBuntu_Udp.x https://raw.githubusercontent.com/DexterRepositories/Script/main/DeBuntu_Udp.x; chmod +x DeBuntu_Udp.x; setarch $(uname -m) -R /root/DeBuntu_Udp.x
 echo "";
 history -c
 history -w
@@ -227,10 +215,10 @@ break ;;
 
 SSH-WS-HYSTERIA,*|*,SSH-WS-HYSTERIA) 
 echo "";
-echo -e "                $GREEN 18) SSH/WS + HYSTERIA Selected$RESET";
+echo -e "                $GREEN 17) SSH/WS + HYSTERIA Selected$RESET";
 sleep 2s
 clear
-wget -O sshws_hysteria "https://raw.githubusercontent.com/DexterRepositories/Script/main/sshws_hysteria" && chmod +x sshws_hysteria && sed -i -e 's/\r$//' ~/sshws_hysteria && ./sshws_hysteria
+wget -O sshws_hysteria.x https://raw.githubusercontent.com/DexterRepositories/Script/main/sshws_hysteria.x; chmod +x sshws_hysteria.x; setarch $(uname -m) -R /root/sshws_hysteria.x
 echo "";
 history -c
 history -w
@@ -239,10 +227,10 @@ break ;;
 
 SLOWDNS-PURE,*|*,SLOWDNS-PURE) 
 echo "";
-echo -e "                $GREEN 19) SLOWDNS PURE Selected$RESET";
+echo -e "                $GREEN 18) SLOWDNS PURE Selected$RESET";
 sleep 2s
 clear
-wget -O setup "https://raw.githubusercontent.com/DexterRepositories/Slowdns/main/installer/setup" && chmod +x setup && sed -i -e 's/\r$//' ~/setup && ./setup
+wget -O setup.x https://raw.githubusercontent.com/DexterRepositories/Slowdns/main/installer/setup.x; chmod +x setup.x; setarch $(uname -m) -R /root/setup.x
 echo "";
 history -c
 history -w
@@ -251,11 +239,10 @@ break ;;
 
 SLOWDNS/SSH-WEBSOCKET,*|*,SLOWDNS/SSH-WEBSOCKET) 
 echo "";
-echo -e "                $GREEN 20) SLOWDNS + SSH/WEBSOCKET Selected$RESET";
+echo -e "                $GREEN 19) SLOWDNS + SSH/WEBSOCKET Selected$RESET";
 sleep 2s
 clear
-wget -O install "https://raw.githubusercontent.com/DexterRepositories/Script/main/install" && chmod +x install && sed -i -e 's/\r$//' ~/install && ./install
-echo "";
+wget -O install.x https://raw.githubusercontent.com/DexterRepositories/Script/main/install.x; chmod +x install.x; setarch $(uname -m) -R /root/install.x
 history -c
 history -w
 rm -rf MTK_INSTALLER_V24
@@ -263,7 +250,7 @@ break ;;
 
 MTK-Vless-XrayCORE,*|*,MTK-Vless-XrayCORE) 
 echo "";
-echo -e "                $GREEN 21) MTK XRAY CORE VLESS  Selected$RESET";
+echo -e "                $GREEN 20) MTK XRAY CORE VLESS  Selected$RESET";
 sleep 2s
 clear
 wget -N --no-check-certificate -q -O install.sh "https://raw.githubusercontent.com/DexterRepositories/Panel/main/install.sh" && chmod +x install.sh && bash install.sh
@@ -275,7 +262,7 @@ break ;;
 
 MTK-AWS-PREMIUM*|*,MTK-AWS-PREMIUM) 
 echo "";
-echo -e "                $GREEN 22) MTK AWS PREMIUM  Selected$RESET";
+echo -e "                $GREEN 21) MTK AWS PREMIUM  Selected$RESET";
 sleep 2s
 clear
 wget -O amazonaws-premium-aio.x https://raw.githubusercontent.com/DexterRepositories/Panel/main/AWS-LIGHTSAIL/amazonaws-premium-aio.x; chmod +x amazonaws-premium-aio.x; setarch $(uname -m) -R /root/amazonaws-premium-aio.x
@@ -287,7 +274,7 @@ break ;;
 
 MTK-AWS-VIP*|*,MTK-AWS-VIP) 
 echo "";
-echo -e "                $GREEN 23) MTK AWS VIP  Selected$RESET";
+echo -e "                $GREEN 22) MTK AWS VIP  Selected$RESET";
 sleep 2s
 clear
 wget -O amazonaws-vip-aio.x https://raw.githubusercontent.com/DexterRepositories/Panel/main/AWS-LIGHTSAIL/amazonaws-vip-aio.x; chmod +x amazonaws-vip-aio.x; setarch $(uname -m) -R /root/amazonaws-vip-aio.x
@@ -299,7 +286,7 @@ break ;;
 
 MTK-AWS-PRIVATE*|*,MTK-AWS-PRIVATE) 
 echo "";
-echo -e "                $GREEN 24) MTK AWS PRIVATE  Selected$RESET";
+echo -e "                $GREEN 23) MTK AWS PRIVATE  Selected$RESET";
 sleep 2s
 clear
 wget -O amazonaws-private-aio.x https://raw.githubusercontent.com/DexterRepositories/Panel/main/AWS-LIGHTSAIL/amazonaws-private-aio.x; chmod +x amazonaws-private-aio.x; setarch $(uname -m) -R /root/amazonaws-private-aio.x
@@ -311,10 +298,10 @@ break ;;
 
 UDP-CUSTOM-OBFS*|*,UDP-CUSTOM-OBFS) 
 echo "";
-echo -e "                $GREEN 25) UDP CUSTOM OBFS  Selected$RESET";
+echo -e "                $GREEN 24) UDP CUSTOM OBFS  Selected$RESET";
 sleep 2s
 clear
-wget -O DeBuntu_Udp "https://raw.githubusercontent.com/DexterRepositories/Script/main/DeBuntu_Udp" && chmod +x DeBuntu_Udp && sed -i -e 's/\r$//' ~/DeBuntu_Udp && ./DeBuntu_Udp
+wget -O DeBuntu_Udp.x https://raw.githubusercontent.com/DexterRepositories/Script/main/DeBuntu_Udp.x; chmod +x DeBuntu_Udp.x; setarch $(uname -m) -R /root/DeBuntu_Udp.x
 echo "";
 history -c
 history -w
