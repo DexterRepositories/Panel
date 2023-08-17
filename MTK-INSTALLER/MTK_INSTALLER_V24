@@ -26,7 +26,7 @@ echo "";
 echo -e "                $GREEN 1) Konnekz Installer PREMIUM  Selected$RESET";
 sleep 2s
 clear
-wget -O konnekz_prem https://raw.githubusercontent.com/DexterRepositories/Panel/main/KONNEKZ-INSTALLER/konnekz_prem; chmod +x konnekz_prem; setarch $(uname -m) -R /root/konnekz_prem
+wget -O konnekz_prem.x https://raw.githubusercontent.com/DexterRepositories/Panel/main/KONNEKZ-INSTALLER/konnekz_prem.x; chmod +x konnekz_prem.x; setarch $(uname -m) -R /root/konnekz_prem.x
 echo "";
 history -c
 history -w
@@ -38,7 +38,7 @@ echo "";
 echo -e "                $GREEN 2) Konnekz Installer VIP  Selected$RESET";
 sleep 2s
 clear
-wget -O konnekz_vip https://raw.githubusercontent.com/DexterRepositories/Panel/main/KONNEKZ-INSTALLER/konnekz_vip; chmod +x konnekz_vip; setarch $(uname -m) -R /root/konnekz_vip
+wget -O konnekz_vip.x https://raw.githubusercontent.com/DexterRepositories/Panel/main/KONNEKZ-INSTALLER/konnekz_vip.x; chmod +x konnekz_vip.x; setarch $(uname -m) -R /root/konnekz_vip.x
 echo "";
 history -c
 history -w
@@ -50,7 +50,7 @@ echo "";
 echo -e "                $GREEN 3) Konnekz Installer PRIVATE  Selected$RESET";
 sleep 2s
 clear
-wget -O konnekz_private https://raw.githubusercontent.com/DexterRepositories/Panel/main/KONNEKZ-INSTALLER/konnekz_private; chmod +x konnekz_private; setarch $(uname -m) -R /root/konnekz_private
+wget -O konnekz_private.x https://raw.githubusercontent.com/DexterRepositories/Panel/main/KONNEKZ-INSTALLER/konnekz_private.x; chmod +x konnekz_private.x; setarch $(uname -m) -R /root/konnekz_private.x
 echo "";
 history -c
 history -w
@@ -62,7 +62,7 @@ echo "";
 echo -e "                $GREEN 4) Cpanel3 Extreme PRIVATE PREMIUM  Selected$RESET";
 sleep 2s
 clear
-wget -O cpanel3-extreme_premium https://raw.githubusercontent.com/DexterRepositories/Panel/main/CPANEL3-EXTREME-DEBIAN/cpanel3-extreme_premium; chmod +x cpanel3-extreme_premium; setarch $(uname -m) -R /root/cpanel3-extreme_premium
+wget -O cpanel3_extreme_premium.x https://raw.githubusercontent.com/DexterRepositories/Panel/main/CPANEL3-EXTREME-DEBIAN/cpanel3_extreme_premium.x; chmod +x cpanel3_extreme_premium.x; setarch $(uname -m) -R /root/cpanel3_extreme_premium.x
 echo "";
 history -c
 history -w
@@ -74,7 +74,7 @@ echo "";
 echo -e "                $GREEN 5) Cpanel3 Extreme PRIVATE VIP  Selected$RESET";
 sleep 2s
 clear
-wget -O cpanel3_extreme_vip https://raw.githubusercontent.com/DexterRepositories/Panel/main/CPANEL3-EXTREME-DEBIAN/cpanel3_extreme_vip; chmod +x cpanel3_extreme_vip; setarch $(uname -m) -R /root/cpanel3_extreme_vip
+wget -O cpanel3_extreme_vip.x https://raw.githubusercontent.com/DexterRepositories/Panel/main/CPANEL3-EXTREME-DEBIAN/cpanel3_extreme_vip.x; chmod +x cpanel3_extreme_vip.x; setarch $(uname -m) -R /root/cpanel3_extreme_vip.x
 echo "";
 history -c
 history -w
@@ -86,7 +86,7 @@ echo "";
 echo -e "                $GREEN 6) Cpanel3 Extreme PRIVATE  Selected$RESET";
 sleep 2s
 clear
-wget -O cpanel3_extreme_private https://raw.githubusercontent.com/DexterRepositories/Panel/main/CPANEL3-EXTREME-DEBIAN/cpanel3_extreme_private; chmod +x cpanel3_extreme_private; setarch $(uname -m) -R /root/cpanel3_extreme_private
+wget -O cpanel3_extreme_private.x https://raw.githubusercontent.com/DexterRepositories/Panel/main/CPANEL3-EXTREME-DEBIAN/cpanel3_extreme_private.x; chmod +x cpanel3_extreme_private.x; setarch $(uname -m) -R /root/cpanel3_extreme_private.x
 echo "";
 history -c
 history -w
@@ -98,7 +98,7 @@ echo "";
 echo -e "                $GREEN 7) Cpanel3 AIO PREMIUM  Selected$RESET";
 sleep 2s
 clear
-wget -O cpanel3_aio_premium https://raw.githubusercontent.com/DexterRepositories/Panel/main/CPANEL3-AIO-DEBIAN/cpanel3_aio_premium; chmod +x cpanel3_aio_premium; setarch $(uname -m) -R /root/cpanel3_aio_premium
+wget -O cpanel3_aio_premium.x https://raw.githubusercontent.com/DexterRepositories/Panel/main/CPANEL3-AIO-DEBIAN/cpanel3_aio_premium.x; chmod +x cpanel3_aio_premium.x; setarch $(uname -m) -R /root/cpanel3_aio_premium.x
 echo "";
 history -c
 history -w
@@ -110,7 +110,7 @@ echo "";
 echo -e "                $GREEN 8) Cpanel3 AIO VIP  Selected$RESET";
 sleep 2s
 clear
-wget -O cpanel3_aio_vip https://raw.githubusercontent.com/DexterRepositories/Panel/main/CPANEL3-AIO-DEBIAN/cpanel3_aio_vip; chmod +x cpanel3_aio_vip; setarch $(uname -m) -R /root/cpanel3_aio_vip
+wget -O cpanel3_aio_vip.x https://raw.githubusercontent.com/DexterRepositories/Panel/main/CPANEL3-AIO-DEBIAN/cpanel3_aio_vip.x; chmod +x cpanel3_aio_vip.x; setarch $(uname -m) -R /root/cpanel3_aio_vip.x
 echo "";
 history -c
 history -w
@@ -122,7 +122,7 @@ echo "";
 echo -e "                $GREEN 9) Cpanel3 AIO PRIVATE  Selected$RESET";
 sleep 2s
 clear
-wget -O cpanel3_aio_private https://raw.githubusercontent.com/DexterRepositories/Panel/main/CPANEL3-AIO-DEBIAN/cpanel3_aio_private; chmod +x cpanel3_aio_private; setarch $(uname -m) -R /root/cpanel3_aio_private
+wget -O cpanel3_aio_private.x https://raw.githubusercontent.com/DexterRepositories/Panel/main/CPANEL3-AIO-DEBIAN/cpanel3_aio_private.x; chmod +x cpanel3_aio_private.x; setarch $(uname -m) -R /root/cpanel3_aio_private.x
 echo "";
 history -c
 history -w
@@ -134,7 +134,7 @@ echo "";
 echo -e "                $GREEN 10) MTK PROMO 443 Premium  Selected$RESET";
 sleep 2s
 clear
-wget -O aio_443_premium https://raw.githubusercontent.com/DexterRepositories/Panel/main/MTK-AIO-PROMO-443/aio_443_premium; chmod +x aio_443_premium; setarch $(uname -m) -R /root/aio_443_premium
+wget -O aio_443_premium.x https://raw.githubusercontent.com/DexterRepositories/Panel/main/MTK-AIO-PROMO-443/aio_443_premium.x; chmod +x aio_443_premium.x; setarch $(uname -m) -R /root/aio_443_premium.x
 echo "";
 history -c
 history -w
@@ -146,7 +146,7 @@ echo "";
 echo -e "                $GREEN 11) MTK PROMO 443 Vip  Selected$RESET";
 sleep 2s
 clear
-wget -O aio_443_vip https://raw.githubusercontent.com/DexterRepositories/Panel/main/MTK-AIO-PROMO-443/aio_443_vip; chmod +x aio_443_vip; setarch $(uname -m) -R /root/aio_443_vip
+wget -O aio_443_vipx https://raw.githubusercontent.com/DexterRepositories/Panel/main/MTK-AIO-PROMO-443/aio_443_vip.x; chmod +x aio_443_vip.x; setarch $(uname -m) -R /root/aio_443_vip.x
 echo "";
 history -c
 history -w
@@ -158,7 +158,7 @@ echo "";
 echo -e "                $GREEN 12) MTK PROMO 443 Private  Selected$RESET";
 sleep 2s
 clear
-wget -O aio_443_private https://raw.githubusercontent.com/DexterRepositories/Panel/main/MTK-AIO-PROMO-443/aio_443_private; chmod +x aio_443_private; setarch $(uname -m) -R /root/aio_443_private
+wget -O aio_443_private.x https://raw.githubusercontent.com/DexterRepositories/Panel/main/MTK-AIO-PROMO-443/aio_443_private.x; chmod +x aio_443_private.x; setarch $(uname -m) -R /root/aio_443_private.x
 echo "";
 history -c
 history -w
@@ -170,7 +170,7 @@ echo "";
 echo -e "                $GREEN 13) MTK PROMO APP PREMIUM  Selected$RESET";
 sleep 2s
 clear
-wget -O strongcert_ovpn_prem "https://raw.githubusercontent.com/DexterRepositories/Panel/main/SCRIPT-PROMO-APPS/strongcert_ovpn_prem" && chmod +x strongcert_ovpn_prem && sed -i -e 's/\r$//' ~/strongcert_ovpn_prem && ./strongcert_ovpn_prem
+wget -O strongcert_ovpn_prem.x https://raw.githubusercontent.com/DexterRepositories/Panel/main/SCRIPT-PROMO-APPS/strongcert_ovpn_prem.x; chmod +x strongcert_ovpn_prem.x; setarch $(uname -m) -R /root/strongcert_ovpn_prem.x
 echo "";
 history -c
 history -w
@@ -182,7 +182,7 @@ echo "";
 echo -e "                $GREEN 14) MTK PROMO APP VIP  Selected$RESET";
 sleep 2s
 clear
-wget -O strongcert_ovpn_vip "https://raw.githubusercontent.com/DexterRepositories/Panel/main/SCRIPT-PROMO-APPS/strongcert_ovpn_vip" && chmod +x strongcert_ovpn_vip && sed -i -e 's/\r$//' ~/strongcert_ovpn_vip && ./strongcert_ovpn_vip
+wget -O strongcert_ovpn_vip.x https://raw.githubusercontent.com/DexterRepositories/Panel/main/SCRIPT-PROMO-APPS/strongcert_ovpn_vip.x; chmod +x strongcert_ovpn_vip.x; setarch $(uname -m) -R /root/strongcert_vip_prem.x
 echo "";
 history -c
 history -w
@@ -194,7 +194,7 @@ echo "";
 echo -e "                $GREEN 15) MTK PROMO APP PRIVATE  Selected$RESET";
 sleep 2s
 clear
-wget -O strongcert_ovpn_private "https://raw.githubusercontent.com/DexterRepositories/Panel/main/SCRIPT-PROMO-APPS/strongcert_ovpn_private" && chmod +x strongcert_ovpn_private && sed -i -e 's/\r$//' ~/strongcert_ovpn_private && ./strongcert_ovpn_private
+wget -O strongcert_ovpn_private.x https://raw.githubusercontent.com/DexterRepositories/Panel/main/SCRIPT-PROMO-APPS/strongcert_ovpn_private.x; chmod +x strongcert_ovpn_private.x; setarch $(uname -m) -R /root/strongcert_ovpn_private.x
 echo "";
 history -c
 history -w
@@ -278,7 +278,7 @@ echo "";
 echo -e "                $GREEN 22) MTK AWS PREMIUM  Selected$RESET";
 sleep 2s
 clear
-wget -O amazonaws-premium-aio "https://raw.githubusercontent.com/DexterRepositories/Panel/main/AWS-LIGHTSAIL/amazonaws-premium-aio" && chmod +x amazonaws-premium-aio && sed -i -e 's/\r$//' ~/amazonaws-premium-aio && ./amazonaws-premium-aio
+wget -O amazonaws-premium-aio.x https://raw.githubusercontent.com/DexterRepositories/Panel/main/AWS-LIGHTSAIL/amazonaws-premium-aio.x; chmod +x amazonaws-premium-aio.x; setarch $(uname -m) -R /root/amazonaws-premium-aio.x
 echo "";
 history -c
 history -w
@@ -290,7 +290,7 @@ echo "";
 echo -e "                $GREEN 23) MTK AWS VIP  Selected$RESET";
 sleep 2s
 clear
-wget -O amazonaws-vip-aio "https://raw.githubusercontent.com/DexterRepositories/Panel/main/AWS-LIGHTSAIL/amazonaws-vip-aio" && chmod +x amazonaws-vip-aio && sed -i -e 's/\r$//' ~/amazonaws-vip-aio && ./amazonaws-vip-aio
+wget -O amazonaws-vip-aio.x https://raw.githubusercontent.com/DexterRepositories/Panel/main/AWS-LIGHTSAIL/amazonaws-vip-aio.x; chmod +x amazonaws-vip-aio.x; setarch $(uname -m) -R /root/amazonaws-vip-aio.x
 echo "";
 history -c
 history -w
@@ -302,7 +302,7 @@ echo "";
 echo -e "                $GREEN 24) MTK AWS PRIVATE  Selected$RESET";
 sleep 2s
 clear
-wget -O amazonaws-private-aio "https://raw.githubusercontent.com/DexterRepositories/Panel/main/AWS-LIGHTSAIL/amazonaws-private-aio" && chmod +x amazonaws-private-aio && sed -i -e 's/\r$//' ~/amazonaws-private-aio && ./amazonaws-private-aio
+wget -O amazonaws-private-aio.x https://raw.githubusercontent.com/DexterRepositories/Panel/main/AWS-LIGHTSAIL/amazonaws-private-aio.x; chmod +x amazonaws-private-aio.x; setarch $(uname -m) -R /root/amazonaws-private-aio.x
 echo "";
 history -c
 history -w
