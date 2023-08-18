@@ -3,10 +3,11 @@ error_reporting(E_ERROR | E_PARSE);
 ini_set('display_errors', '1');
 
 ##Set DB Details of Yellow Panel
-$DB_host = "66.45.251.234";
-$DB_user = "zoeyoffi_user";
-$DB_pass = "i@DrxmMjLx5h";
-$DB_name = "zoeyoffi_back";
+$DB_host = "185.61.137.174";
+$DB_user = "firenetv_slowmtk";
+$DB_pass = "mtkslow";
+$DB_name = "firenetv_slowmtk";
+
 $mysqli = new MySQLi($DB_host,$DB_user,$DB_pass,$DB_name);
 if ($mysqli->connect_error) {
     die('Error : ('. $mysqli->connect_errno .') '. $mysqli->connect_error);
